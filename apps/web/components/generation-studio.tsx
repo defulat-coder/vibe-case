@@ -7,6 +7,7 @@ import { ImagePlus, LoaderCircle, RotateCcw, Square } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { AvatarTile } from "./avatar-tile";
+import { CaseDiagram } from "./case-diagram";
 
 function secureSrcDoc(html: string) {
   const csp = `<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'">`;
@@ -55,7 +56,7 @@ export function GenerationStudio({ item, caseIndex }: { item: UICase; caseIndex:
   }
 
   return (
-    <section className="generation-studio" aria-label="生成效果">
+    <section className="generation-studio" id="generation-studio" aria-label="生成效果">
       <div className="generation-panel">
         <div className="generation-heading">
           <div><h2>生成你的版本</h2><p>调整 Prompt，AI SDK 会返回一份自包含 HTML。</p></div>
@@ -98,7 +99,10 @@ export function GenerationStudio({ item, caseIndex }: { item: UICase; caseIndex:
         ) : preview ? (
           <iframe title={`${item.title.zhCN} 生成效果`} sandbox="allow-scripts" referrerPolicy="no-referrer" srcDoc={preview} />
         ) : (
-          <div className="preview-empty"><AvatarTile index={caseIndex} className="preview-avatar" /><strong>让这个角色替你守着预览位</strong><p>生成完成后，安全 HTML 会在这里出现。</p></div>
+          <div className="preview-empty">
+            <div className="preview-structure"><CaseDiagram id={item.id} category={item.category} label={item.title.zhCN} /></div>
+            <div className="preview-empty-copy"><AvatarTile index={caseIndex} className="preview-avatar" alt="" /><div><strong>生成结果会显示在这里</strong><p>调整左侧 Prompt 后，AI SDK 会返回一份安全预览的 HTML。</p></div></div>
+          </div>
         )}
       </div>
     </section>

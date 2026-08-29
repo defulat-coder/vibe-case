@@ -13,8 +13,8 @@ export function CaseCard({ item, index }: { item: UICase; index: number }) {
           <span>{item.categoryLabel}</span>
         </div>
         <div className="case-card-visual">
-          <AvatarTile index={index} alt={`${item.title.zhCN} 的灵感角色`} />
-          <div className="case-card-diagram"><CaseDiagram id={item.id} category={item.category} label={item.title.zhCN} /></div>
+          <CaseDiagram id={item.id} category={item.category} label={item.title.zhCN} />
+          <AvatarTile index={index} className="case-card-guide" alt="" />
         </div>
         <div className="case-card-copy">
           <h3>{item.title.zhCN}</h3>

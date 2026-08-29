@@ -31,14 +31,15 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
           <p>{item.summary.zhCN}</p>
           <span className="source-title">{item.title.sourceEN}</span>
           <div className="detail-meta-row"><span>分类：{item.categoryLabel}</span><span>案例 ID：{item.id.toUpperCase()}</span></div>
+          <div className="detail-actions"><a className="button" href="#generation-studio">开始生成</a><a className="text-link" href="#case-prompt">查看 Prompt</a></div>
         </div>
         <div className="case-detail-visual">
-          <AvatarTile index={caseIndex} alt={`${item.title.zhCN} 的灵感角色`} priority />
-          <div className="detail-diagram"><CaseDiagram id={item.id} category={item.category} label={item.title.zhCN} /></div>
+          <CaseDiagram id={item.id} category={item.category} label={item.title.zhCN} />
+          <div className="detail-guide"><AvatarTile index={caseIndex} alt="" priority /><span>案例向导</span></div>
         </div>
       </section>
 
-      <section className="prompt-section">
+      <section className="prompt-section" id="case-prompt">
         <div className="prompt-heading"><h2>案例 Prompt</h2><p>中文经过自然重写，English 原文完整保留。</p></div>
         <div className="prompt-columns">
           <article><span>ZH-CN</span><p>{item.prompt.zhCN}</p><CopyButton value={item.prompt.zhCN} label="复制中文 Prompt" /></article>

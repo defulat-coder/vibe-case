@@ -1,6 +1,6 @@
 ---
 name: Vibe Case
-description: A Chinese-first AI case library inhabited by a friendly cast of hand-drawn pastel portrait guides.
+description: A Chinese-first functional AI case library with a friendly supporting cast of hand-drawn portrait guides.
 colors:
   creamy-canvas: "#fff8e9"
   portrait-ink: "#0b0b0d"
@@ -122,21 +122,22 @@ components:
 
 ## Overview
 
-**Creative North Star: "The Pastel Portrait Commons"**
+**Creative North Star: "The Functional Commons"**
 
-Vibe Case is a friendly illustrated community of ideas. A real cast of 100 hand-drawn people turns an abstract prompt library into a place where each case has a recognizable guide: warm cream holds the world, heavy black ink gives it confidence, and alternating pastel portrait fields keep a dense catalog social and inviting. The mood is playful, direct, and handmade without becoming childish.
+Vibe Case is a functional case library made approachable by a friendly illustrated cast. UI structures, bilingual Prompt content, variables, and generated Preview are always the content authority; the 100 hand-drawn people act as compact guide marks that make cases recognizable without competing with the work. Warm cream holds the world, heavy black ink gives it confidence, and pastel fields keep a dense catalog inviting.
 
-The visual authority is the user-pinned `high-quality-100/` portrait collection and its production WebP derivatives. Their loose black linework, large black clothing and hair shapes, unfilled skin, simple expressions, and flat mint, peach, blue, lavender, rose, yellow, sage, and coral backgrounds define the identity. The interface echoes those images through heavy outlines, generous rounded rectangles, compact structural insets, and slightly rotated portrait groups. It is not a technical ledger, a generic SaaS gallery, or an imitation of VibeUI.
+The functional authority is the case structure and its generated result. The user-pinned `high-quality-100/` portrait collection remains the brand authority: its loose black linework and flat pastel backgrounds inform heavy outlines, rounded controls, and the palette. Portraits appear as small guide badges in headers, cards, details, empty states, and the wordmark—not as the main artifact.
 
 The system covers Vibe Case chrome and authored surfaces only. HTML produced by a model and displayed inside a sandboxed iframe is user output, not brand evidence; never extract colors, typography, spacing, components, or rules from that content.
 
 **Key Characteristics:**
 
-- Real black-and-white portrait characters are the primary navigation and storytelling device.
+- Functional diagrams, Prompt content, and Preview surfaces lead the navigation and storytelling.
+- Real black-and-white portrait characters provide secondary identity and human warmth.
 - Cream canvas and full black outlines unify an intentionally broad pastel rotation.
 - ZCOOL KuaiLe makes Chinese and mixed-script headlines feel loose and human; Manrope Variable keeps operational text precise.
-- Rounded, bordered cards and controls feel like physical portrait prints and notes.
-- Structural UI diagrams remain small supporting insets; they never displace the character.
+- Rounded, bordered cards and controls retain the tactile character of the portrait collection.
+- Structural UI diagrams are the primary visual evidence on home, catalog, case cards, and detail pages.
 - The generated-result iframe is visually and semantically outside the site design system.
 
 ## Colors
@@ -187,7 +188,7 @@ The palette comes directly from the portrait backgrounds: a warm cream room, unc
 
 - **Display** (400, fluid 52–90px, 1.03 line-height): page-defining Chinese statements and case names. Preserve the irregular silhouette and short measure; desktop hero copy stays around 12 characters wide and mobile remains an unapologetic 50–52px.
 - **Headline** (400, fluid 34–64px, 1 line-height): section statements, workflow headings, prompt headings, and generation titles.
-- **Title** (400, 25px, 1.2 line-height): case-card titles and compact portrait-led empty-state headings.
+- **Title** (400, 25px, 1.2 line-height): case-card titles and compact functional empty-state headings.
 - **Body** (400, 16px, 1.65 line-height): interface copy, descriptions, and prompt prose. Larger introductions rise to 17–20px with 1.7–1.75 line-height and stay near 54–58 characters per line.
 - **Label** (900, 11px, 0.07em letter-spacing, uppercase where categorical): case numbers, category names, prompt language markers, status badges, and preview chrome.
 
@@ -199,29 +200,28 @@ The palette comes directly from the portrait backgrounds: a warm cream room, unc
 
 ## Layout
 
-Authored content uses a centered maximum width of 1380px with 20px desktop gutters. The home hero deliberately breaks a conventional split: copy occupies roughly 58% while an absolutely positioned portrait cast overlaps the right 62% and encroaches toward the statement. Catalogs use a three-column grid, or four columns for the compact featured set, with a 20px gap. Detail heroes use a `.9 / 1.1` copy-to-portrait split inside one large peach frame, and the generation studio uses a `.88 / 1.12` editor-to-preview split.
+Authored content uses a centered maximum width of 1380px with 20px desktop gutters. The home hero pairs concise product copy with a larger functional demo containing a real case structure, Prompt context, and generation flow. Catalogs use a three-column grid, or four columns for the compact featured set, with a 20px gap. Detail heroes use a `.9 / 1.1` copy-to-structure split inside one large peach frame, and the generation studio gives roughly 60% of its width to Preview.
 
-At 1040px, catalog grids become two columns, the portrait cast returns to normal document flow, collection introductions stack, and the generation editor stacks above the preview. At 760px, primary content uses 16px side gutters, catalogs become one column, detail and prompt splits become one reading column, form variables stack, and actions become full-width vertical controls. The first internal navigation link disappears while the source link and avatar wordmark remain. Category filters stay in a single horizontally scrollable row.
+At 1040px, catalog grids become two columns, the functional demo follows the hero copy, collection introductions stack, and the generation editor stacks above the preview. At 760px, primary content uses 16px side gutters, catalogs become one compact column, detail and prompt splits become one reading column, form variables stack, and actions become full-width vertical controls. The first internal navigation link disappears while the source link and compact avatar wordmark remain. Category filters stay in a single horizontally scrollable row.
 
 Vertical space is generous around narrative moments (roughly 66–120px) and compact inside working controls (8–30px). The sticky header is 82px on desktop and 74px on mobile. Portrait clusters may overlap and rotate; form grids, prompt text, and result controls must stay aligned and predictable.
 
 ### Named Rules
 
-**The Encroaching Cast Rule.** Portraits may overlap, rotate a few degrees, and enter the copy's visual territory when they make the community feel present; functional text and controls must retain a clear reading path and hit area.
+**The Functional Area Rule.** Case structures, Prompt text, inputs, and Preview own the largest uninterrupted surfaces. Portraits stay within compact guide badges and never enter functional hit areas.
 
-**The One-Column Work Rule.** Below 760px, every task-oriented split becomes a single column. Only portrait compositions and the category rail may keep lateral movement.
+**The One-Column Work Rule.** Below 760px, every task-oriented split becomes a single column. Only the category rail may keep lateral movement.
 
 ## Elevation & Depth
 
-The system is flat in color but lightly physical in composition. Thick black borders establish most hierarchy. Low, tight shadows lift portrait prints, diagram insets, and actionable buttons just enough to feel placed on the cream canvas; large generic card shadows are absent. Rotation and overlap provide more depth than blur.
+The system is flat in color but lightly physical in composition. Thick black borders establish most hierarchy. Low, tight shadows lift the home demo, small portrait guide badges, and actionable buttons just enough to feel placed on the cream canvas; large generic card shadows are absent.
 
 ### Shadow Vocabulary
 
 - **Action Rest** (`0 9px 22px -17px rgba(11, 11, 13, .8)`): restrained lift under primary buttons and focused fields.
 - **Action Hover** (`0 13px 26px -17px rgba(11, 11, 13, .9)`): slightly stronger button response, paired with the inherited 1px upward motion.
-- **Portrait Print** (`0 18px 34px -25px rgba(11, 11, 13, .8)`): the hero cast's tactile portrait lift.
-- **Inset Note** (`0 12px 22px -18px rgba(11, 11, 13, .8)`): the small structural diagram attached to a case card.
-- **Detail Note** (`0 16px 30px -23px rgba(11, 11, 13, .9)`): the rotated diagram pinned over a detail portrait.
+- **Demo Lift** (`0 24px 46px -34px rgba(11, 11, 13, .85)`): the functional demo's restrained elevation.
+- **Guide Badge** (`0 12px 22px -18px rgba(11, 11, 13, .8)`): compact avatar marks placed over a functional surface.
 
 ### Named Rules
 
@@ -229,11 +229,11 @@ The system is flat in color but lightly physical in composition. Thick black bor
 
 ## Shapes
 
-The dominant silhouette is a friendly rounded portrait print. Controls use 12–14px corners, cards use 16px, studios and hero portraits use 20–26px, and the largest detail frame uses 28px. Circular geometry is reserved for the central 92-case note, the case-card arrow, and footer portrait medallions. Borders are almost always full black and 2px; large heroes and studios increase to 3px. Slight rotations of roughly 2–7 degrees make clustered objects feel hand-placed, never messy.
+The dominant silhouette is a rounded functional frame. Controls use 12–14px corners, cards use 16px, and large demos, detail frames, and studios use 20–26px. Circular geometry is reserved for the case-card arrow and footer portrait medallions. Borders are almost always full black and 2px; large demos, heroes, and studios increase to 3px.
 
 ### Named Rules
 
-**The Portrait Frame Rule.** When a real avatar is a focal object, give it a square crop, a full black outline, and rounded corners; never mask a primary portrait into an anonymous decorative blob.
+**The Guide Badge Rule.** Avatars use a square crop, full black outline, and 38–58px footprint in functional contexts. They identify or accompany a case; they do not replace its structure.
 
 **The Radius Follows Scale Rule.** Small controls stay at 12–14px, cards at 16px, and large portrait or studio frames at 20–28px. Do not apply pill shapes to ordinary containers.
 
@@ -256,9 +256,9 @@ Components feel like sturdy illustrated props: flat pastel fills, heavy ink, sof
 
 ### Cards / Containers
 
-- **Corner Style:** case cards use 16px outer corners; the full-bleed portrait inside uses 14px; large detail and studio containers use 24–28px.
+- **Corner Style:** case cards use 16px outer corners; the primary structure frame uses 14px; large detail and studio containers use 20–26px.
 - **Background:** catalog cards rotate through the defined portrait pastels. Copy and imagery live inside one color family per card; a translucent clean-cream wash is allowed only on hover.
-- **Shadow Strategy:** cards stay shadowless. Only overlapping portrait prints, the small structural inset, and active controls lift.
+- **Shadow Strategy:** cards stay shadowless. Only the main demo, compact guide badges, and active controls lift.
 - **Border:** 2px portrait ink for cards and 3px for hero or studio frames.
 - **Internal Padding:** 12px at the card shell, 18px around card copy, 30px in the generation editor, and 42px in a desktop detail hero.
 
@@ -274,26 +274,27 @@ The sticky header sits directly on the creamy canvas with a 2px black bottom rul
 
 ### Avatar Tile
 
-Avatar tiles use the production derivatives of the `high-quality-100/` source set, cropped square with `object-fit: cover`. The asset's own pastel field must remain intact. Use descriptive alt text when a portrait identifies a case; use empty alt text or `aria-hidden` when a cast is purely atmospheric. Do not recolor, filter, redraw, or mix unrelated portrait styles into the cast.
+Avatar tiles use the production derivatives of the `high-quality-100/` source set, cropped square with `object-fit: cover`. The asset's own pastel field must remain intact. Functional cards use empty alt text because their link and diagram already name the case; use descriptive alt text only when the person itself carries information. Do not recolor, filter, redraw, or mix unrelated portrait styles into the cast.
 
 ### Portrait Case Card
 
-Every case card leads with one real avatar and overlays a small structural case diagram at the lower right. Metadata sits above the portrait, while the Chinese title, summary, English source title, and circular arrow form a compact lower caption. The avatar is the guide and the diagram is evidence of structure; never reverse their visual priority.
+Every case card leads with one large structural diagram. Metadata sits above it, while the Chinese title, summary, English source title, and circular arrow form a compact lower caption. One 46–52px avatar badge identifies the guide without interrupting comparison between structures.
 
 ### Generation Studio
 
-The studio is a 3px black split frame: a yellow editor beside a mint preview, capped by a black 50px preview toolbar. Before generation, a smaller portrait holds the empty state. After generation, the sandboxed iframe replaces that authored empty state. The iframe's visual language is unconstrained model output and must never be treated as part of Vibe Case's component system.
+The studio is a 3px black split frame: a yellow editor beside a larger mint preview, capped by a black 50px preview toolbar. Before generation, the case structure fills the empty state and a small portrait guide supports the explanatory copy. After generation, the sandboxed iframe replaces that authored empty state. The iframe's visual language is unconstrained model output and must never be treated as part of Vibe Case's component system.
 
 ## Do's and Don'ts
 
 ### Do:
 
-- **Do** use the real `high-quality-100/` avatar cast or its provenance-bearing production derivatives as the dominant visual evidence.
+- **Do** use case structures and generated Preview as the dominant visual evidence.
+- **Do** use the real `high-quality-100/` avatar derivatives as compact, provenance-bearing guide marks.
 - **Do** anchor every pastel composition with portrait ink, usually through a 2–3px border and black typography.
 - **Do** rotate pastels across adjacent case cards to create a varied community while keeping all functional states legible.
 - **Do** use ZCOOL KuaiLe for identity and large statements, and Manrope Variable for every operational or long-reading surface.
 - **Do** preserve visible keyboard focus, meaningful portrait alt text, 48px primary touch targets, and the reduced-motion override.
-- **Do** keep the portrait primary and the structural diagram secondary wherever both appear.
+- **Do** keep the structural diagram primary and the portrait secondary wherever both appear.
 
 ### Don't:
 
@@ -302,4 +303,5 @@ The studio is a 3px black split frame: a yellow editor beside a mint preview, ca
 - **Don't** reduce the interface to generic white SaaS cards; cream, heavy black outlines, pastel fields, and human portraits must remain visible.
 - **Don't** use pastel color as a data taxonomy unless the product explicitly introduces that meaning.
 - **Don't** let decorative portrait overlap obscure text, controls, focus rings, or mobile reading order.
+- **Don't** turn a functional catalog into a portrait gallery; avatars must not set card height or delay search and filters.
 - **Don't** extract or enforce any visual rule from model-generated HTML inside the sandboxed iframe.

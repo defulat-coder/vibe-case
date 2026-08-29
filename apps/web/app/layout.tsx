@@ -1,9 +1,9 @@
 /*
-THESIS: Vibe Case is a friendly illustrated community of ideas, not a technical ledger or a generic SaaS gallery.
-OWN-WORLD: creamy canvas, heavy black ink, pastel portrait tiles, friendly rounded sans type, and the real high-quality-100 avatar cast.
-STORY: meet a visual character, discover a case, understand its prompt, and generate a safe live result.
-FIRST VIEWPORT: an expressive cast of portraits surrounds a direct Chinese promise about the 92-case library and its generation flow.
-FORM: user-pinned high-quality-100 portrait world; seed key avatar-world-hq100; the prior specimen-ledger identity is replaced.
+THESIS: Vibe Case is a functional case library with a friendly illustrated supporting cast.
+OWN-WORLD: creamy canvas, heavy black ink, functional diagrams, pastel accents, and small high-quality-100 avatar guide marks.
+STORY: discover a functional pattern, understand its prompt, adjust variables, and generate a safe live result.
+FIRST VIEWPORT: a real case structure and its generation flow lead; one small portrait guide adds identity without competing.
+FORM: feature-first case system with the user-pinned high-quality-100 portraits as supporting brand evidence.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
 */
 import type { Metadata } from "next";
@@ -15,11 +15,11 @@ import "@fontsource/zcool-kuaile/400.css";
 import "@fontsource-variable/manrope";
 
 const directionContract = {
-  THESIS: "Vibe Case is a friendly illustrated community of ideas, not a technical ledger or a generic SaaS gallery.",
-  "OWN-WORLD": "Creamy canvas, heavy black ink, pastel portrait tiles, friendly rounded display type, and the real high-quality-100 avatar cast.",
-  STORY: "Meet a visual character, discover a case, understand its prompt, and generate a safe live result.",
-  "FIRST VIEWPORT": "An expressive cast of portraits encroaches around a direct Chinese promise about the 92-case library and its generation flow.",
-  FORM: "User-pinned high-quality-100 portrait world; seed key avatar-world-hq100; the prior specimen-ledger identity is replaced.",
+  THESIS: "Vibe Case is a functional case library with a friendly illustrated supporting cast.",
+  "OWN-WORLD": "Creamy canvas, heavy black ink, functional diagrams, pastel accents, and small high-quality-100 avatar guide marks.",
+  STORY: "Discover a functional pattern, understand its prompt, adjust variables, and generate a safe live result.",
+  "FIRST VIEWPORT": "A real case structure and its generation flow lead; one small portrait guide adds identity without competing.",
+  FORM: "Feature-first case system with the user-pinned high-quality-100 portraits as supporting brand evidence.",
   FINISH: "unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance",
 };
 
