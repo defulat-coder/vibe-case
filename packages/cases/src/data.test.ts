@@ -20,4 +20,13 @@ describe("UI case catalog", () => {
     expect(searchCases("看板").some((item) => item.id === "ds-4")).toBe(true);
     expect(searchCases("Magic Link").some((item) => item.id === "auth-5")).toBe(true);
   });
+
+  it("keeps every case submittable: non-empty slug and 20+ character prompts", () => {
+    // 生成接口要求 prompt 至少 20 字符，否则该案例的生成按钮会永久禁用
+    for (const item of cases) {
+      expect(item.slug, `${item.id} slug`).toBeTruthy();
+      expect(item.prompt.zhCN.length, `${item.id} zhCN prompt`).toBeGreaterThanOrEqual(20);
+      expect(item.prompt.sourceEN.length, `${item.id} EN prompt`).toBeGreaterThanOrEqual(20);
+    }
+  });
 });
