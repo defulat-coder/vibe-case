@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Markdown, { type Components } from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { getSkillBySlug, skills, type ParsedSkill } from "@vibe-case/skills";
 import { SkillCaseRunner } from "@/components/skill-case-runner";
 import { AvatarTile } from "@/components/avatar-tile";
@@ -62,10 +63,10 @@ export default async function SkillDetailPage({ params }: { params: Promise<{ sl
 
       <section className="skill-content-section">
         <div className="section-heading"><h2>Skill 原文</h2><p>中文翻译保留 GPT Image 2、Prompt、UI、UX 等专有名词；英文原文在下方折叠区。</p></div>
-        <div className="skill-content"><Markdown components={skillMarkdownComponents(skill)}>{skill.content.zhCN}</Markdown></div>
+        <div className="skill-content"><Markdown remarkPlugins={[remarkGfm]} components={skillMarkdownComponents(skill)}>{skill.content.zhCN}</Markdown></div>
         <details className="skill-content-fold">
           <summary>查看英文原文 SKILL.md</summary>
-          <div className="skill-content"><Markdown components={skillMarkdownComponents(skill)}>{skill.content.sourceEN}</Markdown></div>
+          <div className="skill-content"><Markdown remarkPlugins={[remarkGfm]} components={skillMarkdownComponents(skill)}>{skill.content.sourceEN}</Markdown></div>
         </details>
       </section>
 
