@@ -84,6 +84,7 @@ VibeUI 自身不执行生成。每条 `Generate in GlowUp` 链接会把完整 pr
 3. **可复现**：每次运行记录 prompt、输入、Codex 线程、模型和版本。
 4. **执行隔离**：Codex 只能修改本次运行工作区，不能直接修改案例库或站点源码。
 5. **类型可扩展**：新增技能案例不需要改写 UI 案例的数据结构。
+6. **中文优先、术语稳定**：面向用户的内容使用中文表达，但保留必要的英文专有名词，并通过术语表保证全站一致。
 
 ## 4. 信息架构
 
@@ -198,6 +199,96 @@ type CaseDefinition = {
 7. 验证契约：构建、浏览器检查和截图要求。
 
 这样同一案例可以支持“从零生成”“基于现有项目改造”和“只复制 prompt”三种模式。
+
+### 5.3 中文化与专有名词规则
+
+案例内容以简体中文为默认展示语言，但不做机械式全量翻译。品牌名、产品名、框架名、模型名、缩写和已经形成行业共识的 UI 模式名保留英文原文。
+
+建议把双语信息作为结构化字段保存：
+
+```ts
+type LocalizedText = {
+  zhCN: string;
+  sourceEN?: string;
+  aliases?: string[];
+};
+
+type CaseLocalization = {
+  title: LocalizedText;
+  summary: LocalizedText;
+  prompt: LocalizedText;
+};
+```
+
+前台默认显示 `zhCN`，详情页可以提供“查看英文原文”，搜索同时索引中文、英文和别名。这样既满足中文阅读，也方便用户拿英文术语继续搜索文档、组件和社区案例。
+
+#### 保留英文的内容
+
+- 品牌与产品：`Codex`、`GlowUp UI`、`VibeUI`、`OpenAI`。
+- 框架与库：`Next.js`、`React`、`Tailwind CSS`、`shadcn/ui`。
+- 模型和 SDK：`Codex SDK`、`GPT-5.6 Sol`。
+- 缩写：`UI`、`UX`、`CTA`、`API`、`SSE`、`SDK`、`HTML`、`JSON`。
+- 常用模式名：`Bento`、`Hero`、`Dashboard`、`Kanban`、`Magic Link`、`Sidebar`、`Modal`、`Toast`、`Dark Mode`。
+
+#### 翻译方式
+
+- 普通描述完整翻译为自然中文，不保留英文语序。
+- 专有名词嵌入中文句子，例如：`Bento 网格`、`Hero 区域`、`Dashboard 仪表盘`、`Magic Link 登录`。
+- 首次出现且可能难懂的缩写可以补一次中文解释，例如：`CTA（行动按钮）`；后续只使用 `CTA`。
+- 代码标识、文件名、命令、路由和配置字段保持原样，不翻译。
+- 同一个术语只能有一个首选译法，禁止在不同案例中混用“仪表板/仪表盘”“模态框/弹窗”等多个版本。
+
+#### 示例
+
+英文标题：
+
+```text
+Classic 3-tier cards
+```
+
+中文标题：
+
+```text
+经典三档 Pricing 卡片
+```
+
+英文 prompt：
+
+```text
+Create a pricing section with three side-by-side tier cards...
+```
+
+中文 prompt：
+
+```text
+创建一个 Pricing 区域，使用三张并排的 tier cards（Starter、Pro、Business），
+将中间方案突出显示为推荐选项。包含方案名称、价格、功能列表和 CTA，
+并匹配参考图中的视觉风格、颜色、Typography 和整体审美。
+```
+
+正式写作时应由术语表决定哪些英文词保留。上面的 `Typography` 如果最终术语表决定使用“字体排版”，全站就统一使用“字体排版”，而不是逐条自由选择。
+
+#### 首版术语表
+
+术语表建议维护在 `content/glossary.json`，至少包含：
+
+| 英文术语 | 中文展示 | 处理规则 |
+|---|---|---|
+| UI | UI | 始终保留 |
+| UX | UX | 始终保留 |
+| CTA | CTA | 首次可补“行动按钮” |
+| Hero | Hero 区域 | 保留英文 |
+| Bento grid | Bento 网格 | 保留 Bento |
+| Dashboard | Dashboard 仪表盘 | 保留英文并补中文 |
+| Kanban board | Kanban 看板 | 保留英文 |
+| Magic Link | Magic Link 登录 | 保留英文 |
+| Modal | 弹窗 | 中文优先，英文作为搜索别名 |
+| Toast | Toast 提示 | 保留英文 |
+| Dark Mode | Dark Mode | 保留英文 |
+| Prompt | Prompt / 提示词 | 页面标题可用 Prompt，正文可用“提示词” |
+| Runner | Runner / 执行器 | 技术配置保留 Runner，用户说明使用“执行器” |
+
+术语表不仅用于文案审核，也用于搜索别名、批量翻译检查和未来的多语言扩展。
 
 ## 6. Codex SDK 落地方式
 
@@ -340,11 +431,13 @@ Runner 在启动前检查技能是否可用。缺失时返回明确的 `missing_
 1. 案例集合、分类、搜索和详情页。
 2. 12–20 个原创 UI 案例，覆盖 Hero、Pricing、Auth、Dashboard 等高频结构。
 3. 案例的真实封面、参考图、prompt、变量和验收标准。
-4. Codex SDK 隔离运行。
-5. 本地图片输入。
-6. 流式状态、日志和取消。
-7. 构建、预览、截图和浏览器验证。
-8. 运行历史与同线程修复重试。
+4. 中文案例内容、英文原文和统一术语表。
+5. 中英文与别名搜索。
+6. Codex SDK 隔离运行。
+7. 本地图片输入。
+8. 流式状态、日志和取消。
+9. 构建、预览、截图和浏览器验证。
+10. 运行历史与同线程修复重试。
 
 ### 首版不做
 
@@ -398,6 +491,8 @@ Runner 在启动前检查技能是否可用。缺失时返回明确的 `missing_
 
 - 新增一个案例只需增加案例目录和资源，不改页面代码。
 - 用户可以看到真实结果、参考图、完整 prompt 和输入要求。
+- 案例默认显示自然中文，英文专有名词符合术语表，且可以查看英文原文。
+- 使用中文、英文或术语别名都能搜索到同一案例。
 - 点击运行后能看到阶段化进度，而不是一直等待。
 - Codex 只能写入本次 run 的工作区。
 - 至少一个带参考图的 UI 案例能生成可运行页面。
