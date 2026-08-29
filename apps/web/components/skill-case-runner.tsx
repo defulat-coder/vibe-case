@@ -2,7 +2,7 @@
 
 import type { SkillCase } from "@vibe-case/skills";
 import type { SkillCaseResult } from "@vibe-case/ai";
-import { Copy, ImageIcon, LoaderCircle, Play, RotateCcw } from "lucide-react";
+import { Check, Copy, ImageIcon, LoaderCircle, Play, RotateCcw } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -11,6 +11,7 @@ export function SkillCaseRunner({ item }: { item: SkillCase }) {
   const [result, setResult] = useState<SkillCaseResult>();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [copied, setCopied] = useState(false);
 
   async function run() {
     setLoading(true);
@@ -33,7 +34,14 @@ export function SkillCaseRunner({ item }: { item: SkillCase }) {
   }
 
   async function copy() {
-    await navigator.clipboard.writeText(prompt);
+    try {
+      await navigator.clipboard.writeText(prompt);
+      setError("");
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1600);
+    } catch {
+      setError("复制失败，请重新点击或手动选择 Prompt。");
+    }
   }
 
   return (
@@ -51,7 +59,7 @@ export function SkillCaseRunner({ item }: { item: SkillCase }) {
         <textarea rows={7} value={prompt} onChange={(event) => setPrompt(event.target.value)} />
       </label>
       <div className="skill-case-actions">
-        <button className="button button-secondary" type="button" onClick={copy}><Copy size={16} />复制 Prompt</button>
+        <button className="button button-secondary" type="button" onClick={copy} aria-live="polite">{copied ? <Check size={16} /> : <Copy size={16} />}{copied ? "已复制" : "复制 Prompt"}</button>
         <button className="button" type="button" onClick={run} disabled={loading || prompt.trim().length < 20}>
           {loading ? <LoaderCircle className="spin" size={17} /> : item.executionMode === "image" ? <ImageIcon size={17} /> : <Play size={17} />}
           {loading ? "正在运行" : "运行案例"}

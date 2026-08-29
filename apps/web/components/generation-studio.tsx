@@ -3,9 +3,9 @@
 import { useObject } from "@ai-sdk/react";
 import { uiGenerationResultSchema, type GenerateUIInput } from "@vibe-case/ai/schemas";
 import type { UICase } from "@vibe-case/cases";
-import { ImagePlus, LoaderCircle, RotateCcw, Square } from "lucide-react";
+import { ImagePlus, LoaderCircle, RotateCcw, Square, X } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { AvatarTile } from "./avatar-tile";
 import { CaseDiagram } from "./case-diagram";
 
@@ -23,6 +23,8 @@ export function GenerationStudio({ item, caseIndex }: { item: UICase; caseIndex:
   const [referenceImage, setReferenceImage] = useState<string>();
   const [generationId, setGenerationId] = useState<string>();
   const [complete, setComplete] = useState(false);
+  const [imageError, setImageError] = useState("");
+  const fileInput = useRef<HTMLInputElement>(null);
 
   const { object, submit, isLoading, error, stop, clear } = useObject({
     api: "/api/generate",
@@ -49,10 +51,21 @@ export function GenerationStudio({ item, caseIndex }: { item: UICase; caseIndex:
 
   async function pickImage(file?: File) {
     if (!file) return;
-    if (file.size > 5_000_000) return alert("参考图片不能超过 5MB");
+    if (file.size > 5_000_000) {
+      setImageError("参考图片超过 5MB，请压缩后重新选择。");
+      if (fileInput.current) fileInput.current.value = "";
+      return;
+    }
+    setImageError("");
     const reader = new FileReader();
     reader.onload = () => setReferenceImage(String(reader.result));
     reader.readAsDataURL(file);
+  }
+
+  function removeImage() {
+    setReferenceImage(undefined);
+    setImageError("");
+    if (fileInput.current) fileInput.current.value = "";
   }
 
   return (
@@ -65,8 +78,9 @@ export function GenerationStudio({ item, caseIndex }: { item: UICase; caseIndex:
 
         <label className="prompt-editor">
           <span>中文 Prompt</span>
-          <textarea value={prompt} onChange={(event) => setPrompt(event.target.value)} rows={8} />
+          <textarea value={prompt} onChange={(event) => setPrompt(event.target.value)} rows={8} aria-describedby="prompt-requirement" />
         </label>
+        <p className="field-help" id="prompt-requirement">至少输入 20 个字符，描述越具体，生成结果越稳定。</p>
 
         <div className="variable-grid">
           {item.variables.map((variable) => (
@@ -75,17 +89,22 @@ export function GenerationStudio({ item, caseIndex }: { item: UICase; caseIndex:
         </div>
 
         <div className="generation-actions">
-          <label className="button button-secondary file-button">
-            <ImagePlus size={17} aria-hidden="true" />
-            {referenceImage ? "已选择参考图" : "添加参考图"}
-            <input type="file" accept="image/*" onChange={(event) => pickImage(event.target.files?.[0])} />
-          </label>
+          <div className="reference-actions">
+            <label className="button button-secondary file-button">
+              <ImagePlus size={17} aria-hidden="true" />
+              {referenceImage ? "已选择参考图" : "添加参考图"}
+              <input ref={fileInput} type="file" accept="image/*" onChange={(event) => pickImage(event.target.files?.[0])} />
+            </label>
+            {referenceImage && <button className="reference-remove" type="button" onClick={removeImage}><X size={15} />移除</button>}
+          </div>
           {isLoading ? (
             <button className="button" type="button" onClick={stop}><Square size={15} />停止生成</button>
           ) : (
             <button className="button" type="button" onClick={generate} disabled={prompt.trim().length < 20}>生成效果</button>
           )}
         </div>
+        <p className="generation-reassurance">生成可能需要几十秒；参考图仅用于本次请求，当前版本不会持久化保存。</p>
+        {imageError && <p className="error-message" role="alert">{imageError}</p>}
         {error && <p className="error-message" role="alert">生成失败：{error.message}。请检查配置后重试。</p>}
       </div>
 
