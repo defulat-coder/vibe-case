@@ -24,6 +24,13 @@ function skillMarkdownComponents(skill: ParsedSkill): Components {
     h3: (props) => <h4 {...props} />,
     h4: (props) => <h5 {...props} />,
     h5: (props) => <h6 {...props} />,
+    // GFM 任务列表的 disabled checkbox 缺少上下文，补充可读状态
+    input: ({ type, checked, disabled }) =>
+      type === "checkbox" ? (
+        <input type="checkbox" checked={checked} disabled={disabled} readOnly aria-label={checked ? "任务项：已完成" : "任务项：未完成"} />
+      ) : (
+        <input type={type} />
+      ),
     img: ({ src, alt }) => {
       const resolved = typeof src === "string" && !/^(https?:)?\/\//.test(src) ? `${rawBase}/${src}` : src;
       // eslint-disable-next-line @next/next/no-img-element -- 远程来源仓库图片，尺寸未知
