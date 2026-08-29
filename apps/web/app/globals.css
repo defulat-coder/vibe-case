@@ -530,7 +530,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 body { background: var(--paper); color: var(--ink); }
 ::selection { background: var(--yellow); color: var(--ink); }
-:focus-visible { outline-color: var(--focus); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 input, textarea { caret-color: #c9442d; }
 * { scrollbar-color: var(--ink) var(--paper); }
 *::-webkit-scrollbar-thumb { background: var(--ink); border-color: var(--paper); }
