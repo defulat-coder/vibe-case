@@ -36,6 +36,30 @@ allowed-tools:
     const markdown = `---\nname: vendor-image\ndescription: Generate images via RunComfy\nallowed-tools: [Bash]\n---\nLogin and run curl with API_KEY`;
     expect(findBlockedBinding(markdown, parseSkillMarkdown(markdown), ["runcomfy"])).toContain("runcomfy");
   });
+
+  it("tolerates malformed or missing metadata without crashing", () => {
+    // 未闭合的 frontmatter 整体按正文处理
+    const unclosed = parseSkillMarkdown("---\nname: broken\n# Real Title\n\nBody.");
+    expect(unclosed.name).toBe("Real Title");
+
+    // 完全没有 frontmatter 与标题时回退到占位名
+    const empty = parseSkillMarkdown("");
+    expect(empty).toMatchObject({ name: "Untitled skill", description: "", allowedTools: [], workflow: [] });
+
+    // 缺少 name 时用第一个标题
+    const noName = parseSkillMarkdown("---\ndescription: only a description\n---\n# Fallback Title\n");
+    expect(noName.name).toBe("Fallback Title");
+  });
+
+  it("normalizes single-string allowed-tools into an array", () => {
+    const parsed = parseSkillMarkdown("---\nname: single-tool\nallowed-tools: Read\n---\nBody.");
+    expect(parsed.allowedTools).toEqual(["Read"]);
+  });
+
+  it("recognizes Chinese workflow headings", () => {
+    const parsed = parseSkillMarkdown("---\nname: cn-flow\n---\n# 方法\n## 工作流程\n1. 理解需求\n2. 输出结果\n## 其他\n3. 不属于流程\n");
+    expect(parsed.workflow).toEqual(["理解需求", "输出结果"]);
+  });
 });
 
 describe("stripFrontmatter", () => {
