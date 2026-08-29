@@ -4,13 +4,9 @@ import { ArrowLeft } from "lucide-react";
 import { getGeneration } from "@vibe-case/db";
 import { getCaseById } from "@vibe-case/cases";
 import type { UIGenerationResult } from "@vibe-case/ai/schemas";
+import { secureSrcDoc } from "@/components/secure-src-doc";
 
 export const dynamic = "force-dynamic";
-
-function secureSrcDoc(html: string) {
-  const csp = `<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'">`;
-  return html.replace(/<base\b[^>]*>/gi, "").replace(/<head\b[^>]*>/i, (head) => `${head}${csp}`);
-}
 
 export default async function GenerationPage({ params }: { params: Promise<{ id: string }> }) {
   const generation = await getGeneration((await params).id);

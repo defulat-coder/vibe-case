@@ -7,14 +7,7 @@ import { ImagePlus, LoaderCircle, RotateCcw, Square, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { readGenerationDraft, writeGenerationDraft } from "./generation-draft";
-
-function secureSrcDoc(html: string) {
-  const csp = `<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'">`;
-  const withoutBase = html.replace(/<base\b[^>]*>/gi, "").replace(/<meta\b[^>]*http-equiv=["']?refresh["']?[^>]*>/gi, "");
-  return /<head\b[^>]*>/i.test(withoutBase)
-    ? withoutBase.replace(/<head\b[^>]*>/i, (head) => `${head}${csp}`)
-    : `<!doctype html><html><head>${csp}</head><body>${withoutBase}</body></html>`;
-}
+import { secureSrcDoc } from "./secure-src-doc";
 
 export function GenerationStudio({ item }: { item: UICase }) {
   const [prompt, setPrompt] = useState(item.prompt.zhCN);
