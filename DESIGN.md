@@ -270,11 +270,13 @@ Components feel like sturdy illustrated props: flat pastel fills, heavy ink, sof
 
 ### Navigation
 
-The sticky header sits directly on the mist canvas with a 1px black bottom rule and no blur. The wordmark pairs a 34px rounded avatar tile with a 21px ZCOOL KuaiLe name. Navigation uses 13px extra-bold Manrope; hover turns darker coral. On mobile the header becomes 56px, the avatar 32px, and the collection link is removed to preserve the source link without crowding.
+The sticky header sits directly on the mist canvas with a 1px black bottom rule and no blur. The wordmark pairs a 34px rounded male-guide avatar tile with a 21px ZCOOL KuaiLe name; the guide is sampled from an approved male portrait pool on each refresh. Navigation uses 13px extra-bold Manrope; hover turns darker coral. On mobile the header becomes 56px, the avatar 32px, and the collection link is removed to preserve the source link without crowding.
 
 ### Avatar Tile
 
-Avatar tiles use the production derivatives of the `high-quality-100/` source set, cropped square with `object-fit: cover`. The asset's own pastel field must remain intact. Functional cards use empty alt text because their link and diagram already name the case; use descriptive alt text only when the person itself carries information. Do not recolor, filter, redraw, or mix unrelated portrait styles into the cast.
+Avatar tiles use the production derivatives of the `high-quality-100/` source set, cropped square with `object-fit: cover`. A client-side sampler assigns portraits without replacement where possible: assignments remain stable during one page session and reshuffle on a hard refresh. The asset's own pastel field must remain intact. Functional cards use empty alt text because their link and diagram already name the case; use descriptive alt text only when the person itself carries information. Do not recolor, filter, redraw, or mix unrelated portrait styles into the cast.
+
+The footer shows a denser sample of the cast without turning into a gallery: 14 portraits plus `+86` on wide screens, 10 plus `+90` on intermediate screens, and 8 plus `+92` on mobile.
 
 ### Portrait Case Card
 

@@ -48,4 +48,12 @@ No P3 item is required for this scoped refinement.
 - Responsive check: the 390px viewport keeps all 8 portraits without page or footer overflow.
 - React structure, accessibility semantics, navigation scale, and the feature-first hierarchy are unchanged.
 
+## Refresh-randomized avatar sampling
+
+- Source truth: the user requested random portrait sampling on every refresh, a male-only header pool, and a larger footer sample with a `+N` remainder.
+- Three hard reloads produced different 14-image footer signatures; samples contained no duplicate within each footer set.
+- The header varied only among `waker-avatar-hq-001`, `002`, and `005`, the inspected male portrait pool.
+- Wide layout: 14 visible portraits and `+86`; mobile: 8 visible portraits and `+92`. Neither viewport overflowed horizontally.
+- `avatar-random.test.ts` verifies stable per-slot assignment, candidate filtering, and sampling without replacement.
+
 final result: passed
