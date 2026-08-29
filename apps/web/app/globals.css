@@ -550,8 +550,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 /* feature-first portrait world */
 :root {
-  --paper: #fff8e9;
-  --paper-deep: #f4ead6;
+  --paper: #eef3f6;
+  --paper-deep: #e3ebef;
   --ink: #0b0b0d;
   --ink-soft: #35333a;
   --line: #c9beaa;
@@ -579,17 +579,18 @@ input, textarea { caret-color: #c9442d; }
 *::-webkit-scrollbar-thumb { background: var(--ink); border-color: var(--paper); }
 
 .site-header {
-  min-height: 76px;
-  padding: 10px clamp(20px, 4vw, 64px);
-  border-bottom: 2px solid var(--ink);
-  background: color-mix(in srgb, var(--paper) 97%, transparent);
+  min-height: 60px;
+  padding: 7px clamp(20px, 4vw, 64px);
+  border-bottom: 1px solid var(--ink);
+  background: var(--paper);
   backdrop-filter: none;
 }
-.wordmark { gap: 10px; }
-.wordmark-avatar { width: 42px; height: 42px; border: 2px solid var(--ink); border-radius: 12px; overflow: hidden; }
+.wordmark { gap: 9px; }
+.wordmark-avatar { width: 34px; height: 34px; border: 2px solid var(--ink); border-radius: 10px; overflow: hidden; }
 .wordmark-avatar img, .avatar-tile img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.wordmark strong { font-family: var(--font-display), sans-serif; font-size: 25px; font-weight: 400; letter-spacing: -.02em; }
-.site-header nav a { color: var(--ink); font-weight: 800; }
+.wordmark strong { font-family: var(--font-display), sans-serif; font-size: 21px; font-weight: 400; letter-spacing: -.02em; }
+.site-header nav { gap: 26px; }
+.site-header nav a { color: var(--ink); font-size: 13px; font-weight: 800; }
 .site-header nav a:hover { color: #c9442d; }
 
 .button {
@@ -830,8 +831,9 @@ input, textarea { caret-color: #c9442d; }
 }
 
 @media (max-width: 760px) {
-  .site-header { min-height: 68px; }
-  .wordmark-avatar { width: 38px; height: 38px; }
+  .site-header { min-height: 56px; padding-block: 6px; }
+  .wordmark-avatar { width: 32px; height: 32px; }
+  .wordmark strong { font-size: 20px; }
   .home-intro { padding: 46px 0 62px; gap: 34px; }
   .home-copy h1 { font-size: 48px; }
   .home-demo { border-radius: 18px; }

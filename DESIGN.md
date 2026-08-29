@@ -2,7 +2,7 @@
 name: Vibe Case
 description: A Chinese-first functional AI case library with a friendly supporting cast of hand-drawn portrait guides.
 colors:
-  creamy-canvas: "#fff8e9"
+  mist-canvas: "#eef3f6"
   portrait-ink: "#0b0b0d"
   soft-graphite: "#35333a"
   clean-cream: "#fffdf8"
@@ -124,7 +124,7 @@ components:
 
 **Creative North Star: "The Functional Commons"**
 
-Vibe Case is a functional case library made approachable by a friendly illustrated cast. UI structures, bilingual Prompt content, variables, and generated Preview are always the content authority; the 100 hand-drawn people act as compact guide marks that make cases recognizable without competing with the work. Warm cream holds the world, heavy black ink gives it confidence, and pastel fields keep a dense catalog inviting.
+Vibe Case is a functional case library made approachable by a friendly illustrated cast. UI structures, bilingual Prompt content, variables, and generated Preview are always the content authority; the 100 hand-drawn people act as compact guide marks that make cases recognizable without competing with the work. A cool mist canvas holds the world, heavy black ink gives it confidence, and pastel fields keep a dense catalog inviting.
 
 The functional authority is the case structure and its generated result. The user-pinned `high-quality-100/` portrait collection remains the brand authority: its loose black linework and flat pastel backgrounds inform heavy outlines, rounded controls, and the palette. Portraits appear as small guide badges in headers, cards, details, empty states, and the wordmark—not as the main artifact.
 
@@ -142,7 +142,7 @@ The system covers Vibe Case chrome and authored surfaces only. HTML produced by 
 
 ## Colors
 
-The palette comes directly from the portrait backgrounds: a warm cream room, uncompromising black ink, and cheerful low-chroma pastels that rotate across people and cases.
+The palette pairs a cool mist-gray canvas with the portrait collection's uncompromising black ink and cheerful low-chroma pastels.
 
 ### Primary
 
@@ -162,7 +162,7 @@ The palette comes directly from the portrait backgrounds: a warm cream room, unc
 
 ### Neutral
 
-- **Creamy Canvas** (`creamy-canvas`): the global page, sticky header, and warm negative space.
+- **Mist Canvas** (`mist-canvas`): the global page and sticky header; its pale blue-gray keeps long browsing sessions bright without the former yellow cast.
 - **Clean Cream** (`clean-cream`): input fills, secondary actions, diagram paper, and quiet card surfaces.
 - **Soft Graphite** (`soft-graphite`): explanatory copy and low-priority metadata; it softens hierarchy without losing warmth.
 
@@ -204,7 +204,7 @@ Authored content uses a centered maximum width of 1380px with 20px desktop gutte
 
 At 1040px, catalog grids become two columns, the functional demo follows the hero copy, collection introductions stack, and the generation editor stacks above the preview. At 760px, primary content uses 16px side gutters, catalogs become one compact column, detail and prompt splits become one reading column, form variables stack, and actions become full-width vertical controls. The first internal navigation link disappears while the source link and compact avatar wordmark remain. Category filters stay in a single horizontally scrollable row.
 
-Vertical space is generous around narrative moments (roughly 66–120px) and compact inside working controls (8–30px). The sticky header is 82px on desktop and 74px on mobile. Portrait clusters may overlap and rotate; form grids, prompt text, and result controls must stay aligned and predictable.
+Vertical space is generous around narrative moments (roughly 66–120px) and compact inside working controls (8–30px). The sticky header is 60px on desktop and 56px on mobile. Form grids, Prompt text, and result controls stay aligned and predictable.
 
 ### Named Rules
 
@@ -270,7 +270,7 @@ Components feel like sturdy illustrated props: flat pastel fills, heavy ink, sof
 
 ### Navigation
 
-The sticky header sits directly on the creamy canvas with a 2px black bottom rule and no blur. The wordmark pairs a 48px rounded avatar tile with a 26px ZCOOL KuaiLe name. Navigation uses compact extra-bold Manrope; hover turns darker coral. On mobile the avatar becomes 44px and the collection link is removed to preserve the source link without crowding.
+The sticky header sits directly on the mist canvas with a 1px black bottom rule and no blur. The wordmark pairs a 34px rounded avatar tile with a 21px ZCOOL KuaiLe name. Navigation uses 13px extra-bold Manrope; hover turns darker coral. On mobile the header becomes 56px, the avatar 32px, and the collection link is removed to preserve the source link without crowding.
 
 ### Avatar Tile
 
