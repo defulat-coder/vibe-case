@@ -55,10 +55,15 @@ function cleanListItem(value: string) {
     .trim();
 }
 
+export function stripFrontmatter(markdown: string) {
+  const frontmatterMatch = markdown.match(/^---\s*\n([\s\S]*?)\n---\s*\n?/);
+  return frontmatterMatch ? markdown.slice(frontmatterMatch[0].length) : markdown;
+}
+
 export function parseSkillMarkdown(markdown: string): SkillMarkdown {
   const frontmatterMatch = markdown.match(/^---\s*\n([\s\S]*?)\n---\s*\n?/);
   const frontmatter = parseFrontmatter(frontmatterMatch?.[1] ?? "");
-  const body = frontmatterMatch ? markdown.slice(frontmatterMatch[0].length) : markdown;
+  const body = stripFrontmatter(markdown);
   const headings = [...body.matchAll(/^#{1,3}\s+(.+)$/gm)].map((match) => match[1]!.trim());
   const workflowHeading = headings.find((heading) => /workflow|instructions|process|步骤|流程/i.test(heading));
   const workflow: string[] = [];

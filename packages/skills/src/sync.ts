@@ -4,7 +4,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { generateText, Output } from "ai";
 import { z } from "zod";
-import { detectRiskNotes, findBlockedBinding, parseSkillMarkdown } from "./parser.ts";
+import { detectRiskNotes, findBlockedBinding, parseSkillMarkdown, stripFrontmatter } from "./parser.ts";
 import {
   discoveryConfigSchema,
   parsedSkillSchema,
@@ -33,6 +33,7 @@ const categoryLabels = {
 const enrichmentSchema = z.object({
   titleZhCN: z.string().min(1),
   summaryZhCN: z.string().min(1),
+  contentZhCN: z.string().min(1),
   category: skillCategorySchema,
   aliases: z.array(z.string()).max(6),
   whenToUse: z.array(z.string()).min(2).max(5),
@@ -51,6 +52,12 @@ const enrichmentSchema = z.object({
 
 type SearchSkill = { id: string; skillId: string; name: string; installs: number; source: string };
 type RepoMetadata = { license?: { spdx_id?: string }; default_branch: string; html_url: string };
+
+// 旧版 catalog 条目可能缺少 content 字段，读取时放宽，同步时强制回填
+const storedSkillSchema = parsedSkillSchema.extend({
+  content: parsedSkillSchema.shape.content.optional(),
+});
+type StoredSkill = z.infer<typeof storedSkillSchema>;
 
 function headers() {
   return {
@@ -113,10 +120,12 @@ function caseSlug(skillId: string, title: string, index: number) {
 }
 
 async function enrich(markdown: string, parsed: ReturnType<typeof parseSkillMarkdown>) {
+  const body = stripFrontmatter(markdown).trim().slice(0, 18_000);
   if (!process.env.AI_GATEWAY_API_KEY) {
     return enrichmentSchema.parse({
       titleZhCN: parsed.name,
       summaryZhCN: `这个 Skill 用于：${parsed.description}`,
+      contentZhCN: body,
       category: "visual",
       aliases: parsed.headings.slice(0, 4),
       whenToUse: ["需要应用这个 Skill 的方法时", "希望把方法转换为可复用案例时"],
@@ -137,13 +146,13 @@ async function enrich(markdown: string, parsed: ReturnType<typeof parseSkillMark
   const { output } = await generateText({
     model: process.env.SKILLS_AI_MODEL ?? "openai/gpt-5.6-luna",
     output: Output.object({ schema: enrichmentSchema }),
-    instructions: "你负责把开源 SKILL.md 解析成中文案例库数据。使用自然中文，保留 GPT Image 2、Prompt、UI、UX、Motion Design、BPM、FPS 等专有名词。删除厂商宣传、登录、付费和原始 Shell 执行步骤。不要编造来源没有表达的能力。",
-    prompt: `解析以下 SKILL.md，并生成两个个人用户可以理解和运行的案例。图片类使用 image，视频节奏使用 timeline-plan，其余优先 structured。\n\n${markdown.slice(0, 18_000)}`,
+    instructions: "你负责把开源 SKILL.md 解析成中文案例库数据。使用自然中文，保留 GPT Image 2、Prompt、UI、UX、Motion Design、BPM、FPS 等专有名词。删除厂商宣传、登录、付费和原始 Shell 执行步骤。不要编造来源没有表达的能力。contentZhCN 是 SKILL.md 正文（不含 frontmatter）的完整中文翻译：保留原有 Markdown 结构（标题、列表、代码块），品牌、产品、框架、模型和缩写等专有名词保留英文。",
+    prompt: `解析以下 SKILL.md，contentZhCN 翻译其正文，并生成两个个人用户可以理解和运行的案例。图片类使用 image，视频节奏使用 timeline-plan，其余优先 structured。\n\n${markdown.slice(0, 18_000)}`,
   });
   return output;
 }
 
-async function syncSource(source: SkillSourceConfig, excludedTerms: string[], existing?: ParsedSkill, installs?: number) {
+async function syncSource(source: SkillSourceConfig, excludedTerms: string[], existing?: StoredSkill, installs?: number) {
   const [markdown, repo] = await Promise.all([
     rawSkill(source.repository, source.skillPath),
     fetchJson<RepoMetadata>(`https://api.github.com/repos/${source.repository}`, { headers: headers() }),
@@ -170,7 +179,7 @@ async function syncSource(source: SkillSourceConfig, excludedTerms: string[], ex
 
   if (sourceData.license === "Unknown") throw new Error("Missing a recognized source license");
 
-  if (existing && (!existing.source.contentHash || existing.source.contentHash === hash)) {
+  if (existing && existing.content && (!existing.source.contentHash || existing.source.contentHash === hash)) {
     return parsedSkillSchema.parse({
       ...existing,
       summary: { ...existing.summary, sourceEN: parsed.description },
@@ -180,7 +189,7 @@ async function syncSource(source: SkillSourceConfig, excludedTerms: string[], ex
   }
 
   if (existing && !process.env.AI_GATEWAY_API_KEY) {
-    throw new Error("SKILL.md changed but AI_GATEWAY_API_KEY is unavailable for Chinese re-enrichment");
+    throw new Error("SKILL.md changed or content missing but AI_GATEWAY_API_KEY is unavailable for Chinese re-enrichment");
   }
 
   const normalized = await enrich(markdown, parsed);
@@ -192,6 +201,7 @@ async function syncSource(source: SkillSourceConfig, excludedTerms: string[], ex
     categoryLabel: categoryLabels[normalized.category],
     title: { zhCN: normalized.titleZhCN, sourceEN: parsed.name, aliases: normalized.aliases },
     summary: { zhCN: normalized.summaryZhCN, sourceEN: parsed.description },
+    content: { sourceEN: stripFrontmatter(markdown).trim().slice(0, 18_000), zhCN: normalized.contentZhCN },
     whenToUse: normalized.whenToUse,
     workflow: normalized.workflow,
     outputs: normalized.outputs,
@@ -204,7 +214,7 @@ async function syncSource(source: SkillSourceConfig, excludedTerms: string[], ex
 
 async function main() {
   const config = discoveryConfigSchema.parse(JSON.parse(await readFile(sourcesPath, "utf8")));
-  const current = parsedSkillSchema.array().parse(JSON.parse(await readFile(catalogPath, "utf8")));
+  const current = storedSkillSchema.array().parse(JSON.parse(await readFile(catalogPath, "utf8")));
   const sources = [...config.sources];
   const installCounts = new Map<string, number>();
 
@@ -244,7 +254,10 @@ async function main() {
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       errors.push({ source: `${source.repository}@${source.skillId}`, message });
-      if (existing) next.push(existing);
+      if (existing) {
+        const parsedExisting = parsedSkillSchema.safeParse(existing);
+        if (parsedExisting.success) next.push(parsedExisting.data);
+      }
       console.warn(`sync_error ${source.repository}@${source.skillId}: ${message}`);
     }
   }

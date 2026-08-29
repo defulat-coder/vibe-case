@@ -2,12 +2,31 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { getSkillBySlug, skills } from "@vibe-case/skills";
+import Markdown, { type Components } from "react-markdown";
+import { getSkillBySlug, skills, type ParsedSkill } from "@vibe-case/skills";
 import { SkillCaseRunner } from "@/components/skill-case-runner";
 import { AvatarTile } from "@/components/avatar-tile";
 
 export function generateStaticParams() {
   return skills.map((skill) => ({ slug: skill.slug }));
+}
+
+// SKILL.md 正文中的相对图片和链接指向来源仓库，按仓库与 commit 解析为可访问的绝对地址
+function skillMarkdownComponents(skill: ParsedSkill): Components {
+  const dir = skill.source.skillPath.split("/").slice(0, -1).join("/");
+  const base = `https://github.com/${skill.source.repository}/blob/${skill.source.commit}${dir ? `/${dir}` : ""}`;
+  const rawBase = `https://raw.githubusercontent.com/${skill.source.repository}/${skill.source.commit}${dir ? `/${dir}` : ""}`;
+  return {
+    img: ({ src, alt }) => {
+      const resolved = typeof src === "string" && !/^(https?:)?\/\//.test(src) ? `${rawBase}/${src}` : src;
+      // eslint-disable-next-line @next/next/no-img-element -- 远程来源仓库图片，尺寸未知
+      return <img src={resolved} alt={alt ?? ""} loading="lazy" />;
+    },
+    a: ({ href, children }) => {
+      const resolved = href && !/^(https?:)?\/\/|^#|^mailto:/.test(href) ? `${base}/${href}` : href;
+      return <a href={resolved} target="_blank" rel="noreferrer">{children}</a>;
+    },
+  };
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -39,6 +58,15 @@ export default async function SkillDetailPage({ params }: { params: Promise<{ sl
         <div className="skill-method-copy"><h2>适用场景</h2></div>
         <ul>{skill.whenToUse.map((item) => <li key={item}>{item}</li>)}</ul>
         <p className="skill-source-line">来源：<a href={skill.source.githubUrl} target="_blank" rel="noreferrer">{skill.source.repository}</a>{skill.source.license && <> · {skill.source.license}</>}</p>
+      </section>
+
+      <section className="skill-content-section">
+        <div className="section-heading"><h2>Skill 原文</h2><p>中文翻译保留 GPT Image 2、Prompt、UI、UX 等专有名词；英文原文在下方折叠区。</p></div>
+        <div className="skill-content"><Markdown components={skillMarkdownComponents(skill)}>{skill.content.zhCN}</Markdown></div>
+        <details className="skill-content-fold">
+          <summary>查看英文原文 SKILL.md</summary>
+          <div className="skill-content"><Markdown components={skillMarkdownComponents(skill)}>{skill.content.sourceEN}</Markdown></div>
+        </details>
       </section>
 
       <section className="skill-cases-section" id="skill-cases">

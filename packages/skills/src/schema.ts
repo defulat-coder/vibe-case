@@ -36,6 +36,10 @@ export const parsedSkillSchema = z.object({
     aliases: z.array(z.string()),
   }),
   summary: z.object({ zhCN: z.string().min(1), sourceEN: z.string().min(1) }),
+  content: z.object({
+    sourceEN: z.string().min(1),
+    zhCN: z.string().min(1),
+  }),
   whenToUse: z.array(z.string()).min(1),
   workflow: z.array(z.string()).min(1),
   outputs: z.array(z.string()).min(1),

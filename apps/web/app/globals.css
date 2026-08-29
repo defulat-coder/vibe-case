@@ -960,6 +960,28 @@ input, textarea { caret-color: #c9442d; }
 .skill-risk { grid-column: 1/-1; padding: 16px 18px; border: 1px solid var(--divider); border-radius: 14px; background: color-mix(in srgb, var(--peach) 18%, var(--white)); }
 .skill-risk p { margin: 7px 0 0; line-height: 1.55; }
 
+.skill-content-section { padding: 72px 0; border-bottom: 1px solid var(--divider); }
+.skill-content { max-width: 78ch; line-height: 1.7; }
+.skill-content h1, .skill-content h2, .skill-content h3, .skill-content h4 { margin: 1.6em 0 .6em; font-family: var(--font-display), sans-serif; font-weight: 400; line-height: 1.2; }
+.skill-content h1 { font-size: 34px; }
+.skill-content h2 { font-size: 28px; }
+.skill-content h3 { font-size: 22px; }
+.skill-content h4 { font-size: 18px; }
+.skill-content > :first-child { margin-top: 0; }
+.skill-content p { margin: .7em 0; }
+.skill-content ul, .skill-content ol { margin: .7em 0; padding-left: 24px; }
+.skill-content li { margin: .3em 0; }
+.skill-content code { padding: 2px 6px; border: 1px solid var(--divider); border-radius: 6px; background: var(--paper); font-size: .92em; }
+.skill-content pre { max-height: 480px; overflow: auto; padding: 16px; border: 1px solid var(--divider); border-radius: 12px; background: var(--paper); }
+.skill-content pre code { padding: 0; border: 0; background: transparent; }
+.skill-content table { border-collapse: collapse; margin: .9em 0; font-size: 14px; }
+.skill-content th, .skill-content td { padding: 8px 12px; border: 1px solid var(--divider); text-align: left; }
+.skill-content blockquote { margin: .9em 0; padding-left: 16px; border-left: 3px solid var(--divider); color: var(--ink-soft); }
+.skill-content img { max-width: 100%; border: 1px solid var(--divider); border-radius: 12px; }
+.skill-content-fold { margin-top: 28px; border: 1px solid var(--divider); border-radius: 14px; background: var(--white); }
+.skill-content-fold summary { padding: 14px 18px; font-weight: 800; cursor: pointer; }
+.skill-content-fold .skill-content { padding: 0 18px 18px; }
+
 .skill-cases-section { padding: 72px 0 0; }
 .skill-case-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; }
 .skill-case { min-width: 0; padding: 22px; border: 1px solid var(--divider); border-radius: 18px; background: var(--white); }
