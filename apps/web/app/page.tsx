@@ -14,10 +14,10 @@ export default function HomePage() {
       <section className="home-intro">
         <div className="home-copy">
           <h1>从案例出发，<br />把 Prompt 变成页面。</h1>
-          <p>浏览 15 个分类、92 个中文 UI 结构案例。先看懂功能，再复制或调整 Prompt，最后通过 AI SDK 生成可预览的 HTML。</p>
+          <p>浏览 92 个中文 UI 结构案例和持续更新的 Skills 案例。先看懂方法，再调整 Prompt，最后通过 AI SDK 运行结果。</p>
           <div className="home-actions">
             <Link className="button" href="/collections/ui">浏览 92 个案例 <ArrowRight size={17} /></Link>
-            <a className="text-link" href="#how-it-works">它如何工作</a>
+            <Link className="button button-secondary" href="/collections/skills">探索 Skills</Link>
           </div>
         </div>
 

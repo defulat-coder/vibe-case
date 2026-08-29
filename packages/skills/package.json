@@ -1,0 +1,24 @@
+{
+  "name": "@vibe-case/skills",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "sync": "node --experimental-strip-types src/sync.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "ai": "7.0.84",
+    "zod": "4.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "eslint": "9.39.5",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11"
+  }
+}

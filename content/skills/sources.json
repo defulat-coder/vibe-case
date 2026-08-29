@@ -1,0 +1,120 @@
+{
+  "queries": [
+    "gpt image prompting",
+    "poster design",
+    "visual hierarchy",
+    "ui typography",
+    "ux research",
+    "journey map",
+    "product design rationale",
+    "motion design principles",
+    "beat sync editing",
+    "storyboard composition"
+  ],
+  "maxNewPerRun": 4,
+  "excludedOwners": [
+    "openai",
+    "vercel-labs",
+    "github",
+    "figma",
+    "anthropics",
+    "microsoft",
+    "google",
+    "aws-samples",
+    "adobe",
+    "canva",
+    "meta",
+    "nvidia",
+    "bytedance",
+    "tencentcloudbase",
+    "aliyun",
+    "alibaba",
+    "runcomfy-com",
+    "prime-skills",
+    "fal-ai-community",
+    "heygen-com",
+    "meitu",
+    "qianwen-ai",
+    "qwencloud"
+  ],
+  "excludedTerms": [
+    "runcomfy",
+    "fal.ai",
+    "replicate",
+    "cloud",
+    "canva",
+    "figma",
+    "adobe",
+    "capcut",
+    "midjourney",
+    "gemini",
+    "nano banana",
+    "seedance",
+    "higgsfield",
+    "runway",
+    "login",
+    "credits"
+  ],
+  "sources": [
+    {
+      "repository": "freestylefly/awesome-gpt-image-2",
+      "skillId": "gpt-image-2-style-library",
+      "skillPath": "agents/skills/gpt-image-2-style-library/SKILL.md",
+      "skillsShUrl": "https://skills.sh/freestylefly/awesome-gpt-image-2/gpt-image-2-style-library"
+    },
+    {
+      "repository": "zhouwei713/gpt-image-2-prompting-skill",
+      "skillId": "gpt-image-2-prompting",
+      "skillPath": "SKILL.md",
+      "skillsShUrl": "https://skills.sh/zhouwei713/gpt-image-2-prompting-skill/gpt-image-2-prompting"
+    },
+    {
+      "repository": "rampstackco/claude-skills",
+      "skillId": "art-direction",
+      "skillPath": "skills/art-direction/SKILL.md",
+      "skillsShUrl": "https://skills.sh/rampstackco/claude-skills/art-direction"
+    },
+    {
+      "repository": "jakubkrehel/skills",
+      "skillId": "better-typography",
+      "skillPath": "skills/better-typography/SKILL.md",
+      "skillsShUrl": "https://skills.sh/jakubkrehel/skills/better-typography"
+    },
+    {
+      "repository": "Owl-Listener/designer-skills",
+      "skillId": "visual-hierarchy",
+      "skillPath": "ui-design/skills/visual-hierarchy/SKILL.md",
+      "skillsShUrl": "https://skills.sh/owl-listener/designer-skills/visual-hierarchy"
+    },
+    {
+      "repository": "Owl-Listener/designer-skills",
+      "skillId": "journey-map",
+      "skillPath": "design-research/skills/journey-map/SKILL.md",
+      "skillsShUrl": "https://skills.sh/owl-listener/designer-skills/journey-map"
+    },
+    {
+      "repository": "cuellarfr/design-skills",
+      "skillId": "ux-research",
+      "skillPath": "skills/ux-research/SKILL.md",
+      "skillsShUrl": "https://skills.sh/cuellarfr/design-skills/ux-research"
+    },
+    {
+      "repository": "product-on-purpose/pm-skills",
+      "skillId": "develop-design-rationale",
+      "skillPath": "skills/develop-design-rationale/SKILL.md",
+      "skillsShUrl": "https://skills.sh/product-on-purpose/pm-skills/develop-design-rationale"
+    },
+    {
+      "repository": "kylezantos/design-motion-principles",
+      "skillId": "design-motion-principles",
+      "skillPath": "skills/design-motion-principles/SKILL.md",
+      "skillsShUrl": "https://skills.sh/kylezantos/design-motion-principles/design-motion-principles"
+    },
+    {
+      "repository": "iart-ai/motion-design-skills",
+      "skillId": "beat-sync-editing",
+      "skillPath": "skills/beat-sync-editing/SKILL.md",
+      "skillsShUrl": "https://skills.sh/iart-ai/motion-design-skills/beat-sync-editing"
+    }
+  ]
+}

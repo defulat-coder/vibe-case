@@ -18,7 +18,7 @@ TypeScript、pnpm workspace、Turborepo、Next.js App Router、React、Tailwind 
 
 Vibe Case 是一个中文优先、可浏览、可生成、可复现的 AI 案例集。首个集合完整覆盖 VibeUI 的 15 个前端 UI 分类和 92 个案例内容，后续可增加 Skill、自动化、数据分析、文档和图片案例。
 
-成功意味着用户能从案例发现进入详情，查看中英文 Prompt，选择参考图，通过 AI SDK 生成自包含 HTML，并在站内安全预览和重新生成。
+成功意味着用户能从案例发现进入详情，查看中英文 Prompt，选择参考图，通过 AI SDK 生成自包含 HTML，并在站内安全预览和重新生成；也能持续发现独立作者的创作类 Skill，读懂中文方法并直接运行配套案例。
 
 ## Positioning
 
@@ -31,6 +31,7 @@ Vibe Case 是一个中文优先、可浏览、可生成、可复现的 AI 案例
 - 用户可以搜索、筛选、复制中英文 Prompt，并上传一张临时参考图。
 - AI 通过 Vercel AI SDK 和 AI Gateway 调用。
 - AI 结果是自包含 HTML 或结构化内容，不写入项目目录。
+- Skills 由 GitHub Actions 定期探索和解析；解析成功即自动可用，不设置候选、审核或发布状态。
 
 ## Capabilities and Constraints
 
@@ -39,6 +40,8 @@ Vibe Case 是一个中文优先、可浏览、可生成、可复现的 AI 案例
 - 搜索覆盖中文、英文、别名和标签。
 - UI 生成使用 `streamText` 与 `Output.object()`。
 - HTML 只在 sandboxed iframe 中显示。
+- Skills 探索排除大厂官方、云平台、模型聚合器和强产品绑定来源；原始 SKILL.md 永远不直接执行。
+- Skills 案例通过 AI SDK 运行：图片使用 GPT Image 2，其余输出结构化文本或时间线方案。
 - 不使用 Codex SDK、`ToolLoopAgent`、文件 tools、Shell、Runner、workspace 或设计文件操作。
 - 不复刻 VibeUI 的页面布局、品牌或营销素材。
 

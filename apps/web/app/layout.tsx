@@ -27,7 +27,7 @@ const footerPortraits = Array.from({ length: 14 }, (_, index) => index);
 
 export const metadata: Metadata = {
   title: { default: "Vibe Case — 中文 AI 案例集", template: "%s · Vibe Case" },
-  description: "92 个中文 UI 案例，保留英文术语，并通过 AI SDK 生成可预览的 HTML 效果。",
+  description: "中文优先的 UI 与 Skills 案例集，保留英文术语，并通过 AI SDK 运行可复现的案例。",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -46,7 +46,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             {footerPortraits.map((index) => <AvatarTile key={index} index={index} randomKey={`site-footer-${index}`} />)}
             <span className="footer-more"><span className="footer-more-wide">+86</span><span className="footer-more-medium">+90</span><span className="footer-more-small">+92</span></span>
           </div>
-          <Link href="/collections/ui">浏览 92 个 UI 案例</Link>
+          <div className="footer-links"><Link href="/collections/ui">浏览 UI 案例</Link><Link href="/collections/skills">探索 Skills</Link></div>
         </footer>
       </body>
     </html>

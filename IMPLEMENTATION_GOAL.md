@@ -1,7 +1,7 @@
 # Vibe Case 端到端实现目标
 
 > 状态：已实现并验证
-> 范围：项目基础架构、VibeUI 内容复刻、AI SDK 生成闭环
+> 范围：项目基础架构、VibeUI 内容复刻、AI SDK 生成闭环、持续 Skills 探索与案例模块
 > 约束：TypeScript Monorepo；不操作设计文件、项目文件、Shell 或 workspace
 
 ## 1. 产品目标
@@ -19,7 +19,7 @@
 7. 在安全 iframe 中直接预览结果。
 8. 查看并重新生成历史结果。
 
-产品后续可以增加 Skill、自动化、数据分析、文档和图片案例，但首版只完成 UI 案例集与 HTML 生成闭环。
+项目已经增加 Skills 案例集：定期从 Skills.sh 与 GitHub 探索独立作者的创作类 Skill，自动解析、中文结构化并生成案例。解析成功后立即可用，不设置人工审核和发布逻辑。
 
 ## 2. 用户端到端路径
 
@@ -98,6 +98,13 @@ vibe-case/
         search-cases.ts
         glossary.ts
 
+    skills/
+      src/
+        schema.ts
+        parser.ts
+        data.ts
+        sync.ts
+
     db/
       src/
         schema.ts
@@ -107,6 +114,10 @@ vibe-case/
   content/
     cases/
       ui/
+    skills/
+      sources.json
+      catalog.json
+      sync-errors.json
     glossary.json
 
   package.json
@@ -161,7 +172,18 @@ vibe-case/
 
 案例正文、Prompt 和静态图片由 Git 管理，不进入数据库。
 
-### 4.5 暂不创建的包
+### 4.5 `packages/skills`
+
+Skills 内容的唯一入口，负责：
+
+- 从白名单来源和预设查询词发现 Skill。
+- 过滤大厂官方、云平台、模型聚合器与产品绑定来源。
+- 解析 SKILL.md Frontmatter、用途、Workflow、依赖与执行风险。
+- 用 AI SDK 生成中文结构化信息和两个可运行案例。
+- 记录 Repository、License、Commit、内容 Hash 与 Skills.sh 安装量。
+- 解析成功后直接标记为 `active` 并进入网站，无审核发布流程。
+
+### 4.6 暂不创建的包
 
 - `packages/ui`：首版只有 `apps/web` 消费 UI。
 - `packages/types`：类型跟随所属 package。

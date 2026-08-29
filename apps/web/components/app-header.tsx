@@ -11,6 +11,7 @@ export function AppHeader() {
       </Link>
       <nav aria-label="主导航">
         <Link href="/collections/ui">UI 案例库</Link>
+        <Link href="/collections/skills">Skills 案例集</Link>
         <a href="https://vibeui.online/" target="_blank" rel="noreferrer">
           参考来源 <ArrowUpRight size={14} aria-hidden="true" />
         </a>

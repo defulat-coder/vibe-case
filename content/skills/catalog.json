@@ -1,0 +1,701 @@
+[
+  {
+    "id": "gpt-image-2-style-library",
+    "slug": "gpt-image-2-style-library",
+    "status": "active",
+    "category": "image",
+    "categoryLabel": "图片生成",
+    "title": {
+      "zhCN": "GPT Image 2 风格资料库",
+      "sourceEN": "GPT-Image2 Style Library",
+      "aliases": [
+        "风格模板",
+        "Style Library",
+        "图片提示词"
+      ]
+    },
+    "summary": {
+      "zhCN": "从大量真实案例中查找合适的视觉模板，把模糊的出图想法整理成可直接生成的 GPT Image 2 Prompt。",
+      "sourceEN": "Choose GPT-Image2 / gpt-image-2 visual styles and industrial prompt templates from the awesome-gpt-image-2 style library. Use when an agent needs to create, rewrite, classify, or improve image-generation prompts with repository-backed templates, categories, style tags, scene tags, pitfalls, and example cases."
+    },
+    "whenToUse": [
+      "不知道该选择什么视觉风格时",
+      "需要把一个主题扩展成系列图片时",
+      "希望复用成熟的构图与材质组合时"
+    ],
+    "workflow": [
+      "识别图片类型、主题和使用场景",
+      "从 Style Library 中筛选相符模板",
+      "替换主体、构图、材质与文字变量",
+      "检查画幅和视觉一致性后生成图片"
+    ],
+    "outputs": [
+      "结构化图片 Prompt",
+      "风格与构图选择依据",
+      "可继续迭代的系列模板"
+    ],
+    "dependencies": [
+      "GPT Image 2"
+    ],
+    "riskNotes": [
+      "原 Skill 包含 Shell 或命令执行说明；站内仅解析内容，不执行原始命令。"
+    ],
+    "cases": [
+      {
+        "id": "style-library-city-map",
+        "title": "城市生命系统图谱",
+        "summary": "把城市交通、绿地、居住与夜生活组织成一张编辑感系统图。",
+        "input": "为上海制作一张城市生命系统图谱，兼具信息设计和杂志封面感。",
+        "prompt": "使用 GPT Image 2 创作一张上海城市生命系统图谱。采用编辑设计式网格，中心是城市轮廓，四周组织交通、绿地、居住、夜生活四组信息模块；使用克制的黑、米白和薄荷绿，加入清晰的中文标签、图例、比例尺和时间轴，横向 3:2。",
+        "output": "一张带中文信息层级的城市系统图",
+        "executionMode": "image"
+      },
+      {
+        "id": "style-library-album-cover",
+        "title": "午夜电台专辑封面",
+        "summary": "使用复古印刷材料和夜间色彩制作可扩展的封面系统。",
+        "input": "为一张叫《凌晨两点》的城市电子乐专辑做封面。",
+        "prompt": "为城市电子乐专辑《凌晨两点》设计方形封面。深蓝夜色、旧报纸网点、荧光橙电台频率刻度、远处便利店灯光；标题使用紧凑中文粗体，保留大片负空间，像 1990 年代独立唱片的丝网印刷成品。",
+        "output": "一张 1:1 音乐专辑封面",
+        "executionMode": "image"
+      }
+    ],
+    "source": {
+      "repository": "freestylefly/awesome-gpt-image-2",
+      "skillPath": "agents/skills/gpt-image-2-style-library/SKILL.md",
+      "githubUrl": "https://github.com/freestylefly/awesome-gpt-image-2",
+      "skillsShUrl": "https://skills.sh/freestylefly/awesome-gpt-image-2/gpt-image-2-style-library",
+      "license": "MIT",
+      "commit": "e1d07c98fe8c01aa1f6567b5f6d7987e517688fa",
+      "installs": 2500,
+      "contentHash": "98519a3bfd28c5ab5630771a536f18fbe3627123cd7dd7a8801fa5da166a60f9"
+    }
+  },
+  {
+    "id": "gpt-image-2-prompting",
+    "slug": "gpt-image-2-prompting",
+    "status": "active",
+    "category": "image",
+    "categoryLabel": "图片生成",
+    "title": {
+      "zhCN": "GPT Image 2 提示词设计",
+      "sourceEN": "GPT-Image-2 Prompting",
+      "aliases": [
+        "图片 Prompt",
+        "Visual Brief",
+        "出图提示词"
+      ]
+    },
+    "summary": {
+      "zhCN": "用图片类型、主体、构图、辅助模块、气质、材质、文字和画幅八个槽位，把一句需求写成生产级视觉 Brief。",
+      "sourceEN": "Write high-quality GPT-Image-2 prompts with strong structure, layout logic, and production-ready visual direction. Use this skill whenever the user asks for image prompts, wants better GPT-Image-2 prompting, wants to upgrade a weak image prompt, asks for prompt templates, wants series-style prompt systems, needs prompts for posters, UI screens, information graphics, concept art, brand visuals, editorial layouts, or worldbuilding images, or wants funny, absurd, meme-like, fake-news-style, and highly shareable visual prompts. If the current Hermes environment exposes an image generation tool/model, this skill should also offer to generate an image from the finalized prompt after presenting the prompt."
+    },
+    "whenToUse": [
+      "原始 Prompt 太短或只堆砌风格词时",
+      "需要海报、信息图、概念艺术或品牌视觉时",
+      "想制作怪诞、有反差或适合传播的图片时"
+    ],
+    "workflow": [
+      "先确定最终图片类型",
+      "用八槽结构补全视觉信息",
+      "把高级感等抽象词翻译成可见指令",
+      "增加信息模块、画幅和系列变化",
+      "输出最终 Prompt 与可选变体"
+    ],
+    "outputs": [
+      "生产级 Visual Brief",
+      "最终中文 Prompt",
+      "三个可选变化方向"
+    ],
+    "dependencies": [
+      "GPT Image 2"
+    ],
+    "riskNotes": [],
+    "cases": [
+      {
+        "id": "prompting-absurd-news",
+        "title": "荒诞街头新闻照片",
+        "summary": "用写实新闻摄影语言包装一个不可能发生的日常事件。",
+        "input": "做一张很真实但又很荒诞、适合社交媒体传播的街头照片。",
+        "prompt": "一张突发新闻摄影照片：清晨上班高峰，一只穿着反光背心的巨大水豚在上海路口认真指挥交通，行人若无其事地经过。手持相机、略歪构图、现场闪光灯、轻微运动模糊、潮湿路面反光、未经修饰的新闻图片质感，画面右下角带简短中文时间地点标注，横向 3:2。",
+        "output": "一张具有新闻可信度的荒诞街头图片",
+        "executionMode": "image"
+      },
+      {
+        "id": "prompting-product-world",
+        "title": "产品世界观设定板",
+        "summary": "把抽象产品概念转换成包含材料、组件和注释的视觉设定板。",
+        "input": "给一款帮助人专注的桌面应用做世界观设定图。",
+        "prompt": "为专注工具制作一张产品世界观设定板。中心展示安静的桌面应用主界面，周围排列时间胶囊、呼吸节奏、环境声音和完成仪式四个模块；磨砂玻璃、浅灰金属、暖白纸张材质，精密网格、短中文注释、组件编号和色彩样本，克制、安静、可信，横向 16:9。",
+        "output": "一张可指导后续 UI 与品牌的设定板",
+        "executionMode": "image"
+      }
+    ],
+    "source": {
+      "repository": "zhouwei713/gpt-image-2-prompting-skill",
+      "skillPath": "SKILL.md",
+      "githubUrl": "https://github.com/zhouwei713/gpt-image-2-prompting-skill",
+      "skillsShUrl": "https://skills.sh/zhouwei713/gpt-image-2-prompting-skill/gpt-image-2-prompting",
+      "license": "MIT",
+      "commit": "80da4b0364833c1177c525a6f2f9ab4e44e1b8fd",
+      "installs": 71,
+      "contentHash": "0e9471a82acff5d97df1c7e4b796825b751b61cb686c090f4d94e290f2bd3b33"
+    }
+  },
+  {
+    "id": "art-direction",
+    "slug": "art-direction",
+    "status": "active",
+    "category": "visual",
+    "categoryLabel": "视觉设计",
+    "title": {
+      "zhCN": "视觉艺术指导",
+      "sourceEN": "Art Direction",
+      "aliases": [
+        "Creative Brief",
+        "Photo Brief",
+        "Visual Direction",
+        "视觉方向"
+      ]
+    },
+    "summary": {
+      "zhCN": "用故事、视觉处理、执行规格、渠道变体和质量标准五层框架，指导摄影、插画、视频与 Campaign 的具体交付。",
+      "sourceEN": "Direct visual and creative work for campaigns, photography, illustration, video, and branded experiences. Use this skill whenever the user wants to brief a photographer, direct illustrators, plan a creative campaign, develop visual concepts, or evaluate creative work for fit. Triggers on art direction, photo brief, photography brief, illustration brief, campaign concept, creative concept, visual direction, mood board, look and feel, visual treatment, video direction. Also triggers when the user has approved brand identity but needs to extend it into specific creative deliverables. Use `creative-direction` instead when the ask is the project-wide aesthetic brief that this skill consumes as input."
+    },
+    "whenToUse": [
+      "需要给摄影师、插画师或视频团队写 Brief 时",
+      "品牌系统已经确定，需要延展到具体 Campaign 时",
+      "评估一份视觉作品是否符合品牌与目标时"
+    ],
+    "workflow": [
+      "确认交付物、受众、目标、预算与渠道",
+      "定义故事前提、情绪主线和观众带走的信息",
+      "明确构图、光线、色彩、材质与节奏",
+      "列出制作规格、限制和渠道变体",
+      "用清晰的通过与不通过标准完成评审"
+    ],
+    "outputs": [
+      "Art Direction Brief",
+      "视觉处理与制作规格",
+      "渠道变体和质量标准"
+    ],
+    "dependencies": [],
+    "riskNotes": [],
+    "cases": [
+      {
+        "id": "art-direction-tea-shoot",
+        "title": "手作茶品牌摄影 Brief",
+        "summary": "把安静、手作和产地信任转换成可执行的摄影方向。",
+        "input": "为一个年轻手作茶品牌策划秋季产品摄影，素材会用于官网 Hero、社交平台和邮件。",
+        "prompt": "使用 Art Direction 五层框架，为年轻手作茶品牌编写秋季摄影 Brief。定义故事前提、情绪主线、品牌角色、构图、自然光、色彩、场景、道具和人物状态；列出 Hero、1:1、4:5、9:16 与邮件横幅的构图变体，并给出必须拍摄、可选拍摄、禁止视觉和验收标准。",
+        "output": "可直接交付摄影团队的 Art Direction Brief",
+        "executionMode": "structured"
+      },
+      {
+        "id": "art-direction-money-illustration",
+        "title": "个人理财插画系统",
+        "summary": "为抽象金融概念建立友好但不幼稚的插画语言。",
+        "input": "一款个人理财 App 需要六张新手教育插画，主题包括预算、储蓄、复利和风险。",
+        "prompt": "为个人理财 App 制定六张新手教育插画的 Art Direction。说明核心故事、受众情绪、角色与物件语言、线条、色彩、构图、细节层级和品牌边界；提供系列一致性规则、六张主题的差异化处理、移动端裁切方案，以及明确的 approved / not approved 质量标准。",
+        "output": "插画系列视觉方向与制作规范",
+        "executionMode": "structured"
+      }
+    ],
+    "source": {
+      "repository": "rampstackco/claude-skills",
+      "skillPath": "skills/art-direction/SKILL.md",
+      "githubUrl": "https://github.com/rampstackco/claude-skills",
+      "skillsShUrl": "https://skills.sh/rampstackco/claude-skills/art-direction",
+      "license": "MIT",
+      "commit": "1d637e922daf258159aa589fa5730954d4fb6c86",
+      "installs": 431,
+      "contentHash": "3444cf2c4b932665df33509e16e0dfdcd370b1507b43a2bb157fd54e391e3c8d"
+    }
+  },
+  {
+    "id": "better-typography",
+    "slug": "better-typography",
+    "status": "active",
+    "category": "ui",
+    "categoryLabel": "UI 设计",
+    "title": {
+      "zhCN": "更好的网页排版",
+      "sourceEN": "Better Typography",
+      "aliases": [
+        "Typography",
+        "字体",
+        "Type Scale"
+      ]
+    },
+    "summary": {
+      "zhCN": "用克制的字体数量、语义化字号、合适行高、行宽和换行规则，让真实界面文字更稳定、更易读。",
+      "sourceEN": "Web typography. Use when picking or pairing typefaces, setting up a type scale, or styling and truncating text in components. Triggers on typography, font loading, woff2, variable fonts, opentype features, type scale, heading hierarchy, line-height, letter-spacing, measure, text-wrap, truncation, tabular numbers, underlines, text selection, iOS input zoom, font smoothing, smart punctuation, text-box, drop cap."
+    },
+    "whenToUse": [
+      "选择或搭配网页字体时",
+      "建立 Type Scale 和标题层级时",
+      "处理长文、数字跳动、截断和移动端输入框时"
+    ],
+    "workflow": [
+      "在真实页面和真实文案长度下检查排版",
+      "限制字体、字号和字重数量",
+      "按角色设置行高、字距和最大行宽",
+      "处理换行、数字、下划线和移动端输入",
+      "复查语言方向、选择状态与可访问性"
+    ],
+    "outputs": [
+      "Typography Audit",
+      "字体与 Type Scale 建议",
+      "可直接采用的 CSS 修复清单"
+    ],
+    "dependencies": [],
+    "riskNotes": [],
+    "cases": [
+      {
+        "id": "typography-pricing-audit",
+        "title": "Pricing 页面排版审查",
+        "summary": "检查价格、功能说明和 CTA 的阅读层级与数字稳定性。",
+        "input": "一个三档 Pricing 页面，价格会按月付/年付实时切换，卡片内说明很长。",
+        "prompt": "请按 Better Typography 方法审查这个 Pricing 页面。重点检查价格数字是否使用 tabular numbers、标题层级、功能列表行高、卡片内长文换行、按钮标签和移动端 16px 输入要求。输出问题、影响、建议 CSS 和验收方式。",
+        "output": "按严重程度排序的排版审查报告",
+        "executionMode": "structured"
+      },
+      {
+        "id": "typography-reading-system",
+        "title": "长文章阅读系统",
+        "summary": "为中文长文建立稳定的正文、标题、注释和引用排版规则。",
+        "input": "为一个中英混排的设计文章站建立阅读排版规范。",
+        "prompt": "为中文优先、中英混排的设计文章站制定 Typography 系统。定义字体角色、Type Scale、正文行高与 60–75 字符行宽、标题换行、引用、代码、注释和移动端规则；说明每项选择的原因，并给出 CSS Token 示例。",
+        "output": "可落地的阅读排版规范与 Token",
+        "executionMode": "structured"
+      }
+    ],
+    "source": {
+      "repository": "jakubkrehel/skills",
+      "skillPath": "skills/better-typography/SKILL.md",
+      "githubUrl": "https://github.com/jakubkrehel/skills",
+      "skillsShUrl": "https://skills.sh/jakubkrehel/skills/better-typography",
+      "license": "MIT",
+      "commit": "6c43b20ce00f720eed854591abe480127629c191",
+      "installs": 13000,
+      "contentHash": "a5d9e3560ee84087f65443aad266e62bfd9c9d4143c48424c5046624ac5b631d"
+    }
+  },
+  {
+    "id": "visual-hierarchy",
+    "slug": "visual-hierarchy",
+    "status": "active",
+    "category": "ui",
+    "categoryLabel": "UI 设计",
+    "title": {
+      "zhCN": "视觉层级设计",
+      "sourceEN": "Visual Hierarchy",
+      "aliases": [
+        "阅读顺序",
+        "Visual Emphasis",
+        "界面层级"
+      ]
+    },
+    "summary": {
+      "zhCN": "通过尺寸、字重、对比、空间和位置建立清晰的阅读顺序，让界面先表达最重要的任务。",
+      "sourceEN": "Establish hierarchy through size, weight, colour, spacing, and position so the eye lands in the intended order. Use when composing new work. For judging an existing screen, use `critique-visual-hierarchy` (visual-critique)."
+    },
+    "whenToUse": [
+      "页面所有内容看起来同样重要时",
+      "首屏阅读顺序混乱时",
+      "Dashboard、表单或 Landing Page 需要突出主任务时"
+    ],
+    "workflow": [
+      "明确页面唯一的首要任务",
+      "标出用户应该看到的前三项信息",
+      "检查尺寸、对比、位置和留白是否支持顺序",
+      "降低无关元素的视觉音量",
+      "用快速扫视和模糊测试验证"
+    ],
+    "outputs": [
+      "预期阅读顺序",
+      "层级问题清单",
+      "按影响排序的改造建议"
+    ],
+    "dependencies": [],
+    "riskNotes": [],
+    "cases": [
+      {
+        "id": "hierarchy-dashboard",
+        "title": "运营 Dashboard 层级重排",
+        "summary": "在大量指标和图表中明确异常、趋势和下一步操作。",
+        "input": "一个运营 Dashboard 有 12 张指标卡、4 个图表和一张告警表，用户不知道先看哪里。",
+        "prompt": "使用 Visual Hierarchy 方法重排这个运营 Dashboard。先定义用户进入页面后的前三个问题，再给出信息分组、主次尺寸、对比、位置、留白和颜色降噪方案；输出新的阅读顺序和可验证标准。",
+        "output": "Dashboard 层级方案与验证清单",
+        "executionMode": "structured"
+      },
+      {
+        "id": "hierarchy-landing-scan",
+        "title": "Landing Page 五秒扫视",
+        "summary": "验证首屏是否能快速说明产品、价值和行动。",
+        "input": "审查一个 AI 写作产品 Landing Page 的首屏。",
+        "prompt": "对 AI 写作产品首屏执行五秒 Visual Hierarchy 审查。判断用户能否立即识别产品是什么、核心价值和主 CTA；列出抢夺注意力的元素，并给出尺寸、位置、对比和文案密度调整建议。",
+        "output": "首屏阅读顺序与重点修复项",
+        "executionMode": "structured"
+      }
+    ],
+    "source": {
+      "repository": "Owl-Listener/designer-skills",
+      "skillPath": "ui-design/skills/visual-hierarchy/SKILL.md",
+      "githubUrl": "https://github.com/Owl-Listener/designer-skills",
+      "skillsShUrl": "https://skills.sh/owl-listener/designer-skills/visual-hierarchy",
+      "license": "MIT",
+      "commit": "5d255536fd7a909d6e40b5a59d0b97e4bda3502a",
+      "installs": 1500,
+      "contentHash": "ac1d1d993f4ea681a09a158d65f935acc4b0ffe41fef1e358c3952c524725205"
+    }
+  },
+  {
+    "id": "journey-map",
+    "slug": "journey-map",
+    "status": "active",
+    "category": "ux",
+    "categoryLabel": "UX 研究",
+    "title": {
+      "zhCN": "用户旅程图",
+      "sourceEN": "Journey Map",
+      "aliases": [
+        "Customer Journey",
+        "情绪曲线",
+        "体验地图"
+      ]
+    },
+    "summary": {
+      "zhCN": "围绕一个具体 Persona，把端到端体验拆成阶段、目标、触点、情绪、痛点和机会点。",
+      "sourceEN": "Map one persona's end-to-end experience with stages, touchpoints, emotions, and pain points. Use when improving an existing experience. For the multi-channel ecosystem use `experience-map` (ux-strategy); for screen-level paths use `user-flow-diagram` (prototyping-testing)."
+    },
+    "whenToUse": [
+      "改进一个已经存在的用户体验时",
+      "需要跨阶段理解流失和情绪变化时",
+      "团队对问题发生在哪个触点没有共识时"
+    ],
+    "workflow": [
+      "确认 Persona、场景和旅程边界",
+      "定义五到七个关键阶段",
+      "逐阶段记录目标、行为、触点、想法和情绪",
+      "绘制情绪曲线并标记关键时刻",
+      "按影响和可行性排序机会点"
+    ],
+    "outputs": [
+      "Journey Map",
+      "情绪曲线",
+      "关键时刻和优先机会清单"
+    ],
+    "dependencies": [],
+    "riskNotes": [],
+    "cases": [
+      {
+        "id": "journey-map-first-week",
+        "title": "效率工具首周旅程",
+        "summary": "分析独立开发者从发现产品到形成使用习惯的第一周。",
+        "input": "Persona 是独立开发者，场景是一款自动整理开发日志的工具，旅程从看到朋友推荐开始，到第七天决定是否继续使用。",
+        "prompt": "为这个独立开发者制作当前状态 Journey Map。划分 5–7 个阶段，逐阶段列出目标、行为、触点、问题、情绪、痛点和机会；绘制情绪曲线，标出 Moments of Truth，并按影响与可行性给出前五个改进机会。",
+        "output": "首周 Journey Map 与机会排序",
+        "executionMode": "structured"
+      },
+      {
+        "id": "journey-map-checkout",
+        "title": "小型电商购买旅程",
+        "summary": "识别从商品发现到收货后的关键摩擦。",
+        "input": "一位第一次购买手作咖啡器具的用户，从社交平台发现商品到收货后第一次使用。",
+        "prompt": "围绕第一次购买手作咖啡器具的用户创建 Journey Map。覆盖发现、比较、下单、等待、开箱和首次使用；为每阶段标记渠道、情绪、信任问题、信息缺口与设计机会，并找出最可能导致放弃的三个节点。",
+        "output": "端到端购买旅程与流失风险",
+        "executionMode": "structured"
+      }
+    ],
+    "source": {
+      "repository": "Owl-Listener/designer-skills",
+      "skillPath": "design-research/skills/journey-map/SKILL.md",
+      "githubUrl": "https://github.com/Owl-Listener/designer-skills",
+      "skillsShUrl": "https://skills.sh/owl-listener/designer-skills/journey-map",
+      "license": "MIT",
+      "commit": "5d255536fd7a909d6e40b5a59d0b97e4bda3502a",
+      "installs": 1300,
+      "contentHash": "8462a826ddc0ae73cc43e7dbcfe8f9e243a37158ae9e0804b587a1b6eb85d43f"
+    }
+  },
+  {
+    "id": "ux-research",
+    "slug": "ux-research",
+    "status": "active",
+    "category": "ux",
+    "categoryLabel": "UX 研究",
+    "title": {
+      "zhCN": "UX 研究计划",
+      "sourceEN": "UX Research",
+      "aliases": [
+        "User Research",
+        "访谈",
+        "Usability Testing"
+      ]
+    },
+    "summary": {
+      "zhCN": "从决策风险出发选择研究方法，规划招募、访谈、可用性测试和定性分析，而不是为了交付文档而研究。",
+      "sourceEN": "Plan, conduct, and analyze UX research using proven methodologies. Use when planning user research, writing interview scripts, creating test plans, recruiting participants, analyzing qualitative data, or synthesizing findings into actionable insights. Covers generative, evaluative, and continuous discovery research with specific frameworks, scoring rubrics, and templates."
+    },
+    "whenToUse": [
+      "需要确定该研究什么、用什么方法时",
+      "编写访谈提纲或 Usability Test 时",
+      "把定性材料整理为能推动决策的结论时"
+    ],
+    "workflow": [
+      "把模糊目标改写为可回答的研究问题",
+      "根据决策类型选择生成式或评估式方法",
+      "定义参与者、样本量、时间和记录方式",
+      "设计中立的访谈或测试任务",
+      "归纳主题并把发现连接到产品决策"
+    ],
+    "outputs": [
+      "Research Plan",
+      "访谈或测试脚本",
+      "发现、证据和建议"
+    ],
+    "dependencies": [],
+    "riskNotes": [],
+    "cases": [
+      {
+        "id": "ux-research-ai-notes",
+        "title": "AI 会议笔记探索研究",
+        "summary": "理解用户为什么不信任自动总结，以及信任在什么时刻被破坏。",
+        "input": "我们准备做 AI 会议笔记，希望先了解知识工作者不信任自动总结的原因。",
+        "prompt": "制定一份生成式 UX Research Plan。明确要支持的产品决策、3–5 个研究问题、参与者筛选条件、6 人访谈安排、中立访谈提纲、记录方式、分析方法和最终交付；避免询问用户想要什么功能。",
+        "output": "可直接执行的研究计划与访谈提纲",
+        "executionMode": "structured"
+      },
+      {
+        "id": "ux-research-checkout-test",
+        "title": "移动结账可用性测试",
+        "summary": "用任务完成率和严重度发现移动端结账问题。",
+        "input": "我们重新设计了三步移动结账，希望一周内完成小规模测试。",
+        "prompt": "为三步移动结账设计一份 5 人 Usability Test。提供研究目标、招募条件、现实任务场景、主持人脚本、成功指标、问题严重度评分、观察记录表和一天内汇总结果的方法。",
+        "output": "五人可用性测试方案",
+        "executionMode": "structured"
+      }
+    ],
+    "source": {
+      "repository": "cuellarfr/design-skills",
+      "skillPath": "skills/ux-research/SKILL.md",
+      "githubUrl": "https://github.com/cuellarfr/design-skills",
+      "skillsShUrl": "https://skills.sh/cuellarfr/design-skills/ux-research",
+      "license": "MIT",
+      "commit": "b41750affc03669988b649380756bc17fa427a09",
+      "installs": 207,
+      "contentHash": "9cb6593e3ef597fa847955af41782305362ed52264850572873d0520afd4ad79"
+    }
+  },
+  {
+    "id": "develop-design-rationale",
+    "slug": "develop-design-rationale",
+    "status": "active",
+    "category": "product",
+    "categoryLabel": "Product Design",
+    "title": {
+      "zhCN": "设计决策依据",
+      "sourceEN": "Design Rationale",
+      "aliases": [
+        "方案决策",
+        "Trade-offs",
+        "设计评审"
+      ]
+    },
+    "summary": {
+      "zhCN": "记录设计决定背后的上下文、替代方案、评价标准和取舍，让后来者能够重建设计为什么这样做。",
+      "sourceEN": "Documents the reasoning behind design decisions including alternatives considered, trade-offs evaluated, and principles applied. Use when making significant UX decisions, aligning with stakeholders on design direction, or preserving design context for future reference."
+    },
+    "whenToUse": [
+      "多个设计方案都看似合理时",
+      "重要 UX 决策需要与 Stakeholder 对齐时",
+      "需要为未来团队保存设计上下文时"
+    ],
+    "workflow": [
+      "用一句话声明最终决策",
+      "记录问题、用户需求和约束",
+      "公平描述至少两个替代方案",
+      "定义可验证的评价标准",
+      "说明选择原因、接受的取舍和可逆性",
+      "记录后续指标与重新评估条件"
+    ],
+    "outputs": [
+      "Design Rationale 文档",
+      "方案评价矩阵",
+      "Trade-offs 与复查条件"
+    ],
+    "dependencies": [],
+    "riskNotes": [],
+    "cases": [
+      {
+        "id": "rationale-mobile-navigation",
+        "title": "移动端导航决策",
+        "summary": "比较 Bottom Navigation、Hamburger Menu 和首页入口三种方案。",
+        "input": "内容型 App 有五个高频区域，团队在底部导航和汉堡菜单之间争论。",
+        "prompt": "为这个移动端导航选择编写 Design Rationale。公平比较 Bottom Navigation、Hamburger Menu 和首页功能入口，定义可发现性、单手操作、扩展性、内容空间和学习成本等标准；说明最终选择、牺牲、可逆性和上线后要监测的指标。",
+        "output": "带评价矩阵的设计决策文档",
+        "executionMode": "structured"
+      },
+      {
+        "id": "rationale-onboarding",
+        "title": "Onboarding 结构选择",
+        "summary": "决定使用多步骤向导还是渐进式引导。",
+        "input": "一个专业工具首次设置需要六项信息，但用户希望先看到产品价值。",
+        "prompt": "针对首次设置流程编写 Design Rationale。比较一次性多步骤向导、渐进式 Onboarding 和默认值直接进入三种方案；用激活速度、设置正确率、认知负担和后续可修改性进行评价，给出决策与复查条件。",
+        "output": "Onboarding 方案选择依据",
+        "executionMode": "structured"
+      }
+    ],
+    "source": {
+      "repository": "product-on-purpose/pm-skills",
+      "skillPath": "skills/develop-design-rationale/SKILL.md",
+      "githubUrl": "https://github.com/product-on-purpose/pm-skills",
+      "skillsShUrl": "https://skills.sh/product-on-purpose/pm-skills/develop-design-rationale",
+      "license": "Apache-2.0",
+      "commit": "152b175181a7ccba13a46fb1bc6cbcf662ef1dc2",
+      "installs": 598,
+      "contentHash": "853395279e4da6fc4fbbb305544be7b28f65cfb7c24f1b6d558ec07610e99f88"
+    }
+  },
+  {
+    "id": "design-motion-principles",
+    "slug": "design-motion-principles",
+    "status": "active",
+    "category": "motion",
+    "categoryLabel": "Motion Design",
+    "title": {
+      "zhCN": "有目的的界面动效",
+      "sourceEN": "Design Motion Principles",
+      "aliases": [
+        "Micro-interaction",
+        "Animation Audit",
+        "动效审查"
+      ]
+    },
+    "summary": {
+      "zhCN": "根据使用频率和产品场景决定界面是否需要动、该动多快，并同时处理性能与 Reduced Motion。",
+      "sourceEN": "Motion and interaction design expert based on Emil Kowalski, Jakub Krehel, and Jhey Tompkins' techniques. Two modes — build interactive components with purposeful motion, or audit existing animations to catch AI-slop motion patterns (audit emits a branded HTML report with looping demos). Use when creating, adding, animating, or reviewing UI motion: transitions, hover states, micro-interactions, enter/exit animations, or any motion design work in React, Framer Motion, CSS, or HTML. Provides per-designer perspectives with context-aware weighting."
+    },
+    "whenToUse": [
+      "设计 Hover、进出场或 Micro-interaction 时",
+      "已有动画显得拖沓或像模板时",
+      "需要在克制、精致和玩味之间选择动效语言时"
+    ],
+    "workflow": [
+      "判断任务是创建动效还是审查动效",
+      "根据项目场景选择克制、精致或玩味的侧重点",
+      "先用使用频率决定是否应该动画",
+      "制定 Duration、Easing 和空间路径",
+      "补充 Reduced Motion 与性能要求"
+    ],
+    "outputs": [
+      "Motion Specification",
+      "动效审查报告",
+      "时长、Easing 与无障碍规则"
+    ],
+    "dependencies": [],
+    "riskNotes": [
+      "原 Skill 包含 Shell 或命令执行说明；站内仅解析内容，不执行原始命令。"
+    ],
+    "cases": [
+      {
+        "id": "motion-command-palette",
+        "title": "Command Palette 动效规范",
+        "summary": "为高频键盘操作设计几乎不可察觉的响应。",
+        "input": "设计一个每天会打开上百次的 Command Palette 进出场动效。",
+        "prompt": "使用 Design Motion Principles 为高频 Command Palette 制定 Motion Specification。先经过 Frequency Gate，说明哪些动画应删除；定义打开、结果更新、选择和关闭的时长、Easing、焦点管理与 Reduced Motion 方案，确保键盘操作不被动画拖慢。",
+        "output": "高频操作的克制动效规范",
+        "executionMode": "structured"
+      },
+      {
+        "id": "motion-empty-state",
+        "title": "首次完成后的庆祝动效",
+        "summary": "为低频的重要时刻设计有记忆点但不过度的反馈。",
+        "input": "用户第一次完成完整项目时，希望界面有一点庆祝感。",
+        "prompt": "为用户第一次完成项目设计一次低频庆祝动效。说明视觉叙事、元素顺序、Timing、Easing、声音是否必要、何时自动结束，以及 Reduced Motion 的等价反馈；避免整页粒子特效和持续干扰。",
+        "output": "一次性庆祝动效分镜与参数",
+        "executionMode": "structured"
+      }
+    ],
+    "source": {
+      "repository": "kylezantos/design-motion-principles",
+      "skillPath": "skills/design-motion-principles/SKILL.md",
+      "githubUrl": "https://github.com/kylezantos/design-motion-principles",
+      "skillsShUrl": "https://skills.sh/kylezantos/design-motion-principles/design-motion-principles",
+      "license": "MIT",
+      "commit": "7803a7ccd656281447cf11b9fcc228163bc2e896",
+      "installs": 8600,
+      "contentHash": "599f42dbf011df38f3fcaf1497533af447d91cf97443b92439455af103c25b2e"
+    }
+  },
+  {
+    "id": "beat-sync-editing",
+    "slug": "beat-sync-editing",
+    "status": "active",
+    "category": "video",
+    "categoryLabel": "视频创作",
+    "title": {
+      "zhCN": "节拍同步剪辑",
+      "sourceEN": "Beat-Sync Editing",
+      "aliases": [
+        "BPM",
+        "Cut to the Beat",
+        "剪辑节奏"
+      ]
+    },
+    "summary": {
+      "zhCN": "把音乐 BPM、叙事结构和镜头运动转换为帧级切点、转场和变速计划，让剪辑形成明确的张力与释放。",
+      "sourceEN": "This skill should be used when the user asks to \"cut to the beat\", \"fix the pacing\", \"edit this sequence\", \"sync cuts to music/BPM\", \"add a match cut / J-cut / L-cut\", \"build a speed ramp\", or \"plan a shot sequence / edit timeline\". Covers editing rhythm, transitions, retiming, and translating an edit plan to an NLE or a code timeline (Remotion/AE frames)."
+    },
+    "whenToUse": [
+      "镜头切点与音乐对不上时",
+      "成片节奏平、拖沓或过度碎切时",
+      "需要规划 Match Cut、J-cut、L-cut 或 Speed Ramp 时"
+    ],
+    "workflow": [
+      "根据 BPM 和 FPS 计算每拍帧数",
+      "按两拍、四拍或八拍乐句放置结构切点",
+      "用动作方向和速度隐藏剪辑接缝",
+      "只在有动机时选择 Match Cut、J-cut 或 L-cut",
+      "用 Establish、Develop、Climax、Resolve 塑造节奏曲线"
+    ],
+    "outputs": [
+      "帧级 Cut List",
+      "转场与 Speed Ramp 说明",
+      "剪辑节奏曲线"
+    ],
+    "dependencies": [],
+    "riskNotes": [],
+    "cases": [
+      {
+        "id": "beat-sync-product-spot",
+        "title": "30 秒产品短片",
+        "summary": "让最大视觉时刻准确落在音乐 Drop 上。",
+        "input": "30 秒运动鞋短片，音乐 128 BPM、30 FPS，Drop 在第 32 拍。",
+        "prompt": "使用 Beat-Sync Editing 方法规划这条 30 秒运动鞋短片。计算每拍帧数和第 32 拍对应帧；按 Establish、Develop、Climax、Resolve 给出镜头长度变化、结构切点、两个 Match Cut、一处 Speed Ramp 和结尾 CTA 停留，输出帧级 Cut List。",
+        "output": "900 帧时间线上的剪辑计划",
+        "executionMode": "timeline-plan"
+      },
+      {
+        "id": "beat-sync-calm-film",
+        "title": "安静品牌影片",
+        "summary": "避免见拍就切，用长乐句和环境声音建立呼吸感。",
+        "input": "45 秒手作陶瓷品牌影片，音乐 80 BPM、24 FPS，希望安静、昂贵但不做作。",
+        "prompt": "为 45 秒陶瓷品牌影片制定 Beat-Sync 剪辑计划。音乐 80 BPM、24 FPS；采用 Premium Motion Personality，以 8–16 拍长乐句为主，只在动作完成和材质变化处剪切，加入一处 L-cut 和结尾长停留。输出时间码、帧号、镜头作用与声音衔接。",
+        "output": "慢节奏品牌片时间线",
+        "executionMode": "timeline-plan"
+      }
+    ],
+    "source": {
+      "repository": "iart-ai/motion-design-skills",
+      "skillPath": "skills/beat-sync-editing/SKILL.md",
+      "githubUrl": "https://github.com/iart-ai/motion-design-skills",
+      "skillsShUrl": "https://skills.sh/iart-ai/motion-design-skills/beat-sync-editing",
+      "license": "MIT",
+      "commit": "3110f145d92bfbb0d3da88940de6c50225b79bf7",
+      "installs": 535,
+      "contentHash": "92118cd6a5821974aa084a9838f263b46ee65fa1f48aaded8e676861f8c2de28"
+    }
+  }
+]

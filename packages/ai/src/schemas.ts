@@ -19,3 +19,16 @@ export const generateUIInputSchema = z.object({
 
 export type UIGenerationResult = z.infer<typeof uiGenerationResultSchema>;
 export type GenerateUIInput = z.infer<typeof generateUIInputSchema>;
+
+export const runSkillCaseInputSchema = z.object({
+  caseId: z.string().min(1).max(160),
+  prompt: z.string().min(20).max(8_000),
+});
+
+export const skillCaseResultSchema = z.discriminatedUnion("kind", [
+  z.object({ kind: z.literal("image"), image: z.string().startsWith("data:image/"), mediaType: z.string() }),
+  z.object({ kind: z.literal("text"), text: z.string().min(1).max(40_000) }),
+]);
+
+export type RunSkillCaseInput = z.infer<typeof runSkillCaseInputSchema>;
+export type SkillCaseResult = z.infer<typeof skillCaseResultSchema>;

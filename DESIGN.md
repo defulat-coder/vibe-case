@@ -286,6 +286,45 @@ Every case card leads with one large structural diagram. Metadata sits above it,
 
 The studio is a 3px black split frame: a yellow editor beside a larger mint preview, capped by a black 50px preview toolbar. Before generation, the case structure fills the empty state and a small portrait guide supports the explanatory copy. After generation, the sandboxed iframe replaces that authored empty state. The iframe's visual language is unconstrained model output and must never be treated as part of Vibe Case's component system.
 
+### Skills Catalog
+
+The Skills catalog extends the Functional Commons without changing its visual world. Search, category chips, collection metrics, pastel rotation, heavy portrait-ink outlines, ZCOOL KuaiLe titles, and Manrope operational copy follow the existing catalog system; the distinctive artifact is a functional map that makes each Skill legible as `SKILL.md → workflow → output` before the user opens it.
+
+- **Grid:** two equal columns with a 20px gap inside the 1380px authored width. Below 760px it becomes one column. Cards keep a 520px minimum height on desktop and 480px on mobile so maps and summaries remain comparable.
+- **Card Shell:** 2px portrait-ink border, 16px corners, 14px link padding, no resting shadow, and a seven-step pastel rotation through mint, sky, yellow, lavender, peach, sage, and rose. The rotation supplies community rhythm only; it does not encode category or status.
+- **Functional Map:** a clean-cream inset with a 2px ink border, 14px corners, 18px padding, and a 276px minimum height. Its upper row splits approximately `.82 / 1.18` between the source block and workflow; the output spans the full lower row. On mobile the map uses 14px padding and a 240px minimum height.
+- **Source:** the `SKILL.md` origin is a solid ink block with cream text, 12px corners, and 15px padding. Preserve the English source title even when it wraps.
+- **Workflow:** show the first three steps as a centered vertical sequence with 22px numbered markers, 9px row gaps, and compact 12px graphite copy. This is a method preview, not a generic feature list.
+- **Output:** use a full-width yellow-note bar with a 2px ink border, 11px corners, a 44px minimum height, and reserved right padding for the guide avatar.
+- **Guide and Caption:** the approved portrait guide is 52px square, ink-outlined, and anchored to the output corner with the Guide Badge shadow. The Chinese Skill title uses ZCOOL KuaiLe at 29px; summary, install count, runnable-case count, and the 32px circular arrow stay in Manrope. Hover moves only the arrow 2px right and 2px up.
+
+**The Source-to-Outcome Rule.** A Skill preview must reveal where the method came from, what it does, and what it produces in that order. Do not replace the functional map with a decorative thumbnail or let the portrait become the card's main image.
+
+### Skill Detail
+
+The detail page turns the compact map into an auditable method sheet. It pairs a large invitation and runnable-case action with a full source/workflow/output map, then follows with use conditions, provenance, parsing boundaries, and runnable examples.
+
+- **Hero:** a lavender field with a 3px ink border, 26px corners, 42px padding, and a 560px minimum height. Desktop uses an approximately `.86 / 1.14` copy-to-map split with a fluid 38–76px gap. The title is ZCOOL KuaiLe at a fluid 54–86px, limited to about 10 characters per line; the summary is 18px Manrope at 1.7 line-height.
+- **Detail Map:** a clean-cream frame with a 3px ink border, 20px corners, 22px padding, and 14px vertical gaps. The source is an ink block, the complete workflow is a ruled list, and the output is a yellow-note block with a 2px ink border. Preserve repository and Skill path text with anywhere wrapping rather than clipping or truncating provenance.
+- **Guide Placement:** the 58px portrait guide sits in the source block's reserved upper-right space. At mobile size it becomes 48px and the source block keeps extra right padding so text never runs beneath it.
+- **Method and Provenance:** “什么时候使用” is a `.72 / 1.28` two-column explanation and ruled trigger list with 72px vertical padding. Beneath it, a cream provenance strip exposes Status, Repository, License, Commit, and Installs in five ink-separated cells. The small green status mark is semantic availability, while a peach full-width boundary panel explains what the parser will not execute.
+- **Responsive:** below 1040px the hero and method become single-column and provenance becomes two columns. Below 760px the page uses 16px side gutters, the hero uses 22px padding and 20px corners, the title becomes 50px, provenance becomes one column, and every former vertical divider becomes a horizontal 2px rule.
+
+**The Provenance Is Product Rule.** Repository, path, license, commit, install count, sync status, and execution boundary are part of the usable Skill—not secondary legal copy. Keep them readable, linkable where implemented, and adjacent to the method they qualify.
+
+### Skill Case Runner
+
+Runnable Skill cases are compact workbenches, not generated-HTML previews. They preserve the site's existing buttons, focus treatment, error style, typography, and heavy outlines while making the editable Prompt, execution mode, and returned artifact explicit.
+
+- **Case Grid:** two equal columns with a 20px gap and top alignment. Below 760px it becomes one column. Each case uses a 2px ink border, 18px corners, and 22px padding; alternating cases may use mint instead of clean cream. Mobile padding is 18px.
+- **Heading and Mode:** use a 28px ZCOOL KuaiLe title with Manrope summary. The execution-mode badge is compact uppercase Manrope with a 1px ink border, 8px corners, and 6px × 8px padding; it names the actual path such as GPT Image 2 rather than adding a decorative status.
+- **Input / Output Brief:** present example input and expected output in two equal cells between 2px top and bottom rules. Labels use the existing 11px uppercase metadata style; cell copy is 13px Manrope. On mobile the cells stack and the divider changes from vertical to horizontal.
+- **Prompt Editor:** the seven-row textarea uses the mist canvas, a 2px ink border, 13px corners, 13px padding, and 1.55 line-height. Keep the editable Prompt visually larger than its controls.
+- **Actions:** align Copy Prompt and Run Case to the right with a 10px gap, reusing the 48px secondary and primary buttons. Loading replaces the run icon with the existing spinner, and the primary action remains disabled while loading or while the Prompt is shorter than the implemented minimum. On mobile actions stack and each button spans the card width.
+- **Result:** return content inside a 2px ink frame with 14px corners and a mist-canvas body. A minimum 42px ink toolbar names the result and carries the clear action. Images render at full card width; structured text uses a scrollable preformatted region capped at 520px with 18px padding and 14px / 1.65 Manrope copy. Preserve the live-region announcement and existing error component.
+
+**The Runner Chrome / Output Boundary Rule.** The case frame, Prompt editor, controls, loading, errors, and result toolbar belong to Vibe Case. Generated images and structured result text are case output; they must not feed new colors, typography, or component rules back into the site system.
+
 ## Do's and Don'ts
 
 ### Do:

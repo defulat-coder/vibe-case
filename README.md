@@ -1,6 +1,6 @@
 # Vibe Case
 
-中文优先的 AI 案例集。首个集合包含 15 个分类、92 个 UI 结构案例，并通过 Vercel AI SDK 生成自包含 HTML 预览。
+中文优先的 AI 案例集。当前包含 15 个分类、92 个 UI 结构案例，以及持续自动发现和解析的 Skills 案例集；通过 AI SDK 生成 HTML、结构化内容和 GPT Image 2 图片。
 
 ## 开发
 
@@ -23,13 +23,23 @@ pnpm lint
 pnpm build
 ```
 
+同步已配置的 Skill 来源：
+
+```bash
+pnpm skills:sync
+```
+
+增加 `-- --discover` 会按 `content/skills/sources.json` 的查询词自动探索新 Skill。解析成功后直接进入 Catalog，不经过人工审核或发布状态。
+
 ## Monorepo
 
 - `apps/web`：Next.js 案例站、AI 生成和 iframe 预览。
 - `packages/ai`：AI SDK、Prompt 与输出 Schema。
 - `packages/cases`：92 个案例、中文映射、搜索与校验。
+- `packages/skills`：Skill 发现、SKILL.md 解析、结构化 Catalog 与同步命令。
 - `packages/db`：Turso / libSQL / Drizzle 生成记录。
 - `content/cases/ui/cases.en.json`：VibeUI 英文源内容。
+- `content/skills`：发现规则、来源清单、标准化 Skill 与同步错误。
 
 产品范围和验收标准见 [IMPLEMENTATION_GOAL.md](./IMPLEMENTATION_GOAL.md)。
 
