@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { skillCategories, skills } from "@vibe-case/skills";
 import { SkillExplorer } from "@/components/skill-explorer";
 
@@ -10,7 +11,10 @@ export default function SkillsCollectionPage() {
       <header className="collection-intro skills-intro">
         <h1>Skills</h1>
       </header>
-      <SkillExplorer items={skills} categories={skillCategories} />
+      {/* useSearchParams 需要 Suspense 边界以保持静态预渲染 */}
+      <Suspense>
+        <SkillExplorer items={skills} categories={skillCategories} />
+      </Suspense>
     </main>
   );
 }

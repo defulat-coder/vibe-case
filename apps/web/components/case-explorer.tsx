@@ -4,6 +4,7 @@ import { Search, X } from "lucide-react";
 import { useMemo, useState } from "react";
 import type { UICase } from "@vibe-case/cases";
 import { CaseCard } from "./case-card";
+import { useCatalogUrlState } from "./catalog-url-state";
 
 type Category = { id: string; label: string; count: number };
 const pageSize = 18;
@@ -16,8 +17,7 @@ const clusters = [
 ] as const;
 
 export function CaseExplorer({ items, categories }: { items: UICase[]; categories: readonly Category[] }) {
-  const [query, setQuery] = useState("");
-  const [category, setCategory] = useState("All");
+  const { query, category, setQuery, setCategory } = useCatalogUrlState();
   const [visibleCount, setVisibleCount] = useState(pageSize);
 
   const filtered = useMemo(() => {

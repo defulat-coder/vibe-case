@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { cases, categories } from "@vibe-case/cases";
 import { CaseExplorer } from "@/components/case-explorer";
 
@@ -10,7 +11,10 @@ export default function UICollectionPage() {
       <header className="collection-intro">
         <h1>UI 案例</h1>
       </header>
-      <CaseExplorer items={cases} categories={categories} />
+      {/* useSearchParams 需要 Suspense 边界以保持静态预渲染 */}
+      <Suspense>
+        <CaseExplorer items={cases} categories={categories} />
+      </Suspense>
     </main>
   );
 }

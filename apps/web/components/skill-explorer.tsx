@@ -4,6 +4,7 @@ import type { ParsedSkill, SkillCategory } from "@vibe-case/skills";
 import { Search, X } from "lucide-react";
 import { useMemo, useState } from "react";
 import { SkillCard } from "./skill-card";
+import { useCatalogUrlState } from "./catalog-url-state";
 
 type Category = { id: SkillCategory; label: string; count: number };
 const pageSize = 12;
@@ -15,8 +16,7 @@ const clusters = [
 ] as const;
 
 export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; categories: Category[] }) {
-  const [query, setQuery] = useState("");
-  const [category, setCategory] = useState<string>("All");
+  const { query, category, setQuery, setCategory } = useCatalogUrlState();
   const [visibleCount, setVisibleCount] = useState(pageSize);
   const filtered = useMemo(() => {
     const normalized = query.trim().toLocaleLowerCase("zh-CN");
