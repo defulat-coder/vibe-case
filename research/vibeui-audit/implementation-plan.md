@@ -249,7 +249,7 @@ Classic 3-tier cards
 中文标题：
 
 ```text
-经典三档 Pricing 卡片
+经典三档 Pricing 方案卡片
 ```
 
 英文 prompt：
@@ -261,12 +261,12 @@ Create a pricing section with three side-by-side tier cards...
 中文 prompt：
 
 ```text
-创建一个 Pricing 区域，使用三张并排的 tier cards（Starter、Pro、Business），
+创建一个 Pricing 区域，使用三张并排的方案卡片（Starter、Pro、Business），
 将中间方案突出显示为推荐选项。包含方案名称、价格、功能列表和 CTA，
-并匹配参考图中的视觉风格、颜色、Typography 和整体审美。
+并匹配参考图中的视觉风格、颜色、字体排版和整体审美。
 ```
 
-正式写作时应由术语表决定哪些英文词保留。上面的 `Typography` 如果最终术语表决定使用“字体排版”，全站就统一使用“字体排版”，而不是逐条自由选择。
+这里保留 `Pricing`、`Starter`、`Pro`、`Business` 和 `CTA`，而把 `tier cards`、`Typography` 等普通描述翻译成自然中文。正式写作时由术语表决定保留范围，而不是逐条自由选择。
 
 #### 首版术语表
 
