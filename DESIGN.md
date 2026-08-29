@@ -210,9 +210,11 @@ The palette pairs a cool mist-gray canvas with the portrait collection's uncompr
 
 Authored content uses a centered maximum width of 1380px with 20px desktop gutters. The home hero pairs concise product copy with a larger functional demo containing a real case structure, Prompt context, and generation flow. The UI catalog uses a three-column grid and initially renders 18 of 92 cases; the Skills catalog uses two columns and a 12-item page budget. Both use 20px gaps and reveal subsequent batches through one centered Load More action. Detail heroes keep their existing `.9 / 1.1` or `.86 / 1.14` copy-to-structure splits inside restrained pastel-tinted frames, and the generation studio gives roughly 60% of its width to Preview.
 
-At 1040px, UI catalog grids become two columns, the functional demo follows the hero copy, collection introductions stack, and the generation editor stacks above the preview. At 760px, primary content uses 16px side gutters, catalogs become one compact column, detail and prompt splits become one reading column, form variables stack, and actions become full-width vertical controls. The mobile header keeps both internal UI and Skills destinations at 44px minimum height and hides the external source link. Primary category clusters stay in one horizontally scrollable rail while the specific-category select moves below it at full width.
+At 1040px, UI catalog grids become two columns, the functional demo follows the hero copy, collection introductions stack, and the generation editor stacks above the preview. At 760px, primary content uses 16px side gutters, catalogs become one compact column, detail and prompt splits become one reading column, form variables stack, and actions become full-width vertical controls. UI cards change composition rather than merely shrinking: each becomes a compact horizontal row with a 132px square diagram and text to its right. Skills cards remain vertically composed but shed fixed height and tighten their functional maps. The mobile header keeps both internal UI and Skills destinations at 44px minimum height and hides the external source link. Primary category clusters stay in one horizontally scrollable rail while the specific-category select moves below it at full width.
 
 UI discovery exposes five durable clusters—Entering & Conversion, Marketing & Growth, Product Structure, Content & Data, and System & State—plus a More Categories select for the 15 exact source categories. Skills discovery uses four clusters—Image & Visual, Interface & Experience, Product Methods, and Motion & Video—plus its exact-category select. Search or category changes reset the visible batch to the first page.
+
+**Mobile Catalog Density Test.** At a representative 390px viewport, the initial 18-card UI catalog should remain near 5,016px total page height rather than the former roughly 8,753px stack. Preserve the 188px intrinsic card estimate, three-line summary limit, and single-line English title when changing mobile card content.
 
 Vertical space is generous around narrative moments (roughly 66–120px) and compact inside working controls (8–30px). The sticky header is 60px on desktop and 56px on mobile. Form grids, Prompt text, and result controls stay aligned and predictable.
 
@@ -292,6 +294,13 @@ The footer shows a denser sample of the cast without turning into a gallery: 14 
 
 Every case card leads with one large structural diagram inside a 1px light-divider frame. Metadata sits above it, while the Chinese title, summary, English source title, and circular arrow form a compact lower caption. Repeated Chinese titles use Manrope Variable at 20px / 850; ZCOOL KuaiLe is reserved for page-level and detail statements. One 46–52px avatar badge identifies the guide without interrupting comparison between structures.
 
+Below 760px, preserve the compact horizontal card as a distinct mobile composition:
+
+- **Structure:** use a two-column grid with a fixed 132px visual column, a fluid text column, a 14px column gap, and 11px shell padding. Metadata spans both columns above the row; the card has no fixed minimum height and uses a 188px intrinsic-size estimate.
+- **Diagram:** render the structure at exactly 132px square with 12px internal padding. The guide avatar becomes 38px, uses a 1px outline, and sits 7px from the diagram's right and bottom edges.
+- **Copy:** place text to the right with 5px vertical padding and 24px reserved on the trailing edge for the arrow. The title becomes 18px Manrope / 850; clamp the summary to three lines; keep the English source title to one ellipsized line with an 8px top gap.
+- **Priority:** do not move the avatar or diagram above the copy again on mobile. The horizontal relationship is what preserves rapid scanning across the initial 18 cases.
+
 ### Generation Studio
 
 The studio is a 2px black split frame with a 1px ink gutter: a clean-cream editor beside a preview softly tinted with 18% mint, capped by a black 50px toolbar. Inputs use mist fills and light 1px dividers. Prompt help states the 20-character minimum; reassurance says generation may take tens of seconds and that a reference image is not persisted. Oversized images produce an inline 5MB error, and a selected reference always exposes a 44px removal action. Before generation, the case structure fills the empty state and a small portrait guide supports the explanatory copy. During generation, the primary control becomes Stop with a spinner; after generation, the sandboxed iframe replaces the authored empty state. The iframe's visual language is unconstrained model output and must never be treated as part of Vibe Case's component system.
@@ -300,13 +309,13 @@ The studio is a 2px black split frame with a 1px ink gutter: a clean-cream edito
 
 The Skills catalog extends the Functional Commons without changing its visual world. Search, category controls, collection metrics, neutral card shells, portrait guides, and Manrope working titles follow the refined catalog system; the distinctive artifact is a functional map that makes each Skill legible as `SKILL.md → workflow → output` before the user opens it.
 
-- **Grid:** two equal columns with a 20px gap inside the 1380px authored width. Below 760px it becomes one column. Cards keep a 520px minimum height on desktop and 480px on mobile so maps and summaries remain comparable.
+- **Grid:** two equal columns with a 20px gap inside the 1380px authored width. Below 760px it becomes one column. Cards keep a 520px minimum height on desktop; mobile removes the fixed minimum so each card follows its clamped content.
 - **Card Shell:** clean-cream fill, 1px portrait-ink border, 16px corners, 14px link padding, and no resting shadow. Do not rotate pastel backgrounds across Skill cards.
-- **Functional Map:** a near-neutral mix of mist and clean cream with a 1px light-divider border, 14px corners, 18px padding, and a 276px minimum height. Its upper row splits approximately `.82 / 1.18` between the source block and workflow; the output spans the full lower row. On mobile the map uses 14px padding and a 240px minimum height.
+- **Functional Map:** a near-neutral mix of mist and clean cream with a 1px light-divider border, 14px corners, 18px padding, and a 276px minimum height. Its upper row splits approximately `.82 / 1.18` between the source block and workflow; the output spans the full lower row. On mobile the map tightens to 13px padding and a 210px minimum height without changing the source-to-outcome order.
 - **Source:** the `SKILL.md` origin is a solid ink block with cream text, 12px corners, and 15px padding. Preserve the English source title even when it wraps.
 - **Workflow:** show the first three steps as a centered vertical sequence with 22px numbered markers, 9px row gaps, and compact 12px graphite copy. This is a method preview, not a generic feature list.
 - **Output:** use a full-width 68% yellow-note tint with a 1px light-divider border, 11px corners, a 44px minimum height, and reserved right padding for the guide avatar.
-- **Guide and Caption:** the approved portrait guide is 52px square, ink-outlined, and anchored to the output corner with the Guide Badge shadow. The Chinese Skill title uses Manrope Variable at 22px / 850; summary, install count, runnable-case count, and the 32px circular arrow stay in Manrope. Hover moves only the arrow 2px right and 2px up.
+- **Guide and Caption:** the approved portrait guide is 52px square, ink-outlined, and anchored to the output corner with the Guide Badge shadow. The Chinese Skill title uses Manrope Variable at 22px / 850 on desktop and 20px on mobile; summary, install count, runnable-case count, and the 32px circular arrow stay in Manrope. Mobile summary copy is clamped to three lines and the caption padding tightens to 16px 4px 34px. Hover moves only the arrow 2px right and 2px up.
 - **Discovery:** expose four clusters—Image & Visual, Interface & Experience, Product Methods, and Motion & Video—plus a specific-category select. The 12-item page budget resets whenever search or category changes.
 
 **The Source-to-Outcome Rule.** A Skill preview must reveal where the method came from, what it does, and what it produces in that order. Do not replace the functional map with a decorative thumbnail or let the portrait become the card's main image.
@@ -362,6 +371,7 @@ Copy feedback is semantic rather than spatial: replace Copy with a check and “
 - **Do** use ZCOOL KuaiLe for identity and large statements, and Manrope Variable for repeated card titles plus every operational or long-reading surface.
 - **Do** preserve the 3px focus-oxide outline, meaningful portrait alt text, 48px primary actions, 44px navigation/filter targets, and the reduced-motion override.
 - **Do** keep the structural diagram primary and the portrait secondary wherever both appear.
+- **Do** keep mobile UI cards in the 132px-diagram horizontal composition and let mobile Skills cards size to their clamped content.
 - **Do** explain Prompt requirements, generation duration, reference-image limits, persistence behavior, and recoverable errors next to the relevant control.
 
 ### Don't:
@@ -372,6 +382,7 @@ Copy feedback is semantic rather than spatial: replace Copy with a check and “
 - **Don't** use pastel color as a data taxonomy unless the product explicitly introduces that meaning.
 - **Don't** let decorative portrait overlap obscure text, controls, focus rings, or mobile reading order.
 - **Don't** turn a functional catalog into a portrait gallery; avatars must not set card height or delay search and filters.
+- **Don't** restore tall vertical UI cards or a fixed 480px Skills-card minimum below 760px; both undo the mobile catalog-density gain.
 - **Don't** use 2–3px black rules for repeated internal partitions when a 1px light-divider rule communicates the structure.
 - **Don't** hide a disabled generation action's requirement, surface upload limits through blocking alerts, or use motion without a user-caused state change.
 - **Don't** extract or enforce any visual rule from model-generated HTML inside the sandboxed iframe.
