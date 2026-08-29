@@ -753,11 +753,11 @@ input, textarea { caret-color: #c9442d; }
 
 .skill-content-section { padding: 72px 0; border-bottom: 1px solid var(--divider); }
 .skill-content { max-width: 78ch; line-height: 1.7; }
-.skill-content h1, .skill-content h2, .skill-content h3, .skill-content h4 { margin: 1.6em 0 .6em; font-family: var(--font-display), sans-serif; font-weight: 400; line-height: 1.2; }
-.skill-content h1 { font-size: 34px; }
+.skill-content h2, .skill-content h3, .skill-content h4, .skill-content h5, .skill-content h6 { margin: 1.6em 0 .6em; font-family: var(--font-display), sans-serif; font-weight: 400; line-height: 1.2; }
 .skill-content h2 { font-size: 28px; }
 .skill-content h3 { font-size: 22px; }
 .skill-content h4 { font-size: 18px; }
+.skill-content h5, .skill-content h6 { font-size: 16px; }
 .skill-content > :first-child { margin-top: 0; }
 .skill-content p { margin: .7em 0; }
 .skill-content ul, .skill-content ol { margin: .7em 0; padding-left: 24px; }

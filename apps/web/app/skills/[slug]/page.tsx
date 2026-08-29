@@ -18,6 +18,12 @@ function skillMarkdownComponents(skill: ParsedSkill): Components {
   const base = `https://github.com/${skill.source.repository}/blob/${skill.source.commit}${dir ? `/${dir}` : ""}`;
   const rawBase = `https://raw.githubusercontent.com/${skill.source.repository}/${skill.source.commit}${dir ? `/${dir}` : ""}`;
   return {
+    // 页面已有 h1（Skill 标题），正文标题整体降一级，保持文档大纲合法
+    h1: (props) => <h2 {...props} />,
+    h2: (props) => <h3 {...props} />,
+    h3: (props) => <h4 {...props} />,
+    h4: (props) => <h5 {...props} />,
+    h5: (props) => <h6 {...props} />,
     img: ({ src, alt }) => {
       const resolved = typeof src === "string" && !/^(https?:)?\/\//.test(src) ? `${rawBase}/${src}` : src;
       // eslint-disable-next-line @next/next/no-img-element -- 远程来源仓库图片，尺寸未知
