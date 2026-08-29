@@ -1,5 +1,6 @@
 import { createTextStreamResponse, toTextStream } from "ai";
 import { completeGeneration, createGeneration, failGeneration } from "@vibe-case/db";
+import { getCaseById } from "@vibe-case/cases";
 import { createMockResult, defaultModel, generateUIInputSchema, streamUI } from "@vibe-case/ai";
 
 export const maxDuration = 60;
@@ -21,6 +22,7 @@ export async function POST(request: Request) {
   try {
     const input = generateUIInputSchema.parse(await request.json());
     generationId = input.generationId;
+    if (!getCaseById(input.caseId)) return Response.json({ error: "案例不存在或已下线" }, { status: 404 });
     const model = process.env.AI_MODEL ?? defaultModel;
     await createGeneration({ id: input.generationId, caseId: input.caseId, prompt: input.prompt, variables: input.variables, model });
 
