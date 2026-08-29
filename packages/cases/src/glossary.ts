@@ -1,0 +1,15 @@
+export const glossary = {
+  UI: "UI",
+  UX: "UX",
+  CTA: "CTA",
+  Hero: "Hero 区域",
+  "Bento grid": "Bento 网格",
+  Dashboard: "Dashboard 仪表盘",
+  Kanban: "Kanban 看板",
+  "Magic Link": "Magic Link 登录",
+  Modal: "Modal",
+  Toast: "Toast 提示",
+  Prompt: "Prompt",
+  "AI SDK": "AI SDK",
+  "AI Gateway": "AI Gateway",
+} as const;

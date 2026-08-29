@@ -1,0 +1,23 @@
+{
+  "name": "@vibe-case/db",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "@libsql/client": "0.17.4",
+    "drizzle-orm": "0.45.2"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "eslint": "9.39.5",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11"
+  }
+}

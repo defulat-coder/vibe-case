@@ -7,3 +7,7 @@
 ## GitHub 远程操作
 
 - 涉及 GitHub 仓库、Issue、Pull Request、Actions 等远程操作时，使用 `gh` CLI。
+
+## 技术选型
+
+- 技术实现采用当前最新稳定版本及推荐实践，避免使用已弃用的 API 或方案。
