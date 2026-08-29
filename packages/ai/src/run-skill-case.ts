@@ -24,6 +24,7 @@ export async function runSkillCase(executionMode: SkillExecutionMode, prompt: st
     instructions: skillInstructions[executionMode],
     prompt,
     maxOutputTokens: 8_000,
+    abortSignal: AbortSignal.timeout(110_000),
   });
   return { kind: "text" as const, text };
 }
