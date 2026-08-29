@@ -115,6 +115,12 @@
       "skillId": "beat-sync-editing",
       "skillPath": "skills/beat-sync-editing/SKILL.md",
       "skillsShUrl": "https://skills.sh/iart-ai/motion-design-skills/beat-sync-editing"
+    },
+    {
+      "repository": "wuyoscar/gpt-image2-skill",
+      "skillId": "gpt-image",
+      "skillPath": "skills/gpt-image/SKILL.md",
+      "skillsShUrl": "https://skills.sh/wuyoscar/gpt-image2-skill/gpt-image"
     }
   ]
 }
