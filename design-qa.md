@@ -40,4 +40,12 @@ The first comparison found no P0/P1/P2 issue in the approved edit scope, so no v
 
 No P3 item is required for this scoped refinement.
 
+## User-directed avatar refinement
+
+- Source truth: the user requested a clearly male header portrait and more footer portraits while keeping avatars secondary.
+- Header evidence: `/tmp/vibe-case-header-male.png`; the header now uses `waker-avatar-hq-005.webp` at the existing 34px size.
+- Footer evidence: `/tmp/vibe-case-footer-cast-visible.png`; the footer cast increased from 3 to 8 portraits and occupies 271px.
+- Responsive check: the 390px viewport keeps all 8 portraits without page or footer overflow.
+- React structure, accessibility semantics, navigation scale, and the feature-first hierarchy are unchanged.
+
 final result: passed

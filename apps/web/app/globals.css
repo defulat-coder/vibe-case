@@ -818,6 +818,7 @@ input, textarea { caret-color: #c9442d; }
 .site-footer > a { color: var(--yellow); }
 .footer-cast { display: flex; }
 .footer-cast .avatar-tile { width: 40px; aspect-ratio: 1; border: 2px solid var(--ink); border-radius: 50%; margin-left: -7px; }
+.footer-cast .avatar-tile:first-child { margin-left: 0; }
 
 @media (max-width: 1040px) {
   .home-intro { grid-template-columns: 1fr; min-height: 0; }

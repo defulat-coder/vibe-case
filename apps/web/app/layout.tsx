@@ -40,7 +40,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <strong>Vibe Case</strong>
             <p>案例不是灵感截图，而是可以读懂、复制和生成的工作样本。</p>
           </div>
-          <div className="footer-cast" aria-hidden="true">{[8, 31, 70].map((index) => <AvatarTile key={index} index={index} />)}</div>
+          <div className="footer-cast" aria-hidden="true">{[1, 4, 8, 21, 31, 52, 70, 87].map((index) => <AvatarTile key={index} index={index} />)}</div>
           <Link href="/collections/ui">浏览 92 个 UI 案例</Link>
         </footer>
       </body>

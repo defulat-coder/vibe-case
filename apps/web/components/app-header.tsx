@@ -6,7 +6,7 @@ export function AppHeader() {
   return (
     <header className="site-header">
       <Link className="wordmark" href="/" aria-label="Vibe Case 首页">
-        <AvatarTile index={0} className="wordmark-avatar" alt="" priority />
+        <AvatarTile index={4} className="wordmark-avatar" alt="" priority />
         <strong>Vibe Case</strong>
       </Link>
       <nav aria-label="主导航">
