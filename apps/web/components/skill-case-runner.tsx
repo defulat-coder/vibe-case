@@ -50,12 +50,8 @@ export function SkillCaseRunner({ item }: { item: SkillCase }) {
         <div><h3>{item.title}</h3><p>{item.summary}</p></div>
         <span>{item.executionMode === "image" ? "GPT Image 2" : item.executionMode}</span>
       </div>
-      <dl className="skill-case-brief">
-        <div><dt>示例输入</dt><dd>{item.input}</dd></div>
-        <div><dt>预期输出</dt><dd>{item.output}</dd></div>
-      </dl>
       <label className="skill-prompt-editor">
-        <span>案例 Prompt</span>
+        <span>Prompt</span>
         <textarea rows={7} value={prompt} onChange={(event) => setPrompt(event.target.value)} />
       </label>
       <div className="skill-case-actions">

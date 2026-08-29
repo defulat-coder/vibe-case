@@ -68,7 +68,7 @@ export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; cat
       </div>
       {filtered.length ? (
         <>
-          <div className="skill-grid result-grid" key={`${category}:${query}:${visibleCount}`}>{visible.map((item) => <SkillCard key={item.id} item={item} index={items.indexOf(item)} />)}</div>
+          <div className="skill-grid result-grid" key={`${category}:${query}:${visibleCount}`}>{visible.map((item) => <SkillCard key={item.id} item={item} />)}</div>
           {visible.length < filtered.length && <button className="button button-secondary catalog-more" type="button" onClick={() => setVisibleCount((count) => count + pageSize)}>显示更多 <span>{visible.length} / {filtered.length}</span></button>}
         </>
       ) : (

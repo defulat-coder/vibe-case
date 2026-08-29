@@ -277,7 +277,7 @@ Components feel like sturdy illustrated props after a neutral-first refinement: 
 ### Inputs / Fields
 
 - **Style:** mist-canvas fill, 1px light-divider border, 13–14px corners, 13px padding, and Manrope body text. The catalog search is the intentional exception: borderless content on the mist canvas, anchored by a double-weight black underline.
-- **Focus:** shift the internal border to ink and add a small black ambient shadow; the global 3px focus-oxide outline with 3px offset remains the keyboard fallback.
+- **Focus:** shift ordinary field borders to ink and add a small black ambient shadow; the global 3px focus-oxide outline with 3px offset remains the keyboard fallback. When the catalog search contains focus, its full underline changes to focus oxide and gains a second 2px focus-oxide shadow so the label reads as one focused control rather than a loose icon and input.
 - **Help / Error / Disabled:** put concise requirements directly below the field in 12px graphite text. Generation errors stay inline with `role="alert"`; disabled primary actions use 45% opacity and retain explanatory help rather than relying on opacity alone.
 
 ### Navigation
@@ -303,7 +303,13 @@ Below 760px, preserve the compact horizontal card as a distinct mobile compositi
 
 ### Generation Studio
 
-The studio is a 2px black split frame with a 1px ink gutter: a clean-cream editor beside a preview softly tinted with 18% mint, capped by a black 50px toolbar. Inputs use mist fills and light 1px dividers. Prompt help states the 20-character minimum; reassurance says generation may take tens of seconds and that a reference image is not persisted. Oversized images produce an inline 5MB error, and a selected reference always exposes a 44px removal action. Before generation, the case structure fills the empty state and a small portrait guide supports the explanatory copy. During generation, the primary control becomes Stop with a spinner; after generation, the sandboxed iframe replaces the authored empty state. The iframe's visual language is unconstrained model output and must never be treated as part of Vibe Case's component system.
+The studio is a 2px black split frame with a 1px ink gutter: a clean-cream editor beside a preview softly tinted with 18% mint, capped by a black 50px toolbar. Inputs use mist fills and light 1px dividers. Prompt help states the 20-character minimum and explicitly says the draft is saved for the current browser session. Reassurance says generation may take tens of seconds and that a reference image is not persisted. Oversized images produce an inline 5MB error, and a selected reference always exposes a 44px removal action. Before generation, the case structure fills the empty state and a small portrait guide supports the explanatory copy. During generation, the primary control becomes Stop with a spinner; after generation, the sandboxed iframe replaces the authored empty state. The iframe's visual language is unconstrained model output and must never be treated as part of Vibe Case's component system.
+
+Prompt and variable drafts are scoped per case and versioned in `sessionStorage`; they last for the current browser session, survive a reload, and never include the reference image or generated output. Restore only schema-valid version-1 data, with Prompt length capped at 8,000 characters and each variable value capped at 500 characters. Malformed JSON, a version mismatch, or an invalid shape must fail closed to the case defaults without surfacing a blocking error.
+
+Hydration order is part of this UX contract: read and restore the draft on the next animation frame, mark the draft ready only after that pass, and do not write defaults back to storage before readiness. Subsequent Prompt or variable changes may then update the same per-case key. This prevents the initial render from erasing a valid saved draft.
+
+**Draft Recovery Test.** For `auth-1`, edit both the Prompt and the brand variable, reload, and confirm both values return. A malformed storage value must be ignored and must not break the studio.
 
 ### Skills Catalog
 
@@ -358,7 +364,9 @@ Copy feedback is semantic rather than spatial: replace Copy with a check and “
 - **Focus:** every keyboard-focusable control keeps the global 3px focus-oxide outline with 3px offset. Active navigation color and underline supplement `aria-current`; they never replace focus.
 - **Touch:** primary and secondary actions remain 48px high. Navigation links, cluster chips, exact-category selects, Load More, and reference-image removal provide at least 44px height. Preserve these targets when labels translate or wrap.
 - **Generation Preconditions:** state the 20-character Prompt minimum before the user reaches a disabled action. For reference images, show the 5MB limit as an inline error, retain the file picker, and provide an explicit Remove action after selection.
+- **Draft Persistence:** tell users that Prompt and variables are automatically saved only for the current browser session. Scope drafts by case and schema version, restore them before enabling writes, and ignore corrupted or obsolete data safely.
 - **Generation Expectation:** tell users that generation may take tens of seconds and that the reference image is used only for the current request and is not persisted by the current version. Loading, stop, retryable error, completion, open-record, and clear-result states must each have visible text, not icon-only meaning.
+- **Failure Continuity:** generation failure copy must explicitly state that the current Prompt and variables remain available, then offer a retry path and a second-step suggestion to wait or check AI configuration. Failure must not clear the draft, reference selection, or editable fields.
 
 ## Do's and Don'ts
 
@@ -372,6 +380,7 @@ Copy feedback is semantic rather than spatial: replace Copy with a check and “
 - **Do** preserve the 3px focus-oxide outline, meaningful portrait alt text, 48px primary actions, 44px navigation/filter targets, and the reduced-motion override.
 - **Do** keep the structural diagram primary and the portrait secondary wherever both appear.
 - **Do** keep mobile UI cards in the 132px-diagram horizontal composition and let mobile Skills cards size to their clamped content.
+- **Do** restore versioned per-case Prompt and variable drafts before allowing new session writes, and keep them through generation errors.
 - **Do** explain Prompt requirements, generation duration, reference-image limits, persistence behavior, and recoverable errors next to the relevant control.
 
 ### Don't:
@@ -384,5 +393,6 @@ Copy feedback is semantic rather than spatial: replace Copy with a check and “
 - **Don't** turn a functional catalog into a portrait gallery; avatars must not set card height or delay search and filters.
 - **Don't** restore tall vertical UI cards or a fixed 480px Skills-card minimum below 760px; both undo the mobile catalog-density gain.
 - **Don't** use 2–3px black rules for repeated internal partitions when a 1px light-divider rule communicates the structure.
+- **Don't** let first-render defaults overwrite a saved draft, trust unparsed browser storage, or claim persistence beyond the current session.
 - **Don't** hide a disabled generation action's requirement, surface upload limits through blocking alerts, or use motion without a user-caused state change.
 - **Don't** extract or enforce any visual rule from model-generated HTML inside the sandboxed iframe.

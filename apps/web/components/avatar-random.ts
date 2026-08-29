@@ -1,5 +1,11 @@
 const allAvatarIndices = Array.from({ length: 100 }, (_, index) => index);
 
+export function avatarIndexForKey(key: string) {
+  let hash = 0;
+  for (const character of key) hash = (hash * 31 + (character.codePointAt(0) ?? 0)) >>> 0;
+  return hash % allAvatarIndices.length;
+}
+
 export function createAvatarSampler(random = Math.random) {
   const assignments = new Map<string, number>();
   const pools = new Map<string, number[]>();

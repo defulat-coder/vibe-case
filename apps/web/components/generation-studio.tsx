@@ -5,9 +5,8 @@ import { uiGenerationResultSchema, type GenerateUIInput } from "@vibe-case/ai/sc
 import type { UICase } from "@vibe-case/cases";
 import { ImagePlus, LoaderCircle, RotateCcw, Square, X } from "lucide-react";
 import Link from "next/link";
-import { useRef, useState } from "react";
-import { AvatarTile } from "./avatar-tile";
-import { CaseDiagram } from "./case-diagram";
+import { useEffect, useRef, useState } from "react";
+import { readGenerationDraft, writeGenerationDraft } from "./generation-draft";
 
 function secureSrcDoc(html: string) {
   const csp = `<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'">`;
@@ -17,14 +16,38 @@ function secureSrcDoc(html: string) {
     : `<!doctype html><html><head>${csp}</head><body>${withoutBase}</body></html>`;
 }
 
-export function GenerationStudio({ item, caseIndex }: { item: UICase; caseIndex: number }) {
+export function GenerationStudio({ item }: { item: UICase }) {
   const [prompt, setPrompt] = useState(item.prompt.zhCN);
   const [variables, setVariables] = useState<Record<string, string>>({});
   const [referenceImage, setReferenceImage] = useState<string>();
   const [generationId, setGenerationId] = useState<string>();
   const [complete, setComplete] = useState(false);
   const [imageError, setImageError] = useState("");
+  const [draftReady, setDraftReady] = useState(false);
+  const [draftStorageAvailable, setDraftStorageAvailable] = useState(true);
   const fileInput = useRef<HTMLInputElement>(null);
+  const draftKey = `vibe-case:generation-draft:v1:${item.id}`;
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      const result = readGenerationDraft(() => window.sessionStorage, draftKey);
+      if (result.draft) {
+        setPrompt(result.draft.prompt);
+        setVariables(result.draft.variables);
+      }
+      setDraftStorageAvailable(result.available);
+      setDraftReady(true);
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [draftKey]);
+
+  useEffect(() => {
+    if (!draftReady || !draftStorageAvailable) return;
+    if (!writeGenerationDraft(() => window.sessionStorage, draftKey, { version: 1, prompt, variables })) {
+      const frame = window.requestAnimationFrame(() => setDraftStorageAvailable(false));
+      return () => window.cancelAnimationFrame(frame);
+    }
+  }, [draftKey, draftReady, draftStorageAvailable, prompt, variables]);
 
   const { object, submit, isLoading, error, stop, clear } = useObject({
     api: "/api/generate",
@@ -72,19 +95,19 @@ export function GenerationStudio({ item, caseIndex }: { item: UICase; caseIndex:
     <section className="generation-studio" id="generation-studio" aria-label="生成效果">
       <div className="generation-panel">
         <div className="generation-heading">
-          <div><h2>生成你的版本</h2><p>调整 Prompt，AI SDK 会返回一份自包含 HTML。</p></div>
+          <h2>生成页面</h2>
           {object && <button className="icon-button" type="button" onClick={() => { clear(); setComplete(false); }} aria-label="清除结果"><RotateCcw size={17} /></button>}
         </div>
 
         <label className="prompt-editor">
           <span>中文 Prompt</span>
-          <textarea value={prompt} onChange={(event) => setPrompt(event.target.value)} rows={8} aria-describedby="prompt-requirement" />
+          <textarea value={prompt} onChange={(event) => setPrompt(event.target.value)} rows={8} maxLength={8_000} aria-describedby="prompt-requirement" />
         </label>
-        <p className="field-help" id="prompt-requirement">至少输入 20 个字符，描述越具体，生成结果越稳定。</p>
+        <p className="field-help" id="prompt-requirement">{draftStorageAvailable ? "至少输入 20 个字符；Prompt 与变量会自动保存到当前浏览器 Session，刷新后仍可恢复。" : "当前浏览器禁止会话存储；离开页面前请先复制 Prompt。"}</p>
 
         <div className="variable-grid">
           {item.variables.map((variable) => (
-            <label key={variable.key}><span>{variable.label}</span><input value={variables[variable.key] ?? ""} placeholder={variable.placeholder} onChange={(event) => setVariables((current) => ({ ...current, [variable.key]: event.target.value }))} /></label>
+            <label key={variable.key}><span>{variable.label}</span><input maxLength={500} value={variables[variable.key] ?? ""} placeholder={variable.placeholder} onChange={(event) => setVariables((current) => ({ ...current, [variable.key]: event.target.value }))} /></label>
           ))}
         </div>
 
@@ -103,25 +126,22 @@ export function GenerationStudio({ item, caseIndex }: { item: UICase; caseIndex:
             <button className="button" type="button" onClick={generate} disabled={prompt.trim().length < 20}>生成效果</button>
           )}
         </div>
-        <p className="generation-reassurance">生成可能需要几十秒；参考图仅用于本次请求，当前版本不会持久化保存。</p>
+        <p className="generation-reassurance">生成通常需要几十秒；参考图不会保存。</p>
         {imageError && <p className="error-message" role="alert">{imageError}</p>}
-        {error && <p className="error-message" role="alert">生成失败：{error.message}。请检查配置后重试。</p>}
+        {error && <p className="error-message" role="alert">生成失败：{error.message}。Prompt 和变量仍已保留，请重试；若持续失败，请稍后再试或检查 AI 配置。</p>}
       </div>
 
       <div className="preview-panel">
         <div className="preview-toolbar">
-          <span>{isLoading ? "正在生成" : preview ? "生成完成" : "HTML Preview"}</span>
+          <span>{isLoading ? "正在生成" : preview ? "生成完成" : "预览"}</span>
           {generationId && complete && <Link href={`/generations/${generationId}`}>打开记录</Link>}
         </div>
         {isLoading ? (
-          <div className="preview-loading"><LoaderCircle className="spin" size={28} /><strong>AI 正在组织界面结构</strong><p>结果会在 Schema 校验完成后显示。</p></div>
+          <div className="preview-loading"><LoaderCircle className="spin" size={28} /><strong>正在生成页面</strong></div>
         ) : preview ? (
           <iframe title={`${item.title.zhCN} 生成效果`} sandbox="allow-scripts" referrerPolicy="no-referrer" srcDoc={preview} />
         ) : (
-          <div className="preview-empty">
-            <div className="preview-structure"><CaseDiagram id={item.id} category={item.category} label={item.title.zhCN} /></div>
-            <div className="preview-empty-copy"><AvatarTile index={caseIndex} className="preview-avatar" alt="" /><div><strong>生成结果会显示在这里</strong><p>调整左侧 Prompt 后，AI SDK 会返回一份安全预览的 HTML。</p></div></div>
-          </div>
+          <div className="preview-empty"><strong>生成结果会显示在这里</strong></div>
         )}
       </div>
     </section>

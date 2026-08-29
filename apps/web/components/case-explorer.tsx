@@ -83,7 +83,7 @@ export function CaseExplorer({ items, categories }: { items: UICase[]; categorie
       {filtered.length ? (
         <>
           <div className="case-grid result-grid" key={`${category}:${query}:${visibleCount}`}>
-            {visible.map((item) => <CaseCard key={item.id} item={item} index={items.indexOf(item)} />)}
+            {visible.map((item) => <CaseCard key={item.id} item={item} />)}
           </div>
           {visible.length < filtered.length && <button className="button button-secondary catalog-more" type="button" onClick={() => setVisibleCount((count) => count + pageSize)}>显示更多 <span>{visible.length} / {filtered.length}</span></button>}
         </>
