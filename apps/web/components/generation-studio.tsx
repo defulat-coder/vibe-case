@@ -58,6 +58,15 @@ export function GenerationStudio({ item }: { item: UICase }) {
   const preview = completedHtml ? secureSrcDoc(completedHtml) : undefined;
   const promptModified = prompt !== item.prompt.zhCN;
   const networkError = error ? /failed to fetch|networkerror|load failed/i.test(error.message) : false;
+  const serviceError = error ? error.message.trim().startsWith("{") : false;
+  const malformedResponse = error ? /json|parse|stream|unexpected token|not-json/i.test(error.message) : false;
+  const generationErrorCopy = error ? (networkError
+    ? `生成失败：网络连接异常。${completedHtml ? "上一次结果仍保留。" : ""}Prompt 和变量仍已保留，请检查网络后重试。`
+    : serviceError
+      ? `生成失败：生成服务暂时不可用。${completedHtml ? "上一次结果仍保留。" : ""}Prompt 和变量仍已保留，请重试；若持续失败，请检查 AI 配置。`
+      : malformedResponse
+      ? `生成失败：服务返回了无法识别的结果。${completedHtml ? "上一次结果仍保留。" : ""}Prompt 和变量仍已保留，请重试。`
+      : `生成失败：生成服务暂时不可用。${completedHtml ? "上一次结果仍保留。" : ""}Prompt 和变量仍已保留，请重试；若持续失败，请检查 AI 配置。`) : "";
 
   function generate() {
     const id = crypto.randomUUID();
@@ -93,7 +102,7 @@ export function GenerationStudio({ item }: { item: UICase }) {
   }
 
   return (
-    <HashFocusTarget className="generation-studio" id="generation-studio" aria-label="生成效果">
+    <HashFocusTarget className="generation-studio" id="generation-studio" aria-label="生成效果" aria-busy={isLoading}>
       <div className="generation-panel">
         <div className="generation-heading">
           <h2>生成页面</h2>
@@ -135,7 +144,7 @@ export function GenerationStudio({ item }: { item: UICase }) {
         {imageError && <p className="error-message" role="alert">{imageError}</p>}
         {error && (
           <div className="error-message" role="alert">
-            <p>{networkError ? `生成失败：网络连接异常。${completedHtml ? "上一次结果仍保留。" : ""}Prompt 和变量仍已保留，请检查网络后重试。` : `生成失败：${error.message}。${completedHtml ? "上一次结果仍保留。" : ""}Prompt 和变量仍已保留，请重试；若持续失败，请稍后再试或检查 AI 配置。`}</p>
+            <p>{generationErrorCopy}</p>
             <button className="error-retry" type="button" onClick={generate} disabled={prompt.trim().length < 20}>重试</button>
           </div>
         )}
