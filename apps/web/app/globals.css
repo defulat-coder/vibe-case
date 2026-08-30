@@ -665,7 +665,7 @@ input, textarea { caret-color: #c9442d; }
 .case-detail-visual > .case-diagram { width: 100%; aspect-ratio: 1.45; border: 1px solid var(--divider); border-radius: 20px; background: var(--white); padding: clamp(22px, 3vw, 42px); }
 
 .prompt-section { padding: 64px 0; border-bottom: 1px solid var(--divider); }
-.prompt-section, .generation-studio { scroll-margin-top: 100px; }
+.prompt-section, .generation-studio { scroll-margin-top: 0; }
 .prompt-columns { grid-template-columns: 1.15fr .85fr; gap: 16px; border: 0; }
 .prompt-columns article { border: 1px solid var(--divider); border-radius: 16px; background: color-mix(in srgb, var(--mint) 12%, var(--white)); }
 .prompt-columns article + article { border: 1px solid var(--divider); background: var(--white); }
