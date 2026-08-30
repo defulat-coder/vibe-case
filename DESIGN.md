@@ -356,7 +356,7 @@ The shared copy button (case Prompt columns and Skill Runner Prompt actions) is 
 
 ### Functional Motion & State Feedback
 
-Motion exists to confirm a data or task transition, never to decorate a resting screen. Filter changes settle the result grid over 200ms using `cubic-bezier(.16, 1, .3, 1)`, fading from 65% opacity and translating upward 5px; each Load More action keeps existing cards mounted and animates only the appended cards from 55% opacity and 6px lower. Skill results use the same 200ms easing. Under `prefers-reduced-motion`, all transitions and animations collapse to 0.01ms, and the loading spinner swaps its rotation for a 1.2s opacity pulse (`spin-pulse`) so “in progress” feedback survives without movement.
+Motion exists to confirm a data or task transition, never to decorate a resting screen. Filter changes settle the result grid over 200ms using `cubic-bezier(.16, 1, .3, 1)`, fading from 65% opacity and translating upward 5px; each Load More action keeps existing cards mounted and animates only the appended cards from 55% opacity and 6px lower. Keyboard activation of Load More moves focus to the first appended card so the new content enters the reading order; pointer activation keeps the button focus. Skill results use the same 200ms easing. Under `prefers-reduced-motion`, all transitions and animations collapse to 0.01ms, and the loading spinner swaps its rotation for a 1.2s opacity pulse (`spin-pulse`) so “in progress” feedback survives without movement.
 
 Generation swaps Generate for Stop while loading, keeps the spinner local to the action, announces result containers as live regions, and provides a visible clear/reset control after content arrives.
 

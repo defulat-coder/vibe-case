@@ -2,7 +2,7 @@
 
 import type { ParsedSkill, SkillCategory } from "@vibe-case/skills";
 import { Search, X } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 import { SkillCard } from "./skill-card";
 import { useCatalogUrlState } from "./catalog-url-state";
 
@@ -18,7 +18,8 @@ const clusters = [
 export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; categories: Category[] }) {
   const validCategories = useMemo(() => ["All", ...clusters.map((item) => item.id), ...categories.map((item) => item.id)], [categories]);
   const { query, category, setQuery, setCategory, reset, navigationVersion } = useCatalogUrlState(validCategories);
-  const [visibleState, setVisibleState] = useState({ count: pageSize, version: 0, appendFrom: pageSize });
+  const [visibleState, setVisibleState] = useState({ count: pageSize, version: 0, appendFrom: pageSize, focusAppend: false });
+  const firstAppendedRef = useRef<HTMLAnchorElement>(null);
   const visibleCount = visibleState.version === navigationVersion ? visibleState.count : pageSize;
   const filtered = useMemo(() => {
     const normalized = query.trim().toLocaleLowerCase("zh-CN");
@@ -36,13 +37,18 @@ export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; cat
 
   function chooseCategory(value: string) {
     setCategory(value);
-    setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize });
+    setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize, focusAppend: false });
   }
 
   function updateQuery(value: string) {
     setQuery(value);
-    setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize });
+    setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize, focusAppend: false });
   }
+
+  useEffect(() => {
+    if (!visibleState.focusAppend || visibleState.version !== navigationVersion || visibleState.appendFrom >= visibleCount) return;
+    firstAppendedRef.current?.focus();
+  }, [navigationVersion, visibleCount, visibleState]);
 
   return (
     <section className="catalog-shell skill-catalog" aria-label="Skills 案例目录">
@@ -77,11 +83,14 @@ export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; cat
       </div>
       {filtered.length ? (
         <>
-          <div className="skill-grid result-grid" key={`${category}:${query}`}>{visible.map((item, index) => <SkillCard key={item.id} item={item} entering={index >= visibleState.appendFrom && visibleState.version === navigationVersion} />)}</div>
-          {visible.length < filtered.length && <button className="button button-secondary catalog-more" type="button" onClick={() => setVisibleState({ count: visibleCount + pageSize, version: navigationVersion, appendFrom: visibleCount })}>显示更多 <span>{visible.length} / {filtered.length}</span></button>}
+          <div className="skill-grid result-grid" key={`${category}:${query}`}>{visible.map((item, index) => {
+            const isAppending = visibleState.version === navigationVersion && visibleState.focusAppend;
+            return <SkillCard key={item.id} item={item} entering={index >= visibleState.appendFrom && visibleState.version === navigationVersion} linkRef={isAppending && index === visibleState.appendFrom ? firstAppendedRef : undefined} />;
+          })}</div>
+          {visible.length < filtered.length && <button className="button button-secondary catalog-more" type="button" onClick={(event: MouseEvent<HTMLButtonElement>) => setVisibleState({ count: visibleCount + pageSize, version: navigationVersion, appendFrom: visibleCount, focusAppend: event.detail === 0 })}>显示更多 <span>{visible.length} / {filtered.length}</span></button>}
         </>
       ) : (
-        <div className="empty-state"><h2>没有匹配的 Skills</h2><p>换一个中文词、英文术语，或者清除当前分类。</p><button className="button" type="button" onClick={() => { reset(); setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize }); }}>清除筛选</button></div>
+        <div className="empty-state"><h2>没有匹配的 Skills</h2><p>换一个中文词、英文术语，或者清除当前分类。</p><button className="button" type="button" onClick={() => { reset(); setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize, focusAppend: false }); }}>清除筛选</button></div>
       )}
     </section>
   );
