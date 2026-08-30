@@ -20,7 +20,7 @@ const clusters = [
 export function CaseExplorer({ items, categories }: { items: UICase[]; categories: readonly Category[] }) {
   const validCategories = useMemo(() => ["All", ...clusters.map((item) => item.id), ...categories.map((item) => item.id)], [categories]);
   const { query, category, setQuery, setCategory, reset, navigationVersion } = useCatalogUrlState(validCategories);
-  const [visibleState, setVisibleState] = useState({ count: pageSize, version: 0, appendFrom: pageSize, focusAppend: false });
+  const [visibleState, setVisibleState] = useState({ count: pageSize, version: 0, appendFrom: pageSize, focusAppend: false, focusSearch: false });
   const firstAppendedRef = useRef<HTMLAnchorElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const visibleCount = visibleState.version === navigationVersion ? visibleState.count : pageSize;
@@ -38,19 +38,27 @@ export function CaseExplorer({ items, categories }: { items: UICase[]; categorie
 
   function chooseCategory(value: string) {
     setCategory(value);
-    setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize, focusAppend: false });
+    setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize, focusAppend: false, focusSearch: false });
   }
 
   function updateQuery(value: string) {
     setQuery(value);
-    setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize, focusAppend: false });
+    setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize, focusAppend: false, focusSearch: false });
   }
 
   function clearFilters() {
     reset();
-    setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize, focusAppend: false });
-    window.requestAnimationFrame(() => searchInputRef.current?.focus());
+    setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize, focusAppend: false, focusSearch: true });
   }
+
+  function clearLeafCategory() {
+    setCategory("All");
+    setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize, focusAppend: false, focusSearch: true });
+  }
+
+  useEffect(() => {
+    if (visibleState.focusSearch) searchInputRef.current?.focus();
+  }, [visibleState]);
 
   useEffect(() => {
     if (!visibleState.focusAppend || visibleState.version !== navigationVersion || visibleState.appendFrom >= visibleCount) return;
@@ -84,7 +92,7 @@ export function CaseExplorer({ items, categories }: { items: UICase[]; categorie
             </button>
           ))}
           {leafCategory && (
-            <button className="active leaf-active" type="button" aria-label={`清除分类筛选：${leafCategory.label}`} onClick={() => chooseCategory("All")}>
+            <button className="active leaf-active" type="button" aria-pressed="true" aria-label={`清除分类筛选：${leafCategory.label}`} onClick={clearLeafCategory}>
               {leafCategory.label} <X size={14} aria-hidden="true" />
             </button>
           )}
@@ -106,7 +114,7 @@ export function CaseExplorer({ items, categories }: { items: UICase[]; categorie
               return <CaseCard key={item.id} item={item} entering={index >= visibleState.appendFrom && visibleState.version === navigationVersion} linkRef={isAppending && index === visibleState.appendFrom ? firstAppendedRef : undefined} />;
             })}
           </div>
-          {visible.length < filtered.length && <button className="button button-secondary catalog-more" type="button" onClick={(event: MouseEvent<HTMLButtonElement>) => setVisibleState({ count: visibleCount + pageSize, version: navigationVersion, appendFrom: visibleCount, focusAppend: event.detail === 0 })}>显示更多 <span>{visible.length} / {filtered.length}</span></button>}
+          {visible.length < filtered.length && <button className="button button-secondary catalog-more" type="button" onClick={(event: MouseEvent<HTMLButtonElement>) => setVisibleState({ count: visibleCount + pageSize, version: navigationVersion, appendFrom: visibleCount, focusAppend: event.detail === 0, focusSearch: false })}>显示更多 <span>{visible.length} / {filtered.length}</span></button>}
         </>
       ) : (
         <div className="empty-state">
