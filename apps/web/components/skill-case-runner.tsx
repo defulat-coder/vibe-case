@@ -74,7 +74,7 @@ export function SkillCaseRunner({ item }: { item: SkillCase }) {
 
   return (
     <article className="skill-case" aria-busy={loading}>
-      <div className="sr-only" role="status" aria-live="polite" aria-atomic="true">{loading ? "正在运行案例，请稍候。" : result ? "案例运行完成，结果已显示。" : ""}</div>
+      {(loading || result) && <div className="sr-only" role="status" aria-live="polite" aria-atomic="true">{loading ? "正在运行案例，请稍候。" : "案例运行完成，结果已显示。"}</div>}
       <div className="skill-case-heading">
         <div><h3>{item.title}</h3><p>{item.summary}</p></div>
         <span>{executionModeLabels[item.executionMode]}</span>
