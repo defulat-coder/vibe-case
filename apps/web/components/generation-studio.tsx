@@ -121,8 +121,9 @@ export function GenerationStudio({ item }: { item: UICase }) {
         </div>
 
         <div className="variable-grid">
+          <span className="sr-only" id={`variable-limit-${item.id}`}>每个变量最多输入 500 个字符。</span>
           {item.variables.map((variable) => (
-            <label key={variable.key}><span>{variable.label}</span><input maxLength={500} value={variables[variable.key] ?? ""} placeholder={variable.placeholder} onChange={(event) => setVariables((current) => ({ ...current, [variable.key]: event.target.value }))} /></label>
+            <label key={variable.key}><span>{variable.label}</span><input maxLength={500} aria-describedby={`variable-limit-${item.id}`} value={variables[variable.key] ?? ""} placeholder={variable.placeholder} onChange={(event) => setVariables((current) => ({ ...current, [variable.key]: event.target.value }))} /></label>
           ))}
         </div>
 
