@@ -4,6 +4,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { generateText, Output } from "ai";
 import { z } from "zod";
+import { fetchWithRetry } from "./fetch-with-retry.ts";
 import { detectRiskNotes, findBlockedBinding, parseSkillMarkdown, stripFrontmatter } from "./parser.ts";
 import {
   discoveryConfigSchema,
@@ -68,13 +69,13 @@ function headers() {
 }
 
 async function fetchJson<T>(url: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(url, init);
+  const response = await fetchWithRetry(url, init);
   if (!response.ok) throw new Error(`${response.status} ${response.statusText}: ${url}`);
   return response.json() as Promise<T>;
 }
 
 async function fetchText(url: string, init?: RequestInit) {
-  const response = await fetch(url, init);
+  const response = await fetchWithRetry(url, init);
   if (!response.ok) throw new Error(`${response.status} ${response.statusText}: ${url}`);
   return response.text();
 }
@@ -85,6 +86,7 @@ async function searchSkills(query: string) {
 }
 
 function isExcluded(skill: SearchSkill, config: z.infer<typeof discoveryConfigSchema>) {
+  if (!/^[^/]+\/[^/]+$/.test(skill.source)) return true;
   const owner = skill.source.split("/")[0]!.toLowerCase();
   if (config.excludedOwners.map((item) => item.toLowerCase()).includes(owner)) return true;
   const haystack = `${skill.id} ${skill.name} ${skill.source}`.toLowerCase();

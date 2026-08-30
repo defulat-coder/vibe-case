@@ -11,7 +11,7 @@
     "beat sync editing",
     "storyboard composition"
   ],
-  "maxNewPerRun": 4,
+  "maxNewPerRun": 20,
   "excludedOwners": [
     "openai",
     "vercel-labs",
@@ -56,19 +56,33 @@
     "credits"
   ],
   "excludedSources": [
+    "affaan-m/ecc/taste",
     "arnavpuri/designskills/poster-design",
+    "bencium/bencium-marketplace/ui-typography",
+    "buyaka/product-manager-skills/storyboard",
+    "citypaul/.dotfiles/storyboard",
+    "deanpeters/product-manager-skills/customer-journey-mapping-workshop",
+    "deanpeters/product-manager-skills/storyboard",
+    "dot8pixels/dot8pixels/design-consultation",
     "eachlabs/skills/poster-design-generation",
+    "ecliptic-ai/skills/beat-sync-video-editing",
     "evanyan1024/gpt-image-safe-prompting/gpt-image-safe-prompting",
     "findridoy/dot-files/poster-design",
     "galaxy-dawn/claude-scholar/post-acceptance",
+    "gnurio/refactoring-ui-plugin/apply-typography-scale",
+    "gnurio/refactoring-ui-plugin/establish-visual-hierarchy",
+    "gooseworks-ai/goose-skills/beat-sync-reel",
     "jacksontai2007/gpt-image-2-prompting-skill/gpt-image-2-prompting",
-    "magentosh/superpowers/gpt-image",
     "joeseesun/qiaomu-mondo-poster-design/qiaomu-mondo-poster-design",
+    "kimmywork/skills/rationale",
+    "magentosh/superpowers/gpt-image",
+    "minimax-ai/minimax-h3/3d-animation-short-generator",
     "nexu-io/open-design/html-ppt-zhangzara-bold-poster",
     "nexu-io/open-design/image-poster",
     "nexu-io/open-design/magazine-poster",
     "openclaudia/openclaudia-skills/generate-image",
-    "skills-101/superpowers/gpt-image"
+    "skills-101/superpowers/gpt-image",
+    "whetspretz/design-sprinter/storyboarder"
   ],
   "sources": [
     {
@@ -154,6 +168,258 @@
       "skillId": "critique-visual-hierarchy",
       "skillPath": "visual-critique/skills/critique-visual-hierarchy/SKILL.md",
       "skillsShUrl": "https://skills.sh/owl-listener/designer-skills/critique-visual-hierarchy"
+    },
+    {
+      "repository": "dembrandt/dembrandt-skills",
+      "skillId": "visual-emphasis-and-hierarchy",
+      "skillPath": "skills/visual-emphasis-and-hierarchy/SKILL.md",
+      "skillsShUrl": "https://skills.sh/dembrandt/dembrandt-skills/visual-emphasis-and-hierarchy"
+    },
+    {
+      "repository": "sanky369/vibe-building-skills",
+      "skillId": "visual-hierarchy-refactoring",
+      "skillPath": "skills/frontend-design/visual-hierarchy-refactoring/SKILL.md",
+      "skillsShUrl": "https://skills.sh/sanky369/vibe-building-skills/visual-hierarchy-refactoring"
+    },
+    {
+      "repository": "dragoon0x/taste-skills",
+      "skillId": "hierarchy-principles",
+      "skillPath": "skills/visual-language/hierarchy-principles/SKILL.md",
+      "skillsShUrl": "https://skills.sh/dragoon0x/taste-skills/hierarchy-principles"
+    },
+    {
+      "repository": "sanky369/vibe-building-skills",
+      "skillId": "typography-system",
+      "skillPath": "skills/frontend-design/typography-system/SKILL.md",
+      "skillsShUrl": "https://skills.sh/sanky369/vibe-building-skills/typography-system"
+    },
+    {
+      "repository": "onewave-ai/claude-skills",
+      "skillId": "typography-scale-builder",
+      "skillPath": "typography-scale-builder/SKILL.md",
+      "skillsShUrl": "https://skills.sh/onewave-ai/claude-skills/typography-scale-builder"
+    },
+    {
+      "repository": "podo/design-agent-skills",
+      "skillId": "baseline-ui",
+      "skillPath": "skills/baseline-ui/SKILL.md",
+      "skillsShUrl": "https://skills.sh/podo/design-agent-skills/baseline-ui"
+    },
+    {
+      "repository": "dhananjaym182/ai-ui-design-skills",
+      "skillId": "saas-ui-ux-designer-skill-typography-flex",
+      "skillPath": "skills/saas-ui-ux-designer-skill-typography-flex/SKILL.md",
+      "skillsShUrl": "https://skills.sh/dhananjaym182/ai-ui-design-skills/saas-ui-ux-designer-skill-typography-flex"
+    },
+    {
+      "repository": "owl-listener/inclusive-design-skills",
+      "skillId": "flexible-typography",
+      "skillPath": "adaptive-interfaces/skills/flexible-typography/SKILL.md",
+      "skillsShUrl": "https://skills.sh/owl-listener/inclusive-design-skills/flexible-typography"
+    },
+    {
+      "repository": "antjanus/skillbox",
+      "skillId": "typography",
+      "skillPath": "skills/typography/SKILL.md",
+      "skillsShUrl": "https://skills.sh/antjanus/skillbox/typography"
+    },
+    {
+      "repository": "sydonayrex/tldr",
+      "skillId": "ui-typography",
+      "skillPath": "skills/ui-typography/SKILL.md",
+      "skillsShUrl": "https://skills.sh/sydonayrex/tldr/ui-typography"
+    },
+    {
+      "repository": "dylantarre/animation-principles",
+      "skillId": "ux-researcher",
+      "skillPath": "skills/03-by-role-persona/ux-researcher/SKILL.md",
+      "skillsShUrl": "https://skills.sh/dylantarre/animation-principles/ux-researcher"
+    },
+    {
+      "repository": "vasilyu1983/ai-agents-public",
+      "skillId": "software-ux-research",
+      "skillPath": "frameworks/shared-skills/skills/software-ux-research/SKILL.md",
+      "skillsShUrl": "https://skills.sh/vasilyu1983/ai-agents-public/software-ux-research"
+    },
+    {
+      "repository": "hueyexe/frontend-agent-skills",
+      "skillId": "ux-research-discovery-testing",
+      "skillPath": "ux-research-discovery-testing/SKILL.md",
+      "skillsShUrl": "https://skills.sh/hueyexe/frontend-agent-skills/ux-research-discovery-testing"
+    },
+    {
+      "repository": "phazurlabs/sumi",
+      "skillId": "ux-research-methods",
+      "skillPath": "skills/ux-research-methods/SKILL.md",
+      "skillsShUrl": "https://skills.sh/phazurlabs/sumi/ux-research-methods"
+    },
+    {
+      "repository": "mohitagw15856/pm-claude-skills",
+      "skillId": "ux-research-plan",
+      "skillPath": "exports/openclaw/ux-research-plan/SKILL.md",
+      "skillsShUrl": "https://skills.sh/mohitagw15856/pm-claude-skills/ux-research-plan"
+    },
+    {
+      "repository": "phuryn/pm-skills",
+      "skillId": "customer-journey-map",
+      "skillPath": "pm-market-research/skills/customer-journey-map/SKILL.md",
+      "skillsShUrl": "https://skills.sh/phuryn/pm-skills/customer-journey-map"
+    },
+    {
+      "repository": "product-on-purpose/pm-skills",
+      "skillId": "discover-journey-map",
+      "skillPath": "skills/discover-journey-map/SKILL.md",
+      "skillsShUrl": "https://skills.sh/product-on-purpose/pm-skills/discover-journey-map"
+    },
+    {
+      "repository": "onewave-ai/claude-skills",
+      "skillId": "customer-journey-mapper",
+      "skillPath": "customer-journey-mapper/SKILL.md",
+      "skillsShUrl": "https://skills.sh/onewave-ai/claude-skills/customer-journey-mapper"
+    },
+    {
+      "repository": "thatrebeccarae/claude-marketing",
+      "skillId": "customer-journey-mapping",
+      "skillPath": "skills/customer-journey-mapping/SKILL.md",
+      "skillsShUrl": "https://skills.sh/thatrebeccarae/claude-marketing/customer-journey-mapping"
+    },
+    {
+      "repository": "gtmagents/gtm-agents",
+      "skillId": "patient-journey-mapping",
+      "skillPath": "plugins/healthcare-marketing/skills/patient-journey-mapping/SKILL.md",
+      "skillsShUrl": "https://skills.sh/gtmagents/gtm-agents/patient-journey-mapping"
+    },
+    {
+      "repository": "nickcrew/claude-cortex",
+      "skillId": "user-journey-mapping",
+      "skillPath": "skills/user-journey-mapping/SKILL.md",
+      "skillsShUrl": "https://skills.sh/nickcrew/claude-cortex/user-journey-mapping"
+    },
+    {
+      "repository": "gtmagents/gtm-agents",
+      "skillId": "journey-mapping",
+      "skillPath": "plugins/customer-journey-orchestration/skills/journey-mapping/SKILL.md",
+      "skillsShUrl": "https://skills.sh/gtmagents/gtm-agents/journey-mapping"
+    },
+    {
+      "repository": "owl-listener/designer-skills",
+      "skillId": "design-rationale",
+      "skillPath": "designer-toolkit/skills/design-rationale/SKILL.md",
+      "skillsShUrl": "https://skills.sh/owl-listener/designer-skills/design-rationale"
+    },
+    {
+      "repository": "phuryn/pm-skills",
+      "skillId": "positioning-ideas",
+      "skillPath": "pm-marketing-growth/skills/positioning-ideas/SKILL.md",
+      "skillsShUrl": "https://skills.sh/phuryn/pm-skills/positioning-ideas"
+    },
+    {
+      "repository": "dylantarre/animation-principles",
+      "skillId": "motion-designer",
+      "skillPath": "skills/03-by-role-persona/motion-designer/SKILL.md",
+      "skillsShUrl": "https://skills.sh/dylantarre/animation-principles/motion-designer"
+    },
+    {
+      "repository": "athevon/genjutsu",
+      "skillId": "motion-principles",
+      "skillPath": "skills/_jutsu/motion-principles/SKILL.md",
+      "skillsShUrl": "https://skills.sh/athevon/genjutsu/motion-principles"
+    },
+    {
+      "repository": "dylantarre/animation-principles",
+      "skillId": "framer-motion",
+      "skillPath": "skills/09-by-tool-framework/framer-motion/SKILL.md",
+      "skillsShUrl": "https://skills.sh/dylantarre/animation-principles/framer-motion"
+    },
+    {
+      "repository": "dylantarre/animation-principles",
+      "skillId": "web-motion-design",
+      "skillPath": "skills/01-by-domain/web-motion-design/SKILL.md",
+      "skillsShUrl": "https://skills.sh/dylantarre/animation-principles/web-motion-design"
+    },
+    {
+      "repository": "dylantarre/animation-principles",
+      "skillId": "motion-one",
+      "skillPath": "skills/09-by-tool-framework/motion-one/SKILL.md",
+      "skillsShUrl": "https://skills.sh/dylantarre/animation-principles/motion-one"
+    },
+    {
+      "repository": "iart-ai/motion-design-skills",
+      "skillId": "animation-principles",
+      "skillPath": "skills/animation-principles/SKILL.md",
+      "skillsShUrl": "https://skills.sh/iart-ai/motion-design-skills/animation-principles"
+    },
+    {
+      "repository": "lobzyjay/motion-design-with-claude",
+      "skillId": "motion-design",
+      "skillPath": "skills/motion-design/SKILL.md",
+      "skillsShUrl": "https://skills.sh/lobzyjay/motion-design-with-claude/motion-design"
+    },
+    {
+      "repository": "dylantarre/animation-principles",
+      "skillId": "universal-fallback",
+      "skillPath": "skills/01-by-domain/universal-fallback/SKILL.md",
+      "skillsShUrl": "https://skills.sh/dylantarre/animation-principles/universal-fallback"
+    },
+    {
+      "repository": "podo/design-agent-skills",
+      "skillId": "motion-design-skill",
+      "skillPath": "skills/motion-design-skill/SKILL.md",
+      "skillsShUrl": "https://skills.sh/podo/design-agent-skills/motion-design-skill"
+    },
+    {
+      "repository": "botirkhaltaev/botir-skills",
+      "skillId": "motion-design-principles",
+      "skillPath": "skills/motion-design-principles/SKILL.md",
+      "skillsShUrl": "https://skills.sh/botirkhaltaev/botir-skills/motion-design-principles"
+    },
+    {
+      "repository": "calm-north/seojuice-skills",
+      "skillId": "beat-competitors",
+      "skillPath": "skills/beat-competitors/SKILL.md",
+      "skillsShUrl": "https://skills.sh/calm-north/seojuice-skills/beat-competitors"
+    },
+    {
+      "repository": "devcxl/mattpocock-skills-zh",
+      "skillId": "writing-beats",
+      "skillPath": "skills/in-progress/writing-beats/SKILL.md",
+      "skillsShUrl": "https://skills.sh/devcxl/mattpocock-skills-zh/writing-beats"
+    },
+    {
+      "repository": "vstorm-co/content-skills",
+      "skillId": "content-video",
+      "skillPath": "skills/content-video/SKILL.md",
+      "skillsShUrl": "https://skills.sh/vstorm-co/content-skills/content-video"
+    },
+    {
+      "repository": "touge1618/touge-spoken-storyboard",
+      "skillId": "touge-spoken-storyboard",
+      "skillPath": "skills/touge-spoken-storyboard/SKILL.md",
+      "skillsShUrl": "https://skills.sh/touge1618/touge-spoken-storyboard/touge-spoken-storyboard"
+    },
+    {
+      "repository": "minh-vt/toonskills",
+      "skillId": "storyboard-panel",
+      "skillPath": "skills/storyboard-panel/SKILL.md",
+      "skillsShUrl": "https://skills.sh/minh-vt/toonskills/storyboard-panel"
+    },
+    {
+      "repository": "wddxh/shortvideodirector",
+      "skillId": "storyboarder-storyboard",
+      "skillPath": ".codex/skills/storyboarder-storyboard/SKILL.md",
+      "skillsShUrl": "https://skills.sh/wddxh/shortvideodirector/storyboarder-storyboard"
+    },
+    {
+      "repository": "wddxh/shortvideodirector",
+      "skillId": "storyboarder-fix-storyboard",
+      "skillPath": ".codex/skills/storyboarder-fix-storyboard/SKILL.md",
+      "skillsShUrl": "https://skills.sh/wddxh/shortvideodirector/storyboarder-fix-storyboard"
+    },
+    {
+      "repository": "scibly-dev/skills",
+      "skillId": "storyboard",
+      "skillPath": "skills/storyboard/SKILL.md",
+      "skillsShUrl": "https://skills.sh/scibly-dev/skills/storyboard"
     }
   ]
 }

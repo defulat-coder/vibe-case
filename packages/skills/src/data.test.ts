@@ -1,7 +1,13 @@
 import { describe, expect, it } from "vitest";
+import sourceConfig from "../../../content/skills/sources.json";
 import { skillCategories, skills } from "./data";
+import { discoveryConfigSchema } from "./schema";
 
 describe("skills catalog invariants", () => {
+  it("keeps each discovery run capped at 20 new skills", () => {
+    expect(discoveryConfigSchema.parse(sourceConfig).maxNewPerRun).toBe(20);
+  });
+
   it("keeps slugs, skill ids, and case ids unique", () => {
     // slug 冲突会让 generateStaticParams 产出重复路由，caseId 冲突会让运行接口找错案例
     expect(new Set(skills.map((item) => item.slug)).size).toBe(skills.length);
