@@ -93,6 +93,11 @@ export function GenerationStudio({ item }: { item: UICase }) {
     setImageError("");
     const reader = new FileReader();
     reader.onload = () => setReferenceImage(String(reader.result));
+    reader.onerror = () => {
+      setReferenceImage(undefined);
+      setImageError("参考图片读取失败，请重新选择。");
+      if (fileInput.current) fileInput.current.value = "";
+    };
     reader.readAsDataURL(file);
   }
 
@@ -100,6 +105,7 @@ export function GenerationStudio({ item }: { item: UICase }) {
     setReferenceImage(undefined);
     setImageError("");
     if (fileInput.current) fileInput.current.value = "";
+    window.requestAnimationFrame(() => fileInput.current?.focus());
   }
 
   return (
