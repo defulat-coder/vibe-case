@@ -805,7 +805,7 @@ input, textarea { caret-color: #c9442d; }
 .skill-case-heading { display: flex; justify-content: space-between; gap: 20px; align-items: start; }
 .skill-case-heading h3 { margin: 0 0 7px; font-family: var(--font-display), sans-serif; font-size: 28px; font-weight: 400; }
 .skill-case-heading p { margin: 0; color: var(--ink-soft); line-height: 1.55; }
-.skill-case-heading > span { flex: 0 0 auto; padding: 6px 8px; border: 1px solid var(--ink); border-radius: 8px; font-size: 11px; font-weight: 900; line-height: 1.35; text-transform: uppercase; }
+.skill-case-heading > span { flex: 0 0 auto; padding: 6px 8px; border: 1px solid var(--ink); border-radius: 8px; font-size: 11px; font-weight: 900; line-height: 1.35; text-transform: none; }
 .skill-prompt-editor > span { margin-bottom: 5px; color: var(--ink-soft); font-size: 11px; font-weight: 900; line-height: 1.4; letter-spacing: .07em; text-transform: uppercase; }
 .skill-prompt-editor { display: grid; gap: 7px; }
 .skill-case-heading + .skill-prompt-editor { margin-top: 20px; }
