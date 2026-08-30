@@ -30,6 +30,7 @@ export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; cat
   }, [category, items, query]);
   const visible = filtered.slice(0, visibleCount);
   const leafCategory = categories.find((item) => item.id === category);
+  const leafCluster = leafCategory ? clusters.find((item) => item.categories.includes(leafCategory.id as never)) : undefined;
 
   function chooseCategory(value: string) {
     setCategory(value);
@@ -50,13 +51,13 @@ export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; cat
           <input value={query} onChange={(event) => updateQuery(event.target.value)} placeholder="搜索 Skill、用途或专有名词" />
           {query && <button type="button" onClick={() => updateQuery("")} aria-label="清除搜索"><X size={16} /></button>}
         </label>
-        <p aria-live="polite">找到 {filtered.length} 个 Skills</p>
+        <p aria-live="polite">找到 {filtered.length} 个 Skills{visible.length < filtered.length ? `，已显示 ${visible.length} 个` : ""}</p>
       </div>
       <div className="category-controls">
         <div className="category-strip" aria-label="Skill 一级分类">
           <button className={category === "All" ? "active" : ""} aria-pressed={category === "All"} type="button" onClick={() => chooseCategory("All")}>全部 <span>{items.length}</span></button>
           {clusters.map((item) => (
-            <button className={category === item.id ? "active" : ""} aria-pressed={category === item.id} type="button" key={item.id} onClick={() => chooseCategory(item.id)}>{item.label} <span>{items.filter((candidate) => item.categories.includes(candidate.category as never)).length}</span></button>
+            <button className={`${category === item.id ? "active" : ""}${leafCluster?.id === item.id ? " has-leaf" : ""}`} aria-pressed={category === item.id} type="button" key={item.id} onClick={() => chooseCategory(item.id)}>{item.label} <span>{items.filter((candidate) => item.categories.includes(candidate.category as never)).length}</span></button>
           ))}
           {leafCategory && (
             <button className="active leaf-active" type="button" aria-label={`清除分类筛选：${leafCategory.label}`} onClick={() => chooseCategory("All")}>

@@ -30,6 +30,7 @@ export function CaseExplorer({ items, categories }: { items: UICase[]; categorie
   }, [category, items, query]);
   const visible = filtered.slice(0, visibleCount);
   const leafCategory = categories.find((item) => item.id === category);
+  const leafCluster = leafCategory ? clusters.find((item) => item.categories.includes(leafCategory.id as never)) : undefined;
 
   function chooseCategory(value: string) {
     setCategory(value);
@@ -54,7 +55,7 @@ export function CaseExplorer({ items, categories }: { items: UICase[]; categorie
             </button>
           )}
         </label>
-        <p aria-live="polite">找到 {filtered.length} 个案例</p>
+        <p aria-live="polite">找到 {filtered.length} 个案例{visible.length < filtered.length ? `，已显示 ${visible.length} 个` : ""}</p>
       </div>
 
       <div className="category-controls">
@@ -63,7 +64,7 @@ export function CaseExplorer({ items, categories }: { items: UICase[]; categorie
             全部 <span>{items.length}</span>
           </button>
           {clusters.map((item) => (
-            <button className={category === item.id ? "active" : ""} aria-pressed={category === item.id} type="button" key={item.id} onClick={() => chooseCategory(item.id)}>
+            <button className={`${category === item.id ? "active" : ""}${leafCluster?.id === item.id ? " has-leaf" : ""}`} aria-pressed={category === item.id} type="button" key={item.id} onClick={() => chooseCategory(item.id)}>
               {item.label} <span>{items.filter((candidate) => item.categories.includes(candidate.category as never)).length}</span>
             </button>
           ))}
