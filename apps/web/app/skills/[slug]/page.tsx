@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm";
 import { getSkillBySlug, skills, type ParsedSkill } from "@vibe-case/skills";
 import { SkillCaseRunner } from "@/components/skill-case-runner";
 import { AvatarTile } from "@/components/avatar-tile";
+import { HashFocusTarget } from "@/components/hash-focus-target";
 
 export function generateStaticParams() {
   return skills.map((skill) => ({ slug: skill.slug }));
@@ -83,10 +84,10 @@ export default async function SkillDetailPage({ params }: { params: Promise<{ sl
         </details>
       </section>
 
-      <section className="skill-cases-section" id="skill-cases">
+      <HashFocusTarget className="skill-cases-section" id="skill-cases" aria-label="运行案例">
         <div className="section-heading"><h2>运行案例</h2></div>
         <div className="skill-case-grid">{skill.cases.map((item) => <SkillCaseRunner key={item.id} item={item} />)}</div>
-      </section>
+      </HashFocusTarget>
     </main>
   );
 }

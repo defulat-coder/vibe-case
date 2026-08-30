@@ -7,6 +7,7 @@ import { ImagePlus, LoaderCircle, RotateCcw, Square, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { readGenerationDraft, writeGenerationDraft } from "./generation-draft";
+import { HashFocusTarget } from "./hash-focus-target";
 import { secureSrcDoc } from "./secure-src-doc";
 
 export function GenerationStudio({ item }: { item: UICase }) {
@@ -92,7 +93,7 @@ export function GenerationStudio({ item }: { item: UICase }) {
   }
 
   return (
-    <section className="generation-studio" id="generation-studio" aria-label="生成效果">
+    <HashFocusTarget className="generation-studio" id="generation-studio" aria-label="生成效果">
       <div className="generation-panel">
         <div className="generation-heading">
           <h2>生成页面</h2>
@@ -153,6 +154,6 @@ export function GenerationStudio({ item }: { item: UICase }) {
           <div className="preview-empty"><strong>生成结果会显示在这里</strong></div>
         )}
       </div>
-    </section>
+    </HashFocusTarget>
   );
 }
