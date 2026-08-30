@@ -20,6 +20,7 @@ export function GenerationStudio({ item }: { item: UICase }) {
   const [draftReady, setDraftReady] = useState(false);
   const [draftStorageAvailable, setDraftStorageAvailable] = useState(true);
   const fileInput = useRef<HTMLInputElement>(null);
+  const promptRef = useRef<HTMLTextAreaElement>(null);
   const generationIdRef = useRef<string | undefined>(undefined);
   const draftKey = `vibe-case:generation-draft:v1:${item.id}`;
 
@@ -108,17 +109,24 @@ export function GenerationStudio({ item }: { item: UICase }) {
     window.requestAnimationFrame(() => fileInput.current?.focus());
   }
 
+  function clearResult() {
+    clear();
+    setCompletedHtml(undefined);
+    setCompletedGenerationId(undefined);
+    window.requestAnimationFrame(() => promptRef.current?.focus());
+  }
+
   return (
     <HashFocusTarget className="generation-studio" id="generation-studio" aria-label="生成效果" aria-busy={isLoading}>
       <div className="generation-panel">
         <div className="generation-heading">
           <h2>生成页面</h2>
-          {completedHtml && <button className="icon-button" type="button" onClick={() => { clear(); setCompletedHtml(undefined); setCompletedGenerationId(undefined); }} aria-label="清除结果"><RotateCcw size={17} /></button>}
+          {completedHtml && <button className="icon-button" type="button" onClick={clearResult} aria-label="清除结果"><RotateCcw size={17} /></button>}
         </div>
 
         <label className="prompt-editor">
           <span>中文 Prompt</span>
-          <textarea value={prompt} onChange={(event) => setPrompt(event.target.value)} rows={8} maxLength={8_000} aria-describedby="prompt-requirement prompt-counter" />
+          <textarea ref={promptRef} value={prompt} onChange={(event) => setPrompt(event.target.value)} rows={8} maxLength={8_000} aria-describedby="prompt-requirement prompt-counter" />
         </label>
         <div className="prompt-meta">
           <p className="field-help" id="prompt-requirement">{draftStorageAvailable ? "至少输入 20 个字符，最多 8000 个字符；Prompt 与变量会自动保存到当前浏览器 Session，刷新后仍可恢复。" : "最多 8000 个字符；当前浏览器禁止会话存储，离开页面前请先复制 Prompt。"}</p>
