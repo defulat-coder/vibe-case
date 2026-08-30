@@ -24,9 +24,9 @@ export function SkillCaseRunner({ item }: { item: SkillCase }) {
   const promptHelpId = `skill-prompt-help-${item.id}`;
 
   async function run() {
+    const hasPreviousResult = Boolean(result);
     setLoading(true);
     setError("");
-    setResult(undefined);
     try {
       const response = await fetch("/api/skills/run", {
         method: "POST",
@@ -37,19 +37,19 @@ export function SkillCaseRunner({ item }: { item: SkillCase }) {
       try {
         value = await response.json();
       } catch {
-        throw new Error(response.ok ? "运行失败：服务返回了无法识别的结果，Prompt 仍已保留，请重试。" : "运行失败：服务暂时不可用，Prompt 仍已保留，请稍后重试。");
+        throw new Error(response.ok ? `运行失败：服务返回了无法识别的结果。${hasPreviousResult ? "上一次结果仍保留。" : ""}Prompt 仍已保留，请重试。` : `运行失败：服务暂时不可用。${hasPreviousResult ? "上一次结果仍保留。" : ""}Prompt 仍已保留，请稍后重试。`);
       }
       if (!response.ok) {
         const message = typeof value === "object" && value !== null && "error" in value && typeof value.error === "string" ? value.error : "服务暂时不可用，请稍后重试";
-        throw new Error(`运行失败：${message}。Prompt 仍已保留，请重试。`);
+        throw new Error(`运行失败：${message}。${hasPreviousResult ? "上一次结果仍保留。" : ""}Prompt 仍已保留，请重试。`);
       }
       try {
         setResult(skillCaseResultSchema.parse(value));
       } catch {
-        throw new Error("运行失败：服务返回了无效结果，Prompt 仍已保留，请重试。");
+        throw new Error(`运行失败：服务返回了无效结果。${hasPreviousResult ? "上一次结果仍保留。" : ""}Prompt 仍已保留，请重试。`);
       }
     } catch (reason) {
-      setError(reason instanceof TypeError && /fetch|network|load failed/i.test(reason.message) ? "运行失败：网络连接异常，Prompt 仍已保留，请检查网络后重试。" : reason instanceof Error ? reason.message : "运行案例失败，Prompt 仍已保留，请重试。");
+      setError(reason instanceof TypeError && /fetch|network|load failed/i.test(reason.message) ? `运行失败：网络连接异常。${hasPreviousResult ? "上一次结果仍保留。" : ""}Prompt 仍已保留，请检查网络后重试。` : reason instanceof Error ? reason.message : `运行案例失败。${hasPreviousResult ? "上一次结果仍保留。" : ""}Prompt 仍已保留，请重试。`);
     } finally {
       setLoading(false);
     }
