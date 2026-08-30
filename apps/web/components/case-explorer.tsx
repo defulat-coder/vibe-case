@@ -78,7 +78,7 @@ export function CaseExplorer({ items, categories }: { items: UICase[]; categorie
             </button>
           )}
         </label>
-        <p aria-live="polite">找到 {filtered.length} 个案例{visible.length < filtered.length ? `，已显示 ${visible.length} 个` : ""}</p>
+        <p aria-live="polite" aria-atomic="true">找到 {filtered.length} 个案例{visible.length < filtered.length ? `，已显示 ${visible.length} 个` : ""}</p>
       </div>
 
       <div className="category-controls">

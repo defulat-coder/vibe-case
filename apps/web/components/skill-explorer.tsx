@@ -74,7 +74,7 @@ export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; cat
           <input ref={searchInputRef} type="search" inputMode="search" enterKeyHint="search" autoComplete="off" value={query} onChange={(event) => updateQuery(event.target.value)} placeholder="搜索 Skill、用途或专有名词" />
           {query && <button type="button" onClick={() => updateQuery("")} aria-label="清除搜索"><X size={16} /></button>}
         </label>
-        <p aria-live="polite">找到 {filtered.length} 个 Skills{visible.length < filtered.length ? `，已显示 ${visible.length} 个` : ""}</p>
+        <p aria-live="polite" aria-atomic="true">找到 {filtered.length} 个 Skills{visible.length < filtered.length ? `，已显示 ${visible.length} 个` : ""}</p>
       </div>
       <div className="category-controls">
         <div className="category-strip" role="group" aria-label="Skill 一级分类">
