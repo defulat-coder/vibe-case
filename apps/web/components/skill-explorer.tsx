@@ -16,8 +16,9 @@ const clusters = [
 ] as const;
 
 export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; categories: Category[] }) {
-  const { query, category, setQuery, setCategory, reset } = useCatalogUrlState();
-  const [visibleCount, setVisibleCount] = useState(pageSize);
+  const { query, category, setQuery, setCategory, reset, navigationVersion } = useCatalogUrlState();
+  const [visibleState, setVisibleState] = useState({ count: pageSize, version: 0 });
+  const visibleCount = visibleState.version === navigationVersion ? visibleState.count : pageSize;
   const filtered = useMemo(() => {
     const normalized = query.trim().toLocaleLowerCase("zh-CN");
     const cluster = clusters.find((item) => item.id === category);
@@ -34,12 +35,12 @@ export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; cat
 
   function chooseCategory(value: string) {
     setCategory(value);
-    setVisibleCount(pageSize);
+    setVisibleState({ count: pageSize, version: navigationVersion });
   }
 
   function updateQuery(value: string) {
     setQuery(value);
-    setVisibleCount(pageSize);
+    setVisibleState({ count: pageSize, version: navigationVersion });
   }
 
   return (
@@ -76,10 +77,10 @@ export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; cat
       {filtered.length ? (
         <>
           <div className="skill-grid result-grid" key={`${category}:${query}:${visibleCount}`}>{visible.map((item) => <SkillCard key={item.id} item={item} />)}</div>
-          {visible.length < filtered.length && <button className="button button-secondary catalog-more" type="button" onClick={() => setVisibleCount((count) => count + pageSize)}>显示更多 <span>{visible.length} / {filtered.length}</span></button>}
+          {visible.length < filtered.length && <button className="button button-secondary catalog-more" type="button" onClick={() => setVisibleState({ count: visibleCount + pageSize, version: navigationVersion })}>显示更多 <span>{visible.length} / {filtered.length}</span></button>}
         </>
       ) : (
-        <div className="empty-state"><h2>没有匹配的 Skills</h2><p>换一个中文词、英文术语，或者清除当前分类。</p><button className="button" type="button" onClick={() => { reset(); setVisibleCount(pageSize); }}>清除筛选</button></div>
+        <div className="empty-state"><h2>没有匹配的 Skills</h2><p>换一个中文词、英文术语，或者清除当前分类。</p><button className="button" type="button" onClick={() => { reset(); setVisibleState({ count: pageSize, version: navigationVersion }); }}>清除筛选</button></div>
       )}
     </section>
   );
