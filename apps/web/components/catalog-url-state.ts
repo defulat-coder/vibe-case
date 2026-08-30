@@ -14,29 +14,39 @@ export function buildCatalogQuery(query: string, category: string): string {
   return params.toString();
 }
 
-export function parseCatalogQuery(search: string) {
+export function parseCatalogQuery(search: string, validCategories?: readonly string[]) {
   const params = new URLSearchParams(search.startsWith("?") ? search.slice(1) : search);
-  return { query: params.get("q") ?? "", category: params.get("category") ?? "All" };
+  const requestedCategory = params.get("category") ?? "All";
+  const category = requestedCategory !== "All" && validCategories && !validCategories.includes(requestedCategory) ? "All" : requestedCategory;
+  return { query: params.get("q") ?? "", category };
 }
 
-export function useCatalogUrlState() {
+export function useCatalogUrlState(validCategories?: readonly string[]) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const initial = parseCatalogQuery(searchParams.toString());
+  const initial = parseCatalogQuery(searchParams.toString(), validCategories);
   const [query, setQueryValue] = useState(initial.query);
   const [category, setCategoryValue] = useState(initial.category);
   const [navigationVersion, setNavigationVersion] = useState(0);
 
   useEffect(() => {
+    const canonicalizeUrl = () => {
+      const next = parseCatalogQuery(window.location.search, validCategories);
+      const qs = buildCatalogQuery(next.query, next.category);
+      const nextUrl = qs ? `${pathname}?${qs}` : pathname;
+      if (`${window.location.pathname}${window.location.search}` !== nextUrl) window.history.replaceState(null, "", nextUrl);
+    };
+
+    canonicalizeUrl();
     function syncFromUrl() {
-      const next = parseCatalogQuery(window.location.search);
+      const next = parseCatalogQuery(window.location.search, validCategories);
       setQueryValue(next.query);
       setCategoryValue(next.category);
       setNavigationVersion((version) => version + 1);
     }
     window.addEventListener("popstate", syncFromUrl);
     return () => window.removeEventListener("popstate", syncFromUrl);
-  }, [pathname]);
+  }, [pathname, validCategories]);
 
   function syncUrl(nextQuery: string, nextCategory: string, mode: "push" | "replace" = "replace") {
     const qs = buildCatalogQuery(nextQuery, nextCategory);

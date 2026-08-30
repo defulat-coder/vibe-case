@@ -16,7 +16,8 @@ const clusters = [
 ] as const;
 
 export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; categories: Category[] }) {
-  const { query, category, setQuery, setCategory, reset, navigationVersion } = useCatalogUrlState();
+  const validCategories = useMemo(() => ["All", ...clusters.map((item) => item.id), ...categories.map((item) => item.id)], [categories]);
+  const { query, category, setQuery, setCategory, reset, navigationVersion } = useCatalogUrlState(validCategories);
   const [visibleState, setVisibleState] = useState({ count: pageSize, version: 0 });
   const visibleCount = visibleState.version === navigationVersion ? visibleState.count : pageSize;
   const filtered = useMemo(() => {

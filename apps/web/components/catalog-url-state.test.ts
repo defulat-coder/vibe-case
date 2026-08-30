@@ -21,4 +21,8 @@ describe("buildCatalogQuery", () => {
     expect(parseCatalogQuery("?q=%E5%88%86%E5%B1%8F&category=entry")).toEqual({ query: "分屏", category: "entry" });
     expect(parseCatalogQuery("")).toEqual({ query: "", category: "All" });
   });
+
+  it("falls back to All for an unknown deep-link category", () => {
+    expect(parseCatalogQuery("?category=not-a-real-category", ["All", "entry"])).toEqual({ query: "", category: "All" });
+  });
 });
