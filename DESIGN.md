@@ -325,7 +325,7 @@ The Skills catalog extends the Functional Commons without changing its visual wo
 
 - **Grid:** two equal columns with a 20px gap inside the 1380px authored width. Below 760px it becomes one column.
 - **Card Shell:** clean-cream fill, 1px portrait-ink border, 16px corners, 18px link padding, and no resting shadow. Do not rotate pastel backgrounds across Skill cards.
-- **Meta Row:** a three-part grid—44px guide avatar, uppercase 11px / 900 category label, and the “N 个案例” count—separated from the copy below.
+- **Meta Row:** a three-part grid—44px guide avatar, an 11px / 900 category label that preserves mixed-script casing, and the “N 个案例” count—separated from the copy below.
 - **Copy:** the Chinese Skill title uses Manrope Variable at 22px / 850 on desktop and 20px on mobile; the summary is graphite at 1.6 line-height and clamps to three lines on mobile. The desktop link keeps a 230px minimum height; mobile removes it so the card follows its clamped content, with copy padding tightened to 16px 4px 34px.
 - **Discovery:** expose four clusters—图片与视觉, 界面与体验, 产品方法, and 动效与视频—plus a specific-category select. The 12-item page budget resets whenever search or category changes.
 
