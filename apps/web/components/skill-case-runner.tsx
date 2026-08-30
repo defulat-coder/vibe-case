@@ -4,7 +4,7 @@ import { skillCaseResultSchema, type SkillCaseResult } from "@vibe-case/ai";
 import type { SkillCase } from "@vibe-case/skills";
 import { Check, Copy, ImageIcon, LoaderCircle, Play, RotateCcw } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { copyText } from "./copy-to-clipboard";
 
 const executionModeLabels = {
@@ -20,6 +20,7 @@ export function SkillCaseRunner({ item }: { item: SkillCase }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
+  const promptRef = useRef<HTMLTextAreaElement>(null);
   const promptLength = prompt.trim().length;
   const promptHelpId = `skill-prompt-help-${item.id}`;
 
@@ -66,6 +67,11 @@ export function SkillCaseRunner({ item }: { item: SkillCase }) {
     window.setTimeout(() => setCopied(false), 1600);
   }
 
+  function clearResult() {
+    setResult(undefined);
+    window.requestAnimationFrame(() => promptRef.current?.focus());
+  }
+
   return (
     <article className="skill-case" aria-busy={loading}>
       <div className="sr-only" role="status" aria-live="polite" aria-atomic="true">{loading ? "正在运行案例，请稍候。" : result ? "案例运行完成，结果已显示。" : ""}</div>
@@ -75,7 +81,7 @@ export function SkillCaseRunner({ item }: { item: SkillCase }) {
       </div>
       <label className="skill-prompt-editor">
         <span>Prompt</span>
-        <textarea rows={7} maxLength={8_000} value={prompt} onChange={(event) => setPrompt(event.target.value)} aria-describedby={promptHelpId} />
+        <textarea ref={promptRef} rows={7} maxLength={8_000} value={prompt} onChange={(event) => setPrompt(event.target.value)} aria-describedby={promptHelpId} />
         <p className="field-help" id={promptHelpId}>{promptLength < 20 ? `至少输入 20 个字符后可运行（还差 ${20 - promptLength} 个字符）。` : `Prompt 已满足最小长度，可以运行（${promptLength} / 8000）。`}</p>
       </label>
       <div className="skill-case-actions">
@@ -88,7 +94,7 @@ export function SkillCaseRunner({ item }: { item: SkillCase }) {
       {error && <p className="error-message" role="alert">{error}</p>}
       {result && (
         <div className="skill-case-result">
-          <div><strong>运行结果</strong><button type="button" onClick={() => setResult(undefined)} aria-label="清除运行结果"><RotateCcw size={16} /></button></div>
+          <div><strong>运行结果</strong><button type="button" onClick={clearResult} aria-label="清除运行结果"><RotateCcw size={16} /></button></div>
           {result.kind === "image" ? (
             <Image src={result.image} alt={`${item.title} 生成结果`} width={1024} height={1024} unoptimized />
           ) : <pre>{result.text}</pre>}
