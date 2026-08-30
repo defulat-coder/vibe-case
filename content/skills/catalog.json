@@ -293,7 +293,7 @@
       "skillsShUrl": "https://skills.sh/jakubkrehel/skills/better-typography",
       "license": "MIT",
       "commit": "267330e1adfc66a718fb65fa6918c1f06d0a689e",
-      "installs": 13346,
+      "installs": 13375,
       "contentHash": "717f615910470bd2b7c662cce2af2ebd11cd887379a6ea93455c45f3c5ba378d"
     }
   },
@@ -366,7 +366,7 @@
       "skillsShUrl": "https://skills.sh/owl-listener/designer-skills/visual-hierarchy",
       "license": "MIT",
       "commit": "5d255536fd7a909d6e40b5a59d0b97e4bda3502a",
-      "installs": 1570,
+      "installs": 1572,
       "contentHash": "ac1d1d993f4ea681a09a158d65f935acc4b0ffe41fef1e358c3952c524725205"
     }
   },
@@ -439,7 +439,7 @@
       "skillsShUrl": "https://skills.sh/owl-listener/designer-skills/journey-map",
       "license": "MIT",
       "commit": "5d255536fd7a909d6e40b5a59d0b97e4bda3502a",
-      "installs": 1314,
+      "installs": 1316,
       "contentHash": "8462a826ddc0ae73cc43e7dbcfe8f9e243a37158ae9e0804b587a1b6eb85d43f"
     }
   },
@@ -586,7 +586,7 @@
       "skillsShUrl": "https://skills.sh/product-on-purpose/pm-skills/develop-design-rationale",
       "license": "Apache-2.0",
       "commit": "152b175181a7ccba13a46fb1bc6cbcf662ef1dc2",
-      "installs": 600,
+      "installs": 601,
       "contentHash": "853395279e4da6fc4fbbb305544be7b28f65cfb7c24f1b6d558ec07610e99f88"
     }
   },
@@ -661,7 +661,7 @@
       "skillsShUrl": "https://skills.sh/kylezantos/design-motion-principles/design-motion-principles",
       "license": "MIT",
       "commit": "7803a7ccd656281447cf11b9fcc228163bc2e896",
-      "installs": 8629,
+      "installs": 8634,
       "contentHash": "599f42dbf011df38f3fcaf1497533af447d91cf97443b92439455af103c25b2e"
     }
   },
@@ -734,7 +734,7 @@
       "skillsShUrl": "https://skills.sh/iart-ai/motion-design-skills/beat-sync-editing",
       "license": "MIT",
       "commit": "3110f145d92bfbb0d3da88940de6c50225b79bf7",
-      "installs": 545,
+      "installs": 548,
       "contentHash": "92118cd6a5821974aa084a9838f263b46ee65fa1f48aaded8e676861f8c2de28"
     }
   },
@@ -1079,7 +1079,7 @@
       "skillsShUrl": "https://skills.sh/owl-listener/designer-skills/critique-visual-hierarchy",
       "license": "MIT",
       "commit": "5d255536fd7a909d6e40b5a59d0b97e4bda3502a",
-      "installs": 1055,
+      "installs": 1057,
       "contentHash": "e9c210156b5cd6c049922c0ca2ab65dbed96bc3c2d2bfaa0b4b1ea47c89ec4b1"
     }
   },
@@ -1151,7 +1151,7 @@
       "skillsShUrl": "https://skills.sh/dembrandt/dembrandt-skills/visual-emphasis-and-hierarchy",
       "license": "MIT",
       "commit": "ac691f5dfb407f12fcd6b269f2287a870e985bee",
-      "installs": 587,
+      "installs": 588,
       "contentHash": "2b66d5e81ed9bdc45898b6e8973d96fc9605cea993b77c27f73f157c3d0b7dca"
     }
   },
@@ -2012,7 +2012,7 @@
       "skillsShUrl": "https://skills.sh/hueyexe/frontend-agent-skills/ux-research-discovery-testing",
       "license": "MIT",
       "commit": "2841c079dd8a9c634882227194dc42e25227710d",
-      "installs": 130,
+      "installs": 131,
       "contentHash": "1bf930dd07530bc1d500d9b9f7f22781f2db8dd44a8a9e4df7ace1c2a6c0055d"
     }
   },
@@ -2228,7 +2228,7 @@
       "skillsShUrl": "https://skills.sh/phuryn/pm-skills/customer-journey-map",
       "license": "MIT",
       "commit": "a372bee16dc2275e26078ca70a2eb7614ea316f7",
-      "installs": 2425,
+      "installs": 2427,
       "contentHash": "656c0e16318b3b24870065a8eabb8a116b72e47c167472836ce76ea97ec5c75e"
     }
   },
@@ -2298,7 +2298,7 @@
       "skillsShUrl": "https://skills.sh/product-on-purpose/pm-skills/discover-journey-map",
       "license": "Apache-2.0",
       "commit": "e27476a75847bc323848f4e3e5f143892fb65a25",
-      "installs": 483,
+      "installs": 485,
       "contentHash": "9795a404438f6fc93975a2528b4c4f4bde9a66a60911d05fa9b673c3510b778d"
     }
   },
@@ -2729,7 +2729,7 @@
       "skillsShUrl": "https://skills.sh/owl-listener/designer-skills/design-rationale",
       "license": "MIT",
       "commit": "5d255536fd7a909d6e40b5a59d0b97e4bda3502a",
-      "installs": 1293,
+      "installs": 1295,
       "contentHash": "d451c85c38687c5f7289c42fd6a09e9ac6e43671468b9a313017f1959d7c76f0"
     }
   },
@@ -2799,7 +2799,7 @@
       "skillsShUrl": "https://skills.sh/phuryn/pm-skills/positioning-ideas",
       "license": "MIT",
       "commit": "a372bee16dc2275e26078ca70a2eb7614ea316f7",
-      "installs": 2356,
+      "installs": 2357,
       "contentHash": "8864f284e66c8bb106c46dc5e51656a47ae4792e39091eb3a49f63cde00c3850"
     }
   },
@@ -2941,7 +2941,7 @@
       "skillsShUrl": "https://skills.sh/athevon/genjutsu/motion-principles",
       "license": "MIT",
       "commit": "a41ae8b04334e7edce6c4289d9068aa65cf5a24e",
-      "installs": 822,
+      "installs": 824,
       "contentHash": "e186d6beca74ce90008d7a96d06c4ba79e4dd4de2a315e7d1614d53a1a6931d7"
     }
   },
@@ -3221,7 +3221,7 @@
       "skillsShUrl": "https://skills.sh/iart-ai/motion-design-skills/animation-principles",
       "license": "MIT",
       "commit": "3110f145d92bfbb0d3da88940de6c50225b79bf7",
-      "installs": 543,
+      "installs": 546,
       "contentHash": "21637766f8ae115f427ab086ec903106b3dfa5eac7fdf05d9926e4b557bff892"
     }
   },
