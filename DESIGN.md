@@ -352,7 +352,7 @@ Runnable Skill cases are compact workbenches, not generated-HTML previews. They 
 
 ### Copy Button
 
-The shared copy button (case Prompt columns) is a standard 48px secondary button whose feedback is semantic rather than spatial: success swaps the Copy icon for a check and “已复制” for 1.6 seconds, announced through `aria-live="polite"`. When the Clipboard API is unavailable (insecure context or denied permission), it falls back to a hidden-textarea `execCommand("copy")`; if that also fails, the label reads “复制失败，请重试” instead of silently resetting.
+The shared copy button (case Prompt columns and Skill Runner Prompt actions) is a standard 48px secondary button whose feedback is semantic rather than spatial: success swaps the Copy icon for a check and “已复制” for 1.6 seconds, announced through `aria-live="polite"`. When the Clipboard API is unavailable (insecure context or denied permission), it falls back to a hidden-textarea `execCommand("copy")`; if that also fails, the label or inline error reads “复制失败，请重试” instead of silently resetting.
 
 ### Functional Motion & State Feedback
 

@@ -5,6 +5,7 @@ import type { SkillCaseResult } from "@vibe-case/ai";
 import { Check, Copy, ImageIcon, LoaderCircle, Play, RotateCcw } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { copyText } from "./copy-to-clipboard";
 
 const executionModeLabels = {
   image: "GPT Image 2",
@@ -43,14 +44,14 @@ export function SkillCaseRunner({ item }: { item: SkillCase }) {
   }
 
   async function copy() {
-    try {
-      await navigator.clipboard.writeText(prompt);
-      setError("");
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 1600);
-    } catch {
+    if (!(await copyText(prompt))) {
+      setCopied(false);
       setError("复制失败，请重新点击或手动选择 Prompt。");
+      return;
     }
+    setError("");
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1600);
   }
 
   return (
