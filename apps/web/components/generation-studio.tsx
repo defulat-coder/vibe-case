@@ -49,6 +49,8 @@ export function GenerationStudio({ item }: { item: UICase }) {
   });
 
   const preview = object?.html && complete ? secureSrcDoc(object.html) : undefined;
+  const promptModified = prompt !== item.prompt.zhCN;
+  const networkError = error ? /failed to fetch|networkerror|load failed/i.test(error.message) : false;
 
   function generate() {
     const id = crypto.randomUUID();
@@ -96,7 +98,11 @@ export function GenerationStudio({ item }: { item: UICase }) {
           <span>中文 Prompt</span>
           <textarea value={prompt} onChange={(event) => setPrompt(event.target.value)} rows={8} maxLength={8_000} aria-describedby="prompt-requirement" />
         </label>
-        <p className="field-help" id="prompt-requirement">{draftStorageAvailable ? "至少输入 20 个字符；Prompt 与变量会自动保存到当前浏览器 Session，刷新后仍可恢复。" : "当前浏览器禁止会话存储；离开页面前请先复制 Prompt。"}</p>
+        <div className="prompt-meta">
+          <p className="field-help" id="prompt-requirement">{draftStorageAvailable ? "至少输入 20 个字符；Prompt 与变量会自动保存到当前浏览器 Session，刷新后仍可恢复。" : "当前浏览器禁止会话存储；离开页面前请先复制 Prompt。"}</p>
+          {promptModified && <button className="prompt-restore" type="button" onClick={() => setPrompt(item.prompt.zhCN)}><RotateCcw size={13} aria-hidden="true" />恢复原始 Prompt</button>}
+          <span className={prompt.length > 7_500 ? "prompt-counter prompt-counter-warn" : "prompt-counter"} aria-hidden="true">{prompt.length} / 8000</span>
+        </div>
 
         <div className="variable-grid">
           {item.variables.map((variable) => (
@@ -121,13 +127,18 @@ export function GenerationStudio({ item }: { item: UICase }) {
         </div>
         <p className="generation-reassurance">生成通常需要几十秒；参考图不会保存。</p>
         {imageError && <p className="error-message" role="alert">{imageError}</p>}
-        {error && <p className="error-message" role="alert">生成失败：{error.message}。Prompt 和变量仍已保留，请重试；若持续失败，请稍后再试或检查 AI 配置。</p>}
+        {error && (
+          <div className="error-message" role="alert">
+            <p>{networkError ? "生成失败：网络连接异常，请检查网络后重试。Prompt 和变量仍已保留。" : `生成失败：${error.message}。Prompt 和变量仍已保留，请重试；若持续失败，请稍后再试或检查 AI 配置。`}</p>
+            <button className="error-retry" type="button" onClick={generate} disabled={prompt.trim().length < 20}>重试</button>
+          </div>
+        )}
       </div>
 
       <div className="preview-panel">
         <div className="preview-toolbar">
-          <span>{isLoading ? "正在生成" : preview ? "生成完成" : "预览"}</span>
-          {generationId && complete && <Link href={`/generations/${generationId}`}>打开记录</Link>}
+          <span role="status">{isLoading ? "正在生成" : preview ? "生成完成" : "预览"}</span>
+          {generationId && complete && <Link className="preview-open" href={`/generations/${generationId}`}>打开记录</Link>}
         </div>
         {isLoading ? (
           <div className="preview-loading"><LoaderCircle className="spin" size={28} /><strong>正在生成页面</strong></div>

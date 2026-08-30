@@ -61,6 +61,7 @@ export const discoveryConfigSchema = z.object({
   maxNewPerRun: z.number().int().min(0).max(20),
   excludedOwners: z.array(z.string()),
   excludedTerms: z.array(z.string()),
+  excludedSources: z.array(z.string()).default([]),
   sources: z.array(skillSourceConfigSchema),
 });
 

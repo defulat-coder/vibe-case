@@ -215,17 +215,22 @@ async function syncSource(source: SkillSourceConfig, excludedTerms: string[], ex
 async function main() {
   const config = discoveryConfigSchema.parse(JSON.parse(await readFile(sourcesPath, "utf8")));
   const current = storedSkillSchema.array().parse(JSON.parse(await readFile(catalogPath, "utf8")));
-  const sources = [...config.sources];
+  const sourceKey = (source: SkillSourceConfig) => `${source.repository}/${source.skillId}`.toLowerCase();
+  // 被门禁拦截过的来源永久排除，避免每轮重复报错
+  const excludedSources = new Set(config.excludedSources.map((key) => key.toLowerCase()));
+  const sources = config.sources.filter((source) => !excludedSources.has(sourceKey(source)));
   const installCounts = new Map<string, number>();
 
   if (discover) {
     const found = (await Promise.all(config.queries.map(searchSkills))).flat();
-    const known = new Set(sources.map((source) => `${source.repository}/${source.skillId}`.toLowerCase()));
+    const known = new Set(sources.map((source) => sourceKey(source)));
     let added = 0;
     for (const skill of found) {
       const key = `${skill.source}/${skill.skillId}`.toLowerCase();
       installCounts.set(key, skill.installs);
-      if (known.has(key) || isExcluded(skill, config) || added >= config.maxNewPerRun) continue;
+      if (known.has(key) || excludedSources.has(key) || isExcluded(skill, config) || added >= config.maxNewPerRun) continue;
+      // 同名 Skill 以先收录的来源为准，避免跨仓库 skillId 冲突
+      if (sources.some((source) => source.skillId.toLowerCase() === skill.skillId.toLowerCase())) continue;
       try {
         const skillPath = await resolveSkillPath(skill.source, skill.skillId);
         sources.push({
@@ -244,17 +249,21 @@ async function main() {
 
   const errors: Array<{ source: string; message: string }> = [];
   const next: ParsedSkill[] = [];
+  const blockedKeys = new Set<string>();
   for (const source of sources) {
     const existing = current.find((skill) => skill.id === source.skillId);
     const owner = source.repository.split("/")[0]!.toLowerCase();
     try {
       if (config.excludedOwners.some((candidate) => candidate.toLowerCase() === owner)) throw new Error(`Excluded repository owner: ${owner}`);
-      next.push(await syncSource(source, config.excludedTerms, existing, installCounts.get(`${source.repository}/${source.skillId}`.toLowerCase())));
+      next.push(await syncSource(source, config.excludedTerms, existing, installCounts.get(sourceKey(source))));
       console.log(`active ${source.repository}@${source.skillId}`);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       errors.push({ source: `${source.repository}@${source.skillId}`, message });
-      if (existing) {
+      if (/^(?:声明依赖被排除的产品或平台|包含需要账号、密钥、付费额度或安装命令的可执行依赖|Missing a recognized source license)/.test(message)) {
+        blockedKeys.add(sourceKey(source));
+      }
+      if (existing && !next.some((skill) => skill.id === existing.id)) {
         const parsedExisting = parsedSkillSchema.safeParse(existing);
         if (parsedExisting.success) next.push(parsedExisting.data);
       }
@@ -262,8 +271,11 @@ async function main() {
     }
   }
 
+  for (const key of blockedKeys) excludedSources.add(key);
+  const keptSources = sources.filter((source) => !blockedKeys.has(sourceKey(source)));
+
   await writeFile(catalogPath, `${JSON.stringify(next, null, 2)}\n`);
-  await writeFile(sourcesPath, `${JSON.stringify({ ...config, sources }, null, 2)}\n`);
+  await writeFile(sourcesPath, `${JSON.stringify({ ...config, excludedSources: [...excludedSources].sort(), sources: keptSources }, null, 2)}\n`);
   await writeFile(errorsPath, `${JSON.stringify(errors, null, 2)}\n`);
 }
 

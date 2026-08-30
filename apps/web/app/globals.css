@@ -692,7 +692,20 @@ input, textarea { caret-color: #c9442d; }
 .field-help, .generation-reassurance { margin: 7px 0 0; color: var(--ink-soft); font-size: 12px; line-height: 1.5; }
 .generation-reassurance { margin-top: 16px; }
 .reference-actions { display: flex; align-items: center; gap: 10px; }
+.file-button:focus-within { outline: 3px solid var(--focus); outline-offset: 3px; }
 .reference-remove { min-height: 44px; display: inline-flex; align-items: center; gap: 5px; border: 0; background: transparent; color: var(--focus); font-weight: 800; cursor: pointer; }
+.preview-toolbar a.preview-open { min-height: 44px; display: inline-flex; align-items: center; padding: 0 18px; border: 2px solid var(--ink); border-radius: 12px; background: var(--yellow); color: var(--ink); font-weight: 900; text-decoration: none; letter-spacing: 0; }
+.preview-toolbar a.preview-open:hover { background: var(--coral); }
+.error-message { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.error-message p { margin: 0; flex: 1 1 260px; }
+.error-retry { min-height: 44px; padding: 0 18px; border: 1px solid #a52d1b; border-radius: 9px; background: transparent; color: #a52d1b; font-weight: 800; cursor: pointer; }
+.error-retry:hover:not(:disabled) { background: var(--white); }
+.error-retry:disabled { opacity: .45; cursor: not-allowed; }
+.prompt-meta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.prompt-meta .field-help { flex: 1; }
+.prompt-counter { color: var(--ink-soft); font-size: 12px; white-space: nowrap; }
+.prompt-counter-warn { color: #a52d1b; font-weight: 800; }
+.prompt-restore { display: inline-flex; align-items: center; gap: 5px; min-height: 44px; margin-top: 0; padding: 0; border: 0; background: transparent; color: var(--focus); font-size: 12px; font-weight: 800; white-space: nowrap; cursor: pointer; }
 .preview-empty strong { font-family: var(--font-display), sans-serif; font-size: 24px; font-weight: 400; }
 .preview-empty p { max-width: 52ch; }
 .preview-empty > span { display: none; }

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { detectRiskNotes, findBlockedBinding, parseSkillMarkdown, stripFrontmatter } from "./parser";
-import { parsedSkillSchema } from "./schema";
+import { parsedSkillSchema, discoveryConfigSchema } from "./schema";
 
 describe("parseSkillMarkdown", () => {
   it("parses multiline metadata and workflow steps", () => {
@@ -119,5 +119,25 @@ describe("parsedSkillSchema content", () => {
 
   it("rejects legacy entries without content", () => {
     expect(parsedSkillSchema.safeParse(baseSkill).success).toBe(false);
+  });
+});
+
+describe("discoveryConfigSchema", () => {
+  const baseConfig = {
+    queries: ["poster design"],
+    maxNewPerRun: 4,
+    excludedOwners: [],
+    excludedTerms: [],
+    sources: [],
+  };
+
+  it("defaults excludedSources to an empty list for older configs", () => {
+    const config = discoveryConfigSchema.parse(baseConfig);
+    expect(config.excludedSources).toEqual([]);
+  });
+
+  it("keeps explicitly blocked sources", () => {
+    const config = discoveryConfigSchema.parse({ ...baseConfig, excludedSources: ["owner/repo/skill-id"] });
+    expect(config.excludedSources).toEqual(["owner/repo/skill-id"]);
   });
 });

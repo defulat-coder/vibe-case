@@ -177,7 +177,7 @@ vibe-case/
 Skills 内容的唯一入口，负责：
 
 - 从白名单来源和预设查询词发现 Skill。
-- 过滤大厂官方、云平台、模型聚合器与产品绑定来源。
+- 过滤大厂官方、云平台、模型聚合器与产品绑定来源；被门禁拦截（账号/密钥/安装命令、无 License）的来源写入 `excludedSources` 永久排除，同名 Skill 以先收录来源为准。
 - 解析 SKILL.md Frontmatter、用途、Workflow、依赖与执行风险。
 - 保存 SKILL.md 原文（去除 Frontmatter）并生成中文翻译；翻译保留品牌、模型、框架和缩写等专有名词，删除登录、付费和原始 Shell 执行步骤。
 - 用 AI SDK 生成中文结构化信息和两个可运行案例。

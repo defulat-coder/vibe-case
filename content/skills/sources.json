@@ -55,6 +55,14 @@
     "login",
     "credits"
   ],
+  "excludedSources": [
+    "eachlabs/skills/poster-design-generation",
+    "evanyan1024/gpt-image-safe-prompting/gpt-image-safe-prompting",
+    "jacksontai2007/gpt-image-2-prompting-skill/gpt-image-2-prompting",
+    "magentosh/superpowers/gpt-image",
+    "openclaudia/openclaudia-skills/generate-image",
+    "skills-101/superpowers/gpt-image"
+  ],
   "sources": [
     {
       "repository": "freestylefly/awesome-gpt-image-2",
@@ -121,6 +129,18 @@
       "skillId": "gpt-image",
       "skillPath": "skills/gpt-image/SKILL.md",
       "skillsShUrl": "https://skills.sh/wuyoscar/gpt-image2-skill/gpt-image"
+    },
+    {
+      "repository": "joeseesun/qiaomu-mondo-poster-design",
+      "skillId": "qiaomu-mondo-poster-design",
+      "skillPath": "SKILL.md",
+      "skillsShUrl": "https://skills.sh/joeseesun/qiaomu-mondo-poster-design/qiaomu-mondo-poster-design"
+    },
+    {
+      "repository": "agentara/skills",
+      "skillId": "video-poster-design",
+      "skillPath": "skills/aigc/video-poster-design/SKILL.md",
+      "skillsShUrl": "https://skills.sh/agentara/skills/video-poster-design"
     }
   ]
 }
