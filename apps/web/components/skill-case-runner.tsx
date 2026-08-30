@@ -1,7 +1,7 @@
 "use client";
 
+import { skillCaseResultSchema, type SkillCaseResult } from "@vibe-case/ai";
 import type { SkillCase } from "@vibe-case/skills";
-import type { SkillCaseResult } from "@vibe-case/ai";
 import { Check, Copy, ImageIcon, LoaderCircle, Play, RotateCcw } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
@@ -33,11 +33,23 @@ export function SkillCaseRunner({ item }: { item: SkillCase }) {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ caseId: item.id, prompt }),
       });
-      const value = await response.json();
-      if (!response.ok) throw new Error(value.error || "运行案例失败");
-      setResult(value);
+      let value: unknown;
+      try {
+        value = await response.json();
+      } catch {
+        throw new Error(response.ok ? "运行失败：服务返回了无法识别的结果，Prompt 仍已保留，请重试。" : "运行失败：服务暂时不可用，Prompt 仍已保留，请稍后重试。");
+      }
+      if (!response.ok) {
+        const message = typeof value === "object" && value !== null && "error" in value && typeof value.error === "string" ? value.error : "服务暂时不可用，请稍后重试";
+        throw new Error(`运行失败：${message}。Prompt 仍已保留，请重试。`);
+      }
+      try {
+        setResult(skillCaseResultSchema.parse(value));
+      } catch {
+        throw new Error("运行失败：服务返回了无效结果，Prompt 仍已保留，请重试。");
+      }
     } catch (reason) {
-      setError(reason instanceof Error ? reason.message : "运行案例失败");
+      setError(reason instanceof TypeError && /fetch|network|load failed/i.test(reason.message) ? "运行失败：网络连接异常，Prompt 仍已保留，请检查网络后重试。" : reason instanceof Error ? reason.message : "运行案例失败，Prompt 仍已保留，请重试。");
     } finally {
       setLoading(false);
     }
@@ -55,7 +67,8 @@ export function SkillCaseRunner({ item }: { item: SkillCase }) {
   }
 
   return (
-    <article className="skill-case">
+    <article className="skill-case" aria-busy={loading}>
+      <div className="sr-only" role="status" aria-live="polite" aria-atomic="true">{loading ? "正在运行案例，请稍候。" : result ? "案例运行完成，结果已显示。" : ""}</div>
       <div className="skill-case-heading">
         <div><h3>{item.title}</h3><p>{item.summary}</p></div>
         <span>{executionModeLabels[item.executionMode]}</span>
