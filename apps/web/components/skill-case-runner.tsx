@@ -75,8 +75,8 @@ export function SkillCaseRunner({ item }: { item: SkillCase }) {
       </div>
       <label className="skill-prompt-editor">
         <span>Prompt</span>
-        <textarea rows={7} value={prompt} onChange={(event) => setPrompt(event.target.value)} aria-describedby={promptHelpId} />
-        <p className="field-help" id={promptHelpId}>{promptLength < 20 ? `至少输入 20 个字符后可运行（还差 ${20 - promptLength} 个字符）。` : "Prompt 已满足最小长度，可以运行。"}</p>
+        <textarea rows={7} maxLength={8_000} value={prompt} onChange={(event) => setPrompt(event.target.value)} aria-describedby={promptHelpId} />
+        <p className="field-help" id={promptHelpId}>{promptLength < 20 ? `至少输入 20 个字符后可运行（还差 ${20 - promptLength} 个字符）。` : `Prompt 已满足最小长度，可以运行（${promptLength} / 8000）。`}</p>
       </label>
       <div className="skill-case-actions">
         <button className="button button-secondary" type="button" onClick={copy} aria-live="polite">{copied ? <Check size={16} /> : <Copy size={16} />}{copied ? "已复制" : "复制 Prompt"}</button>
