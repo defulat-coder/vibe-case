@@ -5,10 +5,12 @@ import { CaseDiagram } from "./case-diagram";
 import { AvatarTile } from "./avatar-tile";
 
 export function CaseCard({ item, entering = false, linkRef }: { item: UICase; entering?: boolean; linkRef?: Ref<HTMLAnchorElement> }) {
+  const metaId = `case-card-meta-${item.id}`;
+  const summaryId = `case-card-summary-${item.id}`;
   return (
     <article className={`case-card${entering ? " catalog-card-entering" : ""}`}>
-      <Link ref={linkRef} href={`/cases/${item.slug}`} aria-label={`查看案例：${item.title.zhCN}`}>
-        <div className="case-card-meta">
+      <Link ref={linkRef} href={`/cases/${item.slug}`} aria-label={`查看案例：${item.title.zhCN}`} aria-describedby={`${metaId} ${summaryId}`}>
+        <div className="case-card-meta" id={metaId}>
           <span>{item.categoryLabel}</span>
           <AvatarTile randomKey={`case:${item.id}`} className="data-avatar card-data-avatar" alt="" />
         </div>
@@ -17,7 +19,7 @@ export function CaseCard({ item, entering = false, linkRef }: { item: UICase; en
         </div>
         <div className="case-card-copy">
           <h2>{item.title.zhCN}</h2>
-          <p>{item.summary.zhCN}</p>
+          <p id={summaryId}>{item.summary.zhCN}</p>
         </div>
       </Link>
     </article>

@@ -292,7 +292,7 @@ Placement is deliberately narrow: 44px `card-data-avatar` tiles in case-card and
 
 ### Portrait Case Card
 
-Every case card is a cream, 1px-ink shell whose link leads with a metadata row—the 11px category label on the left that preserves mixed-script casing, the 44px guide avatar on the right—followed by one large structural diagram inside a 1px light-divider frame (1.5 aspect ratio), then the Chinese title and summary. Repeated Chinese titles use Manrope Variable at 20px / 850; summaries are 14px graphite. There is no English source title and no circular arrow on the card. The link keeps a 330px minimum height on desktop, hover mixes deep mist into the cream shell, and `content-visibility: auto` with a 390px intrinsic estimate keeps long catalogs cheap.
+Every case card is a cream, 1px-ink shell whose link leads with a metadata row—the 11px category label on the left that preserves mixed-script casing, the 44px guide avatar on the right—followed by one large structural diagram inside a 1px light-divider frame (1.5 aspect ratio), then the Chinese title and summary. Repeated Chinese titles use Manrope Variable at 20px / 850; summaries are 14px graphite. The link keeps a concise accessible name and describes its category and summary through `aria-describedby`, so assistive-technology users get the same context as visual scanners. There is no English source title and no circular arrow on the card. The link keeps a 330px minimum height on desktop, hover mixes deep mist into the cream shell, and `content-visibility: auto` with a 390px intrinsic estimate keeps long catalogs cheap.
 
 Below 760px, preserve the compact horizontal card as a distinct mobile composition:
 
@@ -324,7 +324,7 @@ The saved-record page (`/generations/[id]`) is dynamic: a back link to the case,
 The Skills catalog extends the Functional Commons without changing its visual world. Search, category controls, neutral card shells, portrait guides, and Manrope working titles follow the refined catalog system; each card is a compact summary—guide, category, case count, title, and summary—with no functional map.
 
 - **Grid:** two equal columns with a 20px gap inside the 1380px authored width. Below 760px it becomes one column.
-- **Card Shell:** clean-cream fill, 1px portrait-ink border, 16px corners, 18px link padding, and no resting shadow. Do not rotate pastel backgrounds across Skill cards.
+- **Card Shell:** clean-cream fill, 1px portrait-ink border, 16px corners, 18px link padding, and no resting shadow. Card links keep a concise Skill name and expose the category, case count, and summary through `aria-describedby`. Do not rotate pastel backgrounds across Skill cards.
 - **Meta Row:** a three-part grid—44px guide avatar, an 11px / 900 category label that preserves mixed-script casing, and the “N 个案例” count—separated from the copy below.
 - **Copy:** the Chinese Skill title uses Manrope Variable at 22px / 850 on desktop and 20px on mobile; the summary is graphite at 1.6 line-height and clamps to three lines on mobile. The desktop link keeps a 230px minimum height; mobile removes it so the card follows its clamped content, with copy padding tightened to 16px 4px 34px.
 - **Discovery:** expose four clusters—图片与视觉, 界面与体验, 产品方法, and 动效与视频—plus a specific-category select. The 12-item page budget resets whenever search or category changes.
