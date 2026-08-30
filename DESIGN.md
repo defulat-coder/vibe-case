@@ -292,7 +292,7 @@ Placement is deliberately narrow: 44px `card-data-avatar` tiles in case-card and
 
 ### Portrait Case Card
 
-Every case card is a cream, 1px-ink shell whose link leads with a metadata row—the uppercase 11px category label on the left, the 44px guide avatar on the right—followed by one large structural diagram inside a 1px light-divider frame (1.5 aspect ratio), then the Chinese title and summary. Repeated Chinese titles use Manrope Variable at 20px / 850; summaries are 14px graphite. There is no English source title and no circular arrow on the card. The link keeps a 330px minimum height on desktop, hover mixes deep mist into the cream shell, and `content-visibility: auto` with a 390px intrinsic estimate keeps long catalogs cheap.
+Every case card is a cream, 1px-ink shell whose link leads with a metadata row—the 11px category label on the left that preserves mixed-script casing, the 44px guide avatar on the right—followed by one large structural diagram inside a 1px light-divider frame (1.5 aspect ratio), then the Chinese title and summary. Repeated Chinese titles use Manrope Variable at 20px / 850; summaries are 14px graphite. There is no English source title and no circular arrow on the card. The link keeps a 330px minimum height on desktop, hover mixes deep mist into the cream shell, and `content-visibility: auto` with a 390px intrinsic estimate keeps long catalogs cheap.
 
 Below 760px, preserve the compact horizontal card as a distinct mobile composition:
 
