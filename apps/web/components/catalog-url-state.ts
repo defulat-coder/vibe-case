@@ -39,6 +39,7 @@ export function useCatalogUrlState(validCategories?: readonly string[]) {
 
     canonicalizeUrl();
     function syncFromUrl() {
+      canonicalizeUrl();
       const next = parseCatalogQuery(window.location.search, validCategories);
       setQueryValue(next.query);
       setCategoryValue(next.category);
