@@ -20,7 +20,7 @@ const clusters = [
 export function CaseExplorer({ items, categories }: { items: UICase[]; categories: readonly Category[] }) {
   const validCategories = useMemo(() => ["All", ...clusters.map((item) => item.id), ...categories.map((item) => item.id)], [categories]);
   const { query, category, setQuery, setCategory, reset, navigationVersion } = useCatalogUrlState(validCategories);
-  const [visibleState, setVisibleState] = useState({ count: pageSize, version: 0 });
+  const [visibleState, setVisibleState] = useState({ count: pageSize, version: 0, appendFrom: pageSize });
   const visibleCount = visibleState.version === navigationVersion ? visibleState.count : pageSize;
 
   const filtered = useMemo(() => {
@@ -36,12 +36,12 @@ export function CaseExplorer({ items, categories }: { items: UICase[]; categorie
 
   function chooseCategory(value: string) {
     setCategory(value);
-    setVisibleState({ count: pageSize, version: navigationVersion });
+    setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize });
   }
 
   function updateQuery(value: string) {
     setQuery(value);
-    setVisibleState({ count: pageSize, version: navigationVersion });
+    setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize });
   }
 
   return (
@@ -87,16 +87,16 @@ export function CaseExplorer({ items, categories }: { items: UICase[]; categorie
 
       {filtered.length ? (
         <>
-          <div className="case-grid result-grid" key={`${category}:${query}:${visibleCount}`}>
-            {visible.map((item) => <CaseCard key={item.id} item={item} />)}
+          <div className="case-grid result-grid" key={`${category}:${query}`}>
+            {visible.map((item, index) => <CaseCard key={item.id} item={item} entering={index >= visibleState.appendFrom && visibleState.version === navigationVersion} />)}
           </div>
-          {visible.length < filtered.length && <button className="button button-secondary catalog-more" type="button" onClick={() => setVisibleState({ count: visibleCount + pageSize, version: navigationVersion })}>显示更多 <span>{visible.length} / {filtered.length}</span></button>}
+          {visible.length < filtered.length && <button className="button button-secondary catalog-more" type="button" onClick={() => setVisibleState({ count: visibleCount + pageSize, version: navigationVersion, appendFrom: visibleCount })}>显示更多 <span>{visible.length} / {filtered.length}</span></button>}
         </>
       ) : (
         <div className="empty-state">
           <h2>没有匹配的案例</h2>
           <p>换一个中文词、英文术语，或者清除当前分类。</p>
-          <button className="button" type="button" onClick={() => { reset(); setVisibleState({ count: pageSize, version: navigationVersion }); }}>清除筛选</button>
+          <button className="button" type="button" onClick={() => { reset(); setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize }); }}>清除筛选</button>
         </div>
       )}
     </section>

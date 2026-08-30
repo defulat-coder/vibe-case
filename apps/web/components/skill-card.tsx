@@ -2,9 +2,9 @@ import type { ParsedSkill } from "@vibe-case/skills";
 import Link from "next/link";
 import { AvatarTile } from "./avatar-tile";
 
-export function SkillCard({ item }: { item: ParsedSkill }) {
+export function SkillCard({ item, entering = false }: { item: ParsedSkill; entering?: boolean }) {
   return (
-    <article className="skill-card">
+    <article className={`skill-card${entering ? " catalog-card-entering" : ""}`}>
       <Link href={`/skills/${item.slug}`} aria-label={`查看 Skill：${item.title.zhCN}`}>
         <div className="skill-card-meta">
           <AvatarTile randomKey={`skill:${item.id}`} className="data-avatar card-data-avatar" alt="" />

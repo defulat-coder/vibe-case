@@ -18,7 +18,7 @@ const clusters = [
 export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; categories: Category[] }) {
   const validCategories = useMemo(() => ["All", ...clusters.map((item) => item.id), ...categories.map((item) => item.id)], [categories]);
   const { query, category, setQuery, setCategory, reset, navigationVersion } = useCatalogUrlState(validCategories);
-  const [visibleState, setVisibleState] = useState({ count: pageSize, version: 0 });
+  const [visibleState, setVisibleState] = useState({ count: pageSize, version: 0, appendFrom: pageSize });
   const visibleCount = visibleState.version === navigationVersion ? visibleState.count : pageSize;
   const filtered = useMemo(() => {
     const normalized = query.trim().toLocaleLowerCase("zh-CN");
@@ -36,12 +36,12 @@ export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; cat
 
   function chooseCategory(value: string) {
     setCategory(value);
-    setVisibleState({ count: pageSize, version: navigationVersion });
+    setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize });
   }
 
   function updateQuery(value: string) {
     setQuery(value);
-    setVisibleState({ count: pageSize, version: navigationVersion });
+    setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize });
   }
 
   return (
@@ -77,11 +77,11 @@ export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; cat
       </div>
       {filtered.length ? (
         <>
-          <div className="skill-grid result-grid" key={`${category}:${query}:${visibleCount}`}>{visible.map((item) => <SkillCard key={item.id} item={item} />)}</div>
-          {visible.length < filtered.length && <button className="button button-secondary catalog-more" type="button" onClick={() => setVisibleState({ count: visibleCount + pageSize, version: navigationVersion })}>显示更多 <span>{visible.length} / {filtered.length}</span></button>}
+          <div className="skill-grid result-grid" key={`${category}:${query}`}>{visible.map((item, index) => <SkillCard key={item.id} item={item} entering={index >= visibleState.appendFrom && visibleState.version === navigationVersion} />)}</div>
+          {visible.length < filtered.length && <button className="button button-secondary catalog-more" type="button" onClick={() => setVisibleState({ count: visibleCount + pageSize, version: navigationVersion, appendFrom: visibleCount })}>显示更多 <span>{visible.length} / {filtered.length}</span></button>}
         </>
       ) : (
-        <div className="empty-state"><h2>没有匹配的 Skills</h2><p>换一个中文词、英文术语，或者清除当前分类。</p><button className="button" type="button" onClick={() => { reset(); setVisibleState({ count: pageSize, version: navigationVersion }); }}>清除筛选</button></div>
+        <div className="empty-state"><h2>没有匹配的 Skills</h2><p>换一个中文词、英文术语，或者清除当前分类。</p><button className="button" type="button" onClick={() => { reset(); setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize }); }}>清除筛选</button></div>
       )}
     </section>
   );
