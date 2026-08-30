@@ -13,12 +13,13 @@ export function GenerationStudio({ item }: { item: UICase }) {
   const [prompt, setPrompt] = useState(item.prompt.zhCN);
   const [variables, setVariables] = useState<Record<string, string>>({});
   const [referenceImage, setReferenceImage] = useState<string>();
-  const [generationId, setGenerationId] = useState<string>();
-  const [complete, setComplete] = useState(false);
+  const [completedGenerationId, setCompletedGenerationId] = useState<string>();
+  const [completedHtml, setCompletedHtml] = useState<string>();
   const [imageError, setImageError] = useState("");
   const [draftReady, setDraftReady] = useState(false);
   const [draftStorageAvailable, setDraftStorageAvailable] = useState(true);
   const fileInput = useRef<HTMLInputElement>(null);
+  const generationIdRef = useRef<string | undefined>(undefined);
   const draftKey = `vibe-case:generation-draft:v1:${item.id}`;
 
   useEffect(() => {
@@ -42,20 +43,24 @@ export function GenerationStudio({ item }: { item: UICase }) {
     }
   }, [draftKey, draftReady, draftStorageAvailable, prompt, variables]);
 
-  const { object, submit, isLoading, error, stop, clear } = useObject({
+  const { submit, isLoading, error, stop, clear } = useObject({
     api: "/api/generate",
     schema: uiGenerationResultSchema,
-    onFinish: ({ object }) => setComplete(Boolean(object)),
+    onFinish: ({ object }) => {
+      if (typeof object?.html === "string") {
+        setCompletedHtml(object.html);
+        setCompletedGenerationId(generationIdRef.current);
+      }
+    },
   });
 
-  const preview = object?.html && complete ? secureSrcDoc(object.html) : undefined;
+  const preview = completedHtml ? secureSrcDoc(completedHtml) : undefined;
   const promptModified = prompt !== item.prompt.zhCN;
   const networkError = error ? /failed to fetch|networkerror|load failed/i.test(error.message) : false;
 
   function generate() {
     const id = crypto.randomUUID();
-    setGenerationId(id);
-    setComplete(false);
+    generationIdRef.current = id;
     submit({
       generationId: id,
       caseId: item.id,
@@ -91,7 +96,7 @@ export function GenerationStudio({ item }: { item: UICase }) {
       <div className="generation-panel">
         <div className="generation-heading">
           <h2>生成页面</h2>
-          {object && <button className="icon-button" type="button" onClick={() => { clear(); setComplete(false); }} aria-label="清除结果"><RotateCcw size={17} /></button>}
+          {completedHtml && <button className="icon-button" type="button" onClick={() => { clear(); setCompletedHtml(undefined); setCompletedGenerationId(undefined); }} aria-label="清除结果"><RotateCcw size={17} /></button>}
         </div>
 
         <label className="prompt-editor">
@@ -129,7 +134,7 @@ export function GenerationStudio({ item }: { item: UICase }) {
         {imageError && <p className="error-message" role="alert">{imageError}</p>}
         {error && (
           <div className="error-message" role="alert">
-            <p>{networkError ? "生成失败：网络连接异常，请检查网络后重试。Prompt 和变量仍已保留。" : `生成失败：${error.message}。Prompt 和变量仍已保留，请重试；若持续失败，请稍后再试或检查 AI 配置。`}</p>
+            <p>{networkError ? `生成失败：网络连接异常。${completedHtml ? "上一次结果仍保留。" : ""}Prompt 和变量仍已保留，请检查网络后重试。` : `生成失败：${error.message}。${completedHtml ? "上一次结果仍保留。" : ""}Prompt 和变量仍已保留，请重试；若持续失败，请稍后再试或检查 AI 配置。`}</p>
             <button className="error-retry" type="button" onClick={generate} disabled={prompt.trim().length < 20}>重试</button>
           </div>
         )}
@@ -138,7 +143,7 @@ export function GenerationStudio({ item }: { item: UICase }) {
       <div className="preview-panel">
         <div className="preview-toolbar">
           <span role="status">{isLoading ? "正在生成" : preview ? "生成完成" : "预览"}</span>
-          {generationId && complete && <Link className="preview-open" href={`/generations/${generationId}`}>打开记录</Link>}
+          {completedGenerationId && <Link className="preview-open" href={`/generations/${completedGenerationId}`}>打开记录</Link>}
         </div>
         {isLoading ? (
           <div className="preview-loading"><LoaderCircle className="spin" size={28} /><strong>正在生成页面</strong></div>
