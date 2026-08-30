@@ -661,6 +661,7 @@ input, textarea { caret-color: #c9442d; }
 .case-detail-copy > p { color: var(--ink-soft); }
 .detail-meta-row { color: var(--ink-soft); }
 .detail-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; margin-top: 28px; }
+.detail-actions .text-link { min-height: 44px; display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
 .case-detail-visual { position: relative; width: 100%; }
 .case-detail-visual > .case-diagram { width: 100%; aspect-ratio: 1.45; border: 1px solid var(--divider); border-radius: 20px; background: var(--white); padding: clamp(22px, 3vw, 42px); }
 
