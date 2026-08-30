@@ -4,6 +4,7 @@ import { Search, X } from "lucide-react";
 import { useMemo, useState } from "react";
 import type { UICase } from "@vibe-case/cases";
 import { CaseCard } from "./case-card";
+import { caseMatchesQuery } from "./catalog-search";
 import { useCatalogUrlState } from "./catalog-url-state";
 
 type Category = { id: string; label: string; count: number };
@@ -17,22 +18,18 @@ const clusters = [
 ] as const;
 
 export function CaseExplorer({ items, categories }: { items: UICase[]; categories: readonly Category[] }) {
-  const { query, category, setQuery, setCategory } = useCatalogUrlState();
+  const { query, category, setQuery, setCategory, reset } = useCatalogUrlState();
   const [visibleCount, setVisibleCount] = useState(pageSize);
 
   const filtered = useMemo(() => {
-    const normalized = query.trim().toLocaleLowerCase("zh-CN");
     const cluster = clusters.find((item) => item.id === category);
     return items.filter((item) => {
       if (category !== "All" && item.category !== category && !cluster?.categories.includes(item.category as never)) return false;
-      if (!normalized) return true;
-      return [item.title.zhCN, item.title.sourceEN, item.summary.zhCN, item.summary.sourceEN, ...item.tags]
-        .join(" ")
-        .toLocaleLowerCase("zh-CN")
-        .includes(normalized);
+      return caseMatchesQuery(item, query);
     });
   }, [category, items, query]);
   const visible = filtered.slice(0, visibleCount);
+  const leafCategory = categories.find((item) => item.id === category);
 
   function chooseCategory(value: string) {
     setCategory(value);
@@ -62,14 +59,19 @@ export function CaseExplorer({ items, categories }: { items: UICase[]; categorie
 
       <div className="category-controls">
         <div className="category-strip" aria-label="案例一级分类">
-          <button className={category === "All" ? "active" : ""} type="button" onClick={() => chooseCategory("All")}>
+          <button className={category === "All" ? "active" : ""} aria-pressed={category === "All"} type="button" onClick={() => chooseCategory("All")}>
             全部 <span>{items.length}</span>
           </button>
           {clusters.map((item) => (
-            <button className={category === item.id ? "active" : ""} type="button" key={item.id} onClick={() => chooseCategory(item.id)}>
+            <button className={category === item.id ? "active" : ""} aria-pressed={category === item.id} type="button" key={item.id} onClick={() => chooseCategory(item.id)}>
               {item.label} <span>{items.filter((candidate) => item.categories.includes(candidate.category as never)).length}</span>
             </button>
           ))}
+          {leafCategory && (
+            <button className="active leaf-active" type="button" aria-label={`清除分类筛选：${leafCategory.label}`} onClick={() => chooseCategory("All")}>
+              {leafCategory.label} <X size={14} aria-hidden="true" />
+            </button>
+          )}
         </div>
         <label className="category-select">
           <span className="sr-only">选择具体分类</span>
@@ -91,7 +93,7 @@ export function CaseExplorer({ items, categories }: { items: UICase[]; categorie
         <div className="empty-state">
           <h2>没有匹配的案例</h2>
           <p>换一个中文词、英文术语，或者清除当前分类。</p>
-          <button className="button" type="button" onClick={() => { updateQuery(""); chooseCategory("All"); }}>清除筛选</button>
+          <button className="button" type="button" onClick={() => { reset(); setVisibleCount(pageSize); }}>清除筛选</button>
         </div>
       )}
     </section>

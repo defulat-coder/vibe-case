@@ -15,7 +15,7 @@ export function CaseCard({ item }: { item: UICase }) {
           <CaseDiagram id={item.id} category={item.category} label={item.title.zhCN} />
         </div>
         <div className="case-card-copy">
-          <h3>{item.title.zhCN}</h3>
+          <h2>{item.title.zhCN}</h2>
           <p>{item.summary.zhCN}</p>
         </div>
       </Link>

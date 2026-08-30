@@ -10,6 +10,7 @@ export default function UICollectionPage() {
     <main className="collection-page">
       <header className="collection-intro">
         <h1>UI 案例</h1>
+        <p>{cases.length} 个可直接取用的界面结构，附双语 Prompt，可现场生成。</p>
       </header>
       {/* useSearchParams 需要 Suspense 边界以保持静态预渲染 */}
       <Suspense>

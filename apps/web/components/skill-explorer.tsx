@@ -16,7 +16,7 @@ const clusters = [
 ] as const;
 
 export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; categories: Category[] }) {
-  const { query, category, setQuery, setCategory } = useCatalogUrlState();
+  const { query, category, setQuery, setCategory, reset } = useCatalogUrlState();
   const [visibleCount, setVisibleCount] = useState(pageSize);
   const filtered = useMemo(() => {
     const normalized = query.trim().toLocaleLowerCase("zh-CN");
@@ -24,11 +24,12 @@ export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; cat
     return items.filter((item) => {
       if (category !== "All" && item.category !== category && !cluster?.categories.includes(item.category as never)) return false;
       if (!normalized) return true;
-      return [item.title.zhCN, item.title.sourceEN, item.summary.zhCN, item.summary.sourceEN, ...item.title.aliases, ...item.whenToUse]
+      return [item.title.zhCN, item.title.sourceEN, item.summary.zhCN, item.summary.sourceEN, item.categoryLabel, ...item.title.aliases, ...item.whenToUse]
         .join(" ").toLocaleLowerCase("zh-CN").includes(normalized);
     });
   }, [category, items, query]);
   const visible = filtered.slice(0, visibleCount);
+  const leafCategory = categories.find((item) => item.id === category);
 
   function chooseCategory(value: string) {
     setCategory(value);
@@ -53,10 +54,15 @@ export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; cat
       </div>
       <div className="category-controls">
         <div className="category-strip" aria-label="Skill 一级分类">
-          <button className={category === "All" ? "active" : ""} type="button" onClick={() => chooseCategory("All")}>全部 <span>{items.length}</span></button>
+          <button className={category === "All" ? "active" : ""} aria-pressed={category === "All"} type="button" onClick={() => chooseCategory("All")}>全部 <span>{items.length}</span></button>
           {clusters.map((item) => (
-            <button className={category === item.id ? "active" : ""} type="button" key={item.id} onClick={() => chooseCategory(item.id)}>{item.label} <span>{items.filter((candidate) => item.categories.includes(candidate.category as never)).length}</span></button>
+            <button className={category === item.id ? "active" : ""} aria-pressed={category === item.id} type="button" key={item.id} onClick={() => chooseCategory(item.id)}>{item.label} <span>{items.filter((candidate) => item.categories.includes(candidate.category as never)).length}</span></button>
           ))}
+          {leafCategory && (
+            <button className="active leaf-active" type="button" aria-label={`清除分类筛选：${leafCategory.label}`} onClick={() => chooseCategory("All")}>
+              {leafCategory.label} <X size={14} aria-hidden="true" />
+            </button>
+          )}
         </div>
         <label className="category-select">
           <span className="sr-only">选择具体分类</span>
@@ -72,7 +78,7 @@ export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; cat
           {visible.length < filtered.length && <button className="button button-secondary catalog-more" type="button" onClick={() => setVisibleCount((count) => count + pageSize)}>显示更多 <span>{visible.length} / {filtered.length}</span></button>}
         </>
       ) : (
-        <div className="empty-state"><h2>没有匹配的 Skills</h2><p>换一个中文词、英文术语，或者清除当前分类。</p><button className="button" type="button" onClick={() => { updateQuery(""); chooseCategory("All"); }}>清除筛选</button></div>
+        <div className="empty-state"><h2>没有匹配的 Skills</h2><p>换一个中文词、英文术语，或者清除当前分类。</p><button className="button" type="button" onClick={() => { reset(); setVisibleCount(pageSize); }}>清除筛选</button></div>
       )}
     </section>
   );

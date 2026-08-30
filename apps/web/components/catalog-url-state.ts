@@ -37,5 +37,12 @@ export function useCatalogUrlState() {
     syncUrl(query, value);
   }
 
-  return { query, category, setQuery, setCategory };
+  // 一次性清空筛选：避免分开 setQuery/setCategory 时闭包里的旧值把已清除的搜索词写回 URL
+  function reset() {
+    setQueryValue("");
+    setCategoryValue("All");
+    syncUrl("", "All");
+  }
+
+  return { query, category, setQuery, setCategory, reset };
 }
