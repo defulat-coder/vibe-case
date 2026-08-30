@@ -20,6 +20,7 @@ export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; cat
   const { query, category, setQuery, setCategory, reset, navigationVersion } = useCatalogUrlState(validCategories);
   const [visibleState, setVisibleState] = useState({ count: pageSize, version: 0, appendFrom: pageSize, focusAppend: false });
   const firstAppendedRef = useRef<HTMLAnchorElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
   const visibleCount = visibleState.version === navigationVersion ? visibleState.count : pageSize;
   const filtered = useMemo(() => {
     const normalized = query.trim().toLocaleLowerCase("zh-CN");
@@ -45,6 +46,12 @@ export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; cat
     setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize, focusAppend: false });
   }
 
+  function clearFilters() {
+    reset();
+    setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize, focusAppend: false });
+    window.requestAnimationFrame(() => searchInputRef.current?.focus());
+  }
+
   useEffect(() => {
     if (!visibleState.focusAppend || visibleState.version !== navigationVersion || visibleState.appendFrom >= visibleCount) return;
     firstAppendedRef.current?.focus();
@@ -56,7 +63,7 @@ export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; cat
         <label className="search-field">
           <Search size={18} aria-hidden="true" />
           <span className="sr-only">搜索 Skills</span>
-          <input type="search" inputMode="search" enterKeyHint="search" autoComplete="off" value={query} onChange={(event) => updateQuery(event.target.value)} placeholder="搜索 Skill、用途或专有名词" />
+          <input ref={searchInputRef} type="search" inputMode="search" enterKeyHint="search" autoComplete="off" value={query} onChange={(event) => updateQuery(event.target.value)} placeholder="搜索 Skill、用途或专有名词" />
           {query && <button type="button" onClick={() => updateQuery("")} aria-label="清除搜索"><X size={16} /></button>}
         </label>
         <p aria-live="polite">找到 {filtered.length} 个 Skills{visible.length < filtered.length ? `，已显示 ${visible.length} 个` : ""}</p>
@@ -90,7 +97,7 @@ export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; cat
           {visible.length < filtered.length && <button className="button button-secondary catalog-more" type="button" onClick={(event: MouseEvent<HTMLButtonElement>) => setVisibleState({ count: visibleCount + pageSize, version: navigationVersion, appendFrom: visibleCount, focusAppend: event.detail === 0 })}>显示更多 <span>{visible.length} / {filtered.length}</span></button>}
         </>
       ) : (
-        <div className="empty-state"><h2>没有匹配的 Skills</h2><p>换一个中文词、英文术语，或者清除当前分类。</p><button className="button" type="button" onClick={() => { reset(); setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize, focusAppend: false }); }}>清除筛选</button></div>
+        <div className="empty-state"><h2>没有匹配的 Skills</h2><p>换一个中文词、英文术语，或者清除当前分类。</p><button className="button" type="button" onClick={clearFilters}>清除筛选</button></div>
       )}
     </section>
   );

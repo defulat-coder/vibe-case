@@ -22,6 +22,7 @@ export function CaseExplorer({ items, categories }: { items: UICase[]; categorie
   const { query, category, setQuery, setCategory, reset, navigationVersion } = useCatalogUrlState(validCategories);
   const [visibleState, setVisibleState] = useState({ count: pageSize, version: 0, appendFrom: pageSize, focusAppend: false });
   const firstAppendedRef = useRef<HTMLAnchorElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
   const visibleCount = visibleState.version === navigationVersion ? visibleState.count : pageSize;
 
   const filtered = useMemo(() => {
@@ -45,6 +46,12 @@ export function CaseExplorer({ items, categories }: { items: UICase[]; categorie
     setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize, focusAppend: false });
   }
 
+  function clearFilters() {
+    reset();
+    setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize, focusAppend: false });
+    window.requestAnimationFrame(() => searchInputRef.current?.focus());
+  }
+
   useEffect(() => {
     if (!visibleState.focusAppend || visibleState.version !== navigationVersion || visibleState.appendFrom >= visibleCount) return;
     firstAppendedRef.current?.focus();
@@ -56,7 +63,7 @@ export function CaseExplorer({ items, categories }: { items: UICase[]; categorie
         <label className="search-field">
           <Search size={18} aria-hidden="true" />
           <span className="sr-only">搜索案例</span>
-          <input type="search" inputMode="search" enterKeyHint="search" autoComplete="off" value={query} onChange={(event) => updateQuery(event.target.value)} placeholder="搜索中文、English 或专有名词" />
+          <input ref={searchInputRef} type="search" inputMode="search" enterKeyHint="search" autoComplete="off" value={query} onChange={(event) => updateQuery(event.target.value)} placeholder="搜索中文、English 或专有名词" />
           {query && (
             <button type="button" onClick={() => updateQuery("")} aria-label="清除搜索">
               <X size={16} aria-hidden="true" />
@@ -105,7 +112,7 @@ export function CaseExplorer({ items, categories }: { items: UICase[]; categorie
         <div className="empty-state">
           <h2>没有匹配的案例</h2>
           <p>换一个中文词、英文术语，或者清除当前分类。</p>
-          <button className="button" type="button" onClick={() => { reset(); setVisibleState({ count: pageSize, version: navigationVersion, appendFrom: pageSize, focusAppend: false }); }}>清除筛选</button>
+          <button className="button" type="button" onClick={clearFilters}>清除筛选</button>
         </div>
       )}
     </section>
