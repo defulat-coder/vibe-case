@@ -25,7 +25,7 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
       <Link className="back-link" href="/collections/ui"><ArrowLeft size={16} />返回案例库</Link>
       <section className="case-detail-hero">
         <div className="case-detail-copy">
-          <AvatarTile dataKey={`case:${item.id}`} className="data-avatar detail-data-avatar" alt="" priority />
+          <AvatarTile randomKey={`case:${item.id}`} className="data-avatar detail-data-avatar" alt="" priority />
           <h1>{item.title.zhCN}</h1>
           <p>{item.summary.zhCN}</p>
           <div className="detail-meta-row"><span>{item.categoryLabel}</span></div>

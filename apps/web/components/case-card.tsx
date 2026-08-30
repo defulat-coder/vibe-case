@@ -9,7 +9,7 @@ export function CaseCard({ item }: { item: UICase }) {
       <Link href={`/cases/${item.slug}`} aria-label={`查看案例：${item.title.zhCN}`}>
         <div className="case-card-meta">
           <span>{item.categoryLabel}</span>
-          <AvatarTile dataKey={`case:${item.id}`} className="data-avatar card-data-avatar" alt="" />
+          <AvatarTile randomKey={`case:${item.id}`} className="data-avatar card-data-avatar" alt="" />
         </div>
         <div className="case-card-visual">
           <CaseDiagram id={item.id} category={item.category} label={item.title.zhCN} />

@@ -57,7 +57,7 @@ export default async function SkillDetailPage({ params }: { params: Promise<{ sl
       <Link className="back-link" href="/collections/skills"><ArrowLeft size={16} />返回 Skills 案例集</Link>
       <section className="skill-detail-hero">
         <div className="skill-detail-copy">
-          <AvatarTile dataKey={`skill:${skill.id}`} className="data-avatar detail-data-avatar" alt="" priority />
+          <AvatarTile randomKey={`skill:${skill.id}`} className="data-avatar detail-data-avatar" alt="" priority />
           <h1>{skill.title.zhCN}</h1>
           <p>{skill.summary.zhCN}</p>
           <div className="detail-actions"><a className="button" href="#skill-cases">运行案例</a><a className="text-link" href={skill.source.skillsShUrl} target="_blank" rel="noreferrer">查看原 Skill <ArrowUpRight size={15} /></a></div>
