@@ -67,6 +67,7 @@ export function GenerationStudio({ item }: { item: UICase }) {
       : malformedResponse
       ? `生成失败：服务返回了无法识别的结果。${completedHtml ? "上一次结果仍保留。" : ""}Prompt 和变量仍已保留，请重试。`
       : `生成失败：生成服务暂时不可用。${completedHtml ? "上一次结果仍保留。" : ""}Prompt 和变量仍已保留，请重试；若持续失败，请检查 AI 配置。`) : "";
+  const previewStatus = isLoading ? "正在生成" : error ? (preview ? "保留上次结果" : "生成失败") : preview ? "生成完成" : "预览";
 
   function generate() {
     const id = crypto.randomUUID();
@@ -152,7 +153,7 @@ export function GenerationStudio({ item }: { item: UICase }) {
 
       <div className="preview-panel">
         <div className="preview-toolbar">
-          <span role="status">{isLoading ? "正在生成" : preview ? "生成完成" : "预览"}</span>
+          <span role="status">{previewStatus}</span>
           {completedGenerationId && <Link className="preview-open" href={`/generations/${completedGenerationId}`}>打开记录</Link>}
         </div>
         {isLoading ? (
