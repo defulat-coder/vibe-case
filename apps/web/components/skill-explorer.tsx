@@ -69,7 +69,7 @@ export function SkillExplorer({ items, categories }: { items: ParsedSkill[]; cat
         <p aria-live="polite">找到 {filtered.length} 个 Skills{visible.length < filtered.length ? `，已显示 ${visible.length} 个` : ""}</p>
       </div>
       <div className="category-controls">
-        <div className="category-strip" aria-label="Skill 一级分类">
+        <div className="category-strip" role="group" aria-label="Skill 一级分类">
           <button className={category === "All" ? "active" : ""} aria-pressed={category === "All"} type="button" onClick={() => chooseCategory("All")}>全部 <span>{items.length}</span></button>
           {clusters.map((item) => (
             <button className={`${category === item.id ? "active" : ""}${leafCluster?.id === item.id ? " has-leaf" : ""}`} aria-pressed={category === item.id} type="button" key={item.id} onClick={() => chooseCategory(item.id)}>{item.label} <span>{items.filter((candidate) => item.categories.includes(candidate.category as never)).length}</span></button>

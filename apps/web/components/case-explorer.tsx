@@ -74,7 +74,7 @@ export function CaseExplorer({ items, categories }: { items: UICase[]; categorie
       </div>
 
       <div className="category-controls">
-        <div className="category-strip" aria-label="案例一级分类">
+        <div className="category-strip" role="group" aria-label="案例一级分类">
           <button className={category === "All" ? "active" : ""} aria-pressed={category === "All"} type="button" onClick={() => chooseCategory("All")}>
             全部 <span>{items.length}</span>
           </button>
