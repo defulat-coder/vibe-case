@@ -6,6 +6,13 @@ import { Check, Copy, ImageIcon, LoaderCircle, Play, RotateCcw } from "lucide-re
 import Image from "next/image";
 import { useState } from "react";
 
+const executionModeLabels = {
+  image: "GPT Image 2",
+  prompt: "Prompt 提炼",
+  structured: "结构化输出",
+  "timeline-plan": "时间线方案",
+} as const;
+
 export function SkillCaseRunner({ item }: { item: SkillCase }) {
   const [prompt, setPrompt] = useState(item.prompt);
   const [result, setResult] = useState<SkillCaseResult>();
@@ -50,7 +57,7 @@ export function SkillCaseRunner({ item }: { item: SkillCase }) {
     <article className="skill-case">
       <div className="skill-case-heading">
         <div><h3>{item.title}</h3><p>{item.summary}</p></div>
-        <span>{item.executionMode === "image" ? "GPT Image 2" : item.executionMode}</span>
+        <span>{executionModeLabels[item.executionMode]}</span>
       </div>
       <label className="skill-prompt-editor">
         <span>Prompt</span>
