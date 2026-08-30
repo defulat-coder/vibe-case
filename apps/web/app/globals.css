@@ -384,6 +384,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .catalog-controls > p { color: var(--ink-soft); font-size: 14px; font-variant-numeric: tabular-nums; }
 .search-field { width: min(560px, 100%); display: flex; align-items: center; gap: 10px; border-bottom: 2px solid var(--ink); padding: 11px 0; }
 .search-field input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: 16px; }
+.search-field input[type="search"]::-webkit-search-cancel-button,
+.search-field input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; appearance: none; }
 .search-field input::placeholder { color: #6b7281; }
 .search-field button { border: 0; background: transparent; padding: 5px; cursor: pointer; color: var(--ink-soft); min-width: 44px; min-height: 44px; margin: -12px -6px; display: grid; place-items: center; }
 .category-strip { display: flex; gap: 8px; overflow-x: auto; padding: 0 0 18px; margin-bottom: 20px; scrollbar-color: var(--line-strong) transparent; }

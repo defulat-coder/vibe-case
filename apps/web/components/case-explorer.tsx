@@ -49,7 +49,7 @@ export function CaseExplorer({ items, categories }: { items: UICase[]; categorie
         <label className="search-field">
           <Search size={18} aria-hidden="true" />
           <span className="sr-only">搜索案例</span>
-          <input value={query} onChange={(event) => updateQuery(event.target.value)} placeholder="搜索中文、English 或专有名词" />
+          <input type="search" inputMode="search" enterKeyHint="search" autoComplete="off" value={query} onChange={(event) => updateQuery(event.target.value)} placeholder="搜索中文、English 或专有名词" />
           {query && (
             <button type="button" onClick={() => updateQuery("")} aria-label="清除搜索">
               <X size={16} aria-hidden="true" />
