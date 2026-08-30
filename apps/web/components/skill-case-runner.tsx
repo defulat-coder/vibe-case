@@ -87,7 +87,7 @@ export function SkillCaseRunner({ item }: { item: SkillCase }) {
       </div>
       {error && <p className="error-message" role="alert">{error}</p>}
       {result && (
-        <div className="skill-case-result" aria-live="polite">
+        <div className="skill-case-result">
           <div><strong>运行结果</strong><button type="button" onClick={() => setResult(undefined)} aria-label="清除运行结果"><RotateCcw size={16} /></button></div>
           {result.kind === "image" ? (
             <Image src={result.image} alt={`${item.title} 生成结果`} width={1024} height={1024} unoptimized />
