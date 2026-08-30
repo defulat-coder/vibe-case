@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { AvatarTile } from "./avatar-tile";
 
 export function AppHeader() {
   const pathname = usePathname();
@@ -10,6 +11,7 @@ export function AppHeader() {
   return (
     <header className="site-header">
       <Link className="wordmark" href="/" aria-label="Vibe Case 首页">
+        <AvatarTile dataKey="header" className="wordmark-avatar" alt="" priority />
         <strong>Vibe Case</strong>
       </Link>
       <nav aria-label="主导航">

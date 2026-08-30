@@ -56,10 +56,17 @@
     "credits"
   ],
   "excludedSources": [
+    "arnavpuri/designskills/poster-design",
     "eachlabs/skills/poster-design-generation",
     "evanyan1024/gpt-image-safe-prompting/gpt-image-safe-prompting",
+    "findridoy/dot-files/poster-design",
+    "galaxy-dawn/claude-scholar/post-acceptance",
     "jacksontai2007/gpt-image-2-prompting-skill/gpt-image-2-prompting",
     "magentosh/superpowers/gpt-image",
+    "joeseesun/qiaomu-mondo-poster-design/qiaomu-mondo-poster-design",
+    "nexu-io/open-design/html-ppt-zhangzara-bold-poster",
+    "nexu-io/open-design/image-poster",
+    "nexu-io/open-design/magazine-poster",
     "openclaudia/openclaudia-skills/generate-image",
     "skills-101/superpowers/gpt-image"
   ],
@@ -131,16 +138,22 @@
       "skillsShUrl": "https://skills.sh/wuyoscar/gpt-image2-skill/gpt-image"
     },
     {
-      "repository": "joeseesun/qiaomu-mondo-poster-design",
-      "skillId": "qiaomu-mondo-poster-design",
-      "skillPath": "SKILL.md",
-      "skillsShUrl": "https://skills.sh/joeseesun/qiaomu-mondo-poster-design/qiaomu-mondo-poster-design"
-    },
-    {
       "repository": "agentara/skills",
       "skillId": "video-poster-design",
       "skillPath": "skills/aigc/video-poster-design/SKILL.md",
       "skillsShUrl": "https://skills.sh/agentara/skills/video-poster-design"
+    },
+    {
+      "repository": "alterlab-ieu/alterlab-fc-skills",
+      "skillId": "alterlab-vcd-poster-designer",
+      "skillPath": "skills/vcd/alterlab-vcd-poster-designer/SKILL.md",
+      "skillsShUrl": "https://skills.sh/alterlab-ieu/alterlab-fc-skills/alterlab-vcd-poster-designer"
+    },
+    {
+      "repository": "owl-listener/designer-skills",
+      "skillId": "critique-visual-hierarchy",
+      "skillPath": "visual-critique/skills/critique-visual-hierarchy/SKILL.md",
+      "skillsShUrl": "https://skills.sh/owl-listener/designer-skills/critique-visual-hierarchy"
     }
   ]
 }

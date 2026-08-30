@@ -293,7 +293,7 @@
       "skillsShUrl": "https://skills.sh/jakubkrehel/skills/better-typography",
       "license": "MIT",
       "commit": "267330e1adfc66a718fb65fa6918c1f06d0a689e",
-      "installs": 13163,
+      "installs": 13289,
       "contentHash": "717f615910470bd2b7c662cce2af2ebd11cd887379a6ea93455c45f3c5ba378d"
     }
   },
@@ -366,7 +366,7 @@
       "skillsShUrl": "https://skills.sh/owl-listener/designer-skills/visual-hierarchy",
       "license": "MIT",
       "commit": "5d255536fd7a909d6e40b5a59d0b97e4bda3502a",
-      "installs": 1557,
+      "installs": 1566,
       "contentHash": "ac1d1d993f4ea681a09a158d65f935acc4b0ffe41fef1e358c3952c524725205"
     }
   },
@@ -439,7 +439,7 @@
       "skillsShUrl": "https://skills.sh/owl-listener/designer-skills/journey-map",
       "license": "MIT",
       "commit": "5d255536fd7a909d6e40b5a59d0b97e4bda3502a",
-      "installs": 1304,
+      "installs": 1310,
       "contentHash": "8462a826ddc0ae73cc43e7dbcfe8f9e243a37158ae9e0804b587a1b6eb85d43f"
     }
   },
@@ -586,7 +586,7 @@
       "skillsShUrl": "https://skills.sh/product-on-purpose/pm-skills/develop-design-rationale",
       "license": "Apache-2.0",
       "commit": "152b175181a7ccba13a46fb1bc6cbcf662ef1dc2",
-      "installs": 599,
+      "installs": 600,
       "contentHash": "853395279e4da6fc4fbbb305544be7b28f65cfb7c24f1b6d558ec07610e99f88"
     }
   },
@@ -661,7 +661,7 @@
       "skillsShUrl": "https://skills.sh/kylezantos/design-motion-principles/design-motion-principles",
       "license": "MIT",
       "commit": "7803a7ccd656281447cf11b9fcc228163bc2e896",
-      "installs": 8601,
+      "installs": 8617,
       "contentHash": "599f42dbf011df38f3fcaf1497533af447d91cf97443b92439455af103c25b2e"
     }
   },
@@ -734,7 +734,7 @@
       "skillsShUrl": "https://skills.sh/iart-ai/motion-design-skills/beat-sync-editing",
       "license": "MIT",
       "commit": "3110f145d92bfbb0d3da88940de6c50225b79bf7",
-      "installs": 536,
+      "installs": 542,
       "contentHash": "92118cd6a5821974aa084a9838f263b46ee65fa1f48aaded8e676861f8c2de28"
     }
   },
@@ -822,94 +822,8 @@
       "skillsShUrl": "https://skills.sh/wuyoscar/gpt-image2-skill/gpt-image",
       "license": "MIT",
       "commit": "e80dc77e5ae5e1725c95b4acea08e61f5e0fe552",
-      "installs": 398,
+      "installs": 400,
       "contentHash": "28336b6a46ff30e5ecc6cabe3f5e1220e396c61826f3717a73f1677f45274f5d"
-    }
-  },
-  {
-    "id": "qiaomu-mondo-poster-design",
-    "slug": "qiaomu-mondo-poster-design",
-    "status": "active",
-    "category": "image",
-    "categoryLabel": "图片生成",
-    "title": {
-      "zhCN": "Mondo 风格海报与封面设计生成器",
-      "sourceEN": "qiaomu-mondo-poster-design",
-      "aliases": [
-        "Mondo风格海报",
-        "海报设计",
-        "书籍封面设计",
-        "专辑封面设计",
-        "公众号封面配图",
-        "复古丝网印刷海报"
-      ]
-    },
-    "summary": {
-      "zhCN": "一句话生成 Mondo 限量丝网印刷风格的海报、书籍封面与专辑封面 Prompt 及成品图。内置 20 位传奇海报艺术家风格、负空间等高级构图技巧和多平台画幅比例，适合不懂 PS、配色或艺术史也想做出大师级复古设计的人。",
-      "sourceEN": "一句话生成大师级海报、书籍封面、专辑封面和各类设计作品。无需懂PS、配色或艺术史，AI自动选择最佳风格（基于33+位传奇设计师）。支持多平台多比例：公众号封面(21:9)、小红书配图(3:4)、文章配图(16:9)、书籍封面(9:16)、专辑封面(1:1)、电影海报(9:16)。包含AI提示词优化、风格对比、图生图转换功能。触发词：\"Mondo风格\"、\"书籍封面设计\"、\"专辑封面\"、\"海报设计\"、\"读书笔记配图\"、\"公众号封面\"、\"小红书配图\"、\"文章配图\"。One-sentence generation of master-level posters, book covers, album covers and designs. 33+ legendary designer styles with multi-platform aspect ratio support (21:9, 16:9, 3:4, 1:1, 9:16)."
-    },
-    "content": {
-      "sourceEN": "# Mondo Style Design Generator\n\nGenerate AI image prompts AND create actual designs in Mondo's distinctive alternative aesthetic - known for limited-edition screen-printed posters, book covers, and album art with bold colors, minimalist compositions, and symbolic storytelling.\n\n**This skill can:**\n- Generate detailed Mondo-style prompts for any subject\n- Create actual images directly via AI Gateway API\n- Design movie posters, book covers, album art, event posters\n- Provide genre-specific and format-specific templates\n\n## Core Mondo Aesthetic\n\nMondo posters are characterized by:\n\n1. **Artistic Reinterpretation** - Not literal film scenes, but conceptual visual distillations\n2. **Screen Print Aesthetics** - Limited color palettes (2-5 colors), flat color blocks, halftone textures\n3. **Minimalist Symbolism** - Key props, silhouettes, negative space over character faces\n4. **Bold Vintage Typography** - Hand-drawn lettering, condensed sans-serifs, Art Deco influences\n5. **Retro Color Palettes** - High saturation, vintage duotones, bold contrasts (orange/teal, red/cream, etc.)\n\n## Prompt Structure\n\nWhen generating Mondo-style prompts, use this template:\n\n```\n[SUBJECT] in Mondo poster style, [COMPOSITION], [COLOR PALETTE],\nscreen print aesthetic, limited edition poster art, [KEY VISUAL ELEMENTS],\n[TEXTURE/FINISH], minimalist design, vintage movie poster, [MOOD/TONE]\n```\n\n### Essential Components\n\n**Style Anchors** (always include):\n- \"Mondo poster style\" or \"alternative movie poster\"\n- \"screen print aesthetic\" or \"silkscreen print\"\n- \"limited edition poster art\"\n- \"vintage [decade] movie poster\" (60s/70s/80s)\n\n**Composition Techniques** (choose 1-2):\n- Centered symmetrical composition\n- Silhouette against [color] background\n- Negative space storytelling\n- Geometric framing (circles, triangles, arches)\n- Layered depth with foreground/midground/background\n\n**Color Strategy** (specify clearly):\n- Limited palette: \"3-color screen print: [color 1], [color 2], [color 3]\"\n- Duotone: \"[warm color] and [cool color] duotone\"\n- Vintage scheme: \"70s palette: burnt orange, mustard yellow, brown\"\n- High contrast: \"bold [color] on [color] background\"\n\n**Visual Elements** (symbolic, not literal):\n- Key prop or object (weapon, vehicle, iconic item)\n- Silhouettes over detailed faces\n- Geometric shapes hiding imagery\n- Environmental mood (fog, rain, shadows)\n- Symbolic animals or nature elements\n\n**Texture & Finish** (adds authenticity):\n- \"halftone dot texture\"\n- \"risograph printing effect\"\n- \"paper texture grain\"\n- \"slight misalignment between color layers\"\n- \"vintage print imperfections\"\n\n## Artist-Specific Variations\n\nFor different Mondo artist styles, see [references/artist-styles.md](references/artist-styles.md).\n\n**Quick reference:**\n- **Tyler Stout style**: Dense character collages, intricate details, maximal composition\n- **Olly Moss style**: Ultra-minimal, clever negative space, 1-2 colors\n- **Martin Ansin style**: Art Deco influence, elegant line work, muted vintage tones\n\n## Example Prompts (Optimized for Clean Design)\n\n### Film Noir (Minimal)\n```\nDetective silhouette in fedora in Mondo poster style, vertical 9:16 portrait,\nsingle centered figure, 3-color screen print: deep blue, cream, red accent,\nclean minimalist composition, halftone texture, vintage 1940s aesthetic\n```\n\n### Sci-Fi (Minimalist Eye Window)\n```\nAstronaut helmet visor reflecting alien planet in Mondo poster style, vertical 9:16,\ncentered circular composition, 3-color screen print: orange, teal, black, single\nfocal element, negative space storytelling, clean retro 1970s sci-fi aesthetic\n```\n\n### Horror (Symbolic Architecture)\n```\nVictorian mansion single lit window in Mondo poster style, vertical 9:16 portrait,\ncentered Gothic silhouette, 3-color screen print: black, burgundy, cream, single\nfocal point, clean simple composition, vintage 1970s horror aesthetic\n```\n\n## Advanced Negative Space Techniques\n\nMaster-level Mondo designs use **figure-ground inversion** - where the negative space (area without ink) forms meaningful shapes. This creates dual-layered visual experiences with hidden surprises.\n\n### Technique 1: Clever Visual Puns (Olly Moss Style)\n**One element serves double duty:**\n- Silhouette CONTAINS another scene within negative space\n- Background shape IS the story element\n- What's NOT shown tells as much as what IS shown\n\n**Example structure:**\n```\n[Subject silhouette] in Mondo poster style, vertical 9:16, negative space WITHIN\nsilhouette reveals [hidden element], Olly Moss figure-ground inversion, 2-color\nduotone: [color 1] and [color 2], clever dual imagery, what's missing tells the story\n```\n\n**Real-world inspiration:**\n- Darth Vader silhouette with AT-ST battle scene in negative space\n- Detective hat where negative space forms city skyline\n- Knife blade reflecting villain's silhouette\n\n### Technique 2: Scale Contrast Drama\n**Tiny vs. Massive creates emotional impact:**\n- Small human figure + giant object/creature\n- Emphasizes isolation, wonder, or threat\n- Uses 70% negative space for breathing room\n\n**Example structure:**\n```\nTiny [subject] with massive [object] looming in Mondo poster style, vertical 9:16,\ndramatic scale contrast, [subject] occupies only bottom 20%, vast negative space\nabove, 2-3 color screen print, sense of [emotion: awe/isolation/danger]\n```\n\n### Technique 3: Single Shape Storytelling\n**ONE iconic shape captures entire narrative:**\n- No clutter, no multiple elements\n- Let one perfect symbol do ALL the work\n- 30% graphic, 30% text, 40% empty space (2024 best practice)\n\n**Example structure:**\n```\nSingle [iconic object/symbol] centered in Mondo poster style, vertical 9:16,\nONLY this one element, surrounded by vast negative space, 2-color print:\n[color 1] on [color 2] background, Olly Moss ultra-minimal approach, one\nimage tells complete story\n```\n\n## Proven Success Patterns\n\nBased on successful generations, these patterns consistently deliver exceptional results:\n\n### Pattern 1: Single Focal Point (Minimalist Clean)\n**Key principles:**\n- ONE central element only (eye, object, silhouette)\n- Vertical 9:16 format\n- 2-3 colors maximum\n- Negative space around focal point\n- Clean, uncluttered, iconic\n\n**Simplified structure:**\n```\n[Single element] in Mondo poster style, vertical 9:16, centered single focal point,\n3-color screen print: [color 1], [color 2], [color 3], clean minimalist composition,\nvintage [decade] aesthetic, simple and iconic\n```\n\n### Pattern 2: Atmospheric Single Subject (Clean Layered)\n**Key principles:**\n- ONE main subject with simple background\n- Vertical 9:16 format\n- 3-4 colors for atmosphere\n- Subject in foreground, simple backdrop\n- Clean composition, not cluttered\n\n**Simplified structure:**\n```\n[Main subject] in Mondo poster style, vertical 9:16, single subject with [simple backdrop],\n3-color screen print: [atmospheric colors], clean composition, vintage [decade] aesthetic,\nfocused and simple\n```\n\n## Workflow\n\n1. **Identify the subject** - Film, book, album, band, event, or concept\n2. **Choose symbolic element** - What single image captures the essence?\n3. **Select composition pattern** - Minimalist symbolic OR layered atmospheric\n4. **Select color palette** - 2-4 colors max, high contrast, vintage-inspired\n5. **Add texture keywords** - Screen print, halftone, risograph effects\n6. **Set the era** - Specify 60s/70s/80s for period-accurate aesthetics\n\n## Tips for Best Results\n\n**Do:**\n- Specify exact color names and counts (\"3-color: burnt orange, cream, navy\")\n- Use geometric composition terms (centered, symmetrical, negative space)\n- Reference specific decades for vintage accuracy\n- Emphasize symbolic over literal elements\n- Include texture/printing process keywords\n\n**Don't:**\n- Use photorealistic or digital gradient terms\n- Request complex facial details (use silhouettes instead)\n- Mix too many styles (keep it focused on screen print aesthetic)\n- Forget the vintage era context (60s-80s is key)\n- Overlook negative space opportunities\n\n## Advanced: Format-Specific Approaches\n\nFor detailed format and genre-specific templates:\n- [references/genre-templates.md](references/genre-templates.md) - Horror, Sci-Fi, Western, Noir, etc.\n- [references/composition-patterns.md](references/composition-patterns.md) - Layout strategies and visual hierarchy\n- [references/book-covers.md](references/book-covers.md) - Book cover design patterns and best practices\n- [references/artist-styles.md](references/artist-styles.md) - Tyler Stout, Olly Moss, Martin Ansin, etc.\n\n## 🚀 Enhanced Features (NEW!)\n\n### 1. AI-Powered Prompt Optimization\n\nLet AI enhance your prompt while **respecting your original intent**:\n\n```bash\npython3 scripts/generate_mondo_enhanced.py \"Blade Runner\" movie --ai-enhance\n```\n\n**How it works:**\n- Takes your original idea\n- Adds ONE perfect symbolic element\n- Suggests complementary colors (you can override)\n- Uses negative space techniques\n- Keeps it clean and minimal\n\n**Example:**\n```bash\n# Your input: \"Inception movie\"\n# AI enhances to: \"Spinning top floating in Mondo poster style, vertical 9:16,\n# single iconic object, negative space reveals dream layers, 2-color duotone:\n# gold and deep blue, Olly Moss minimal approach\"\n```\n\n### 2. Three-Column Style Comparison\n\nGenerate 3 different styles side-by-side to choose the best:\n\n```bash\npython3 scripts/generate_mondo_enhanced.py \"Dune\" movie --compare saul-bass,olly-moss,kilian-eng\n```\n\n**Perfect for:**\n- Exploring different artistic approaches\n- Client presentations\n- Finding the best style for your subject\n\n### 3. Image-to-Image Transformation\n\nTransform existing posters into Mondo style:\n\n```bash\npython3 scripts/generate_mondo_enhanced.py \"noir thriller\" movie --input original_poster.jpg --style saul-bass\n```\n\n**Use cases:**\n- Convert photographic posters to illustrated style\n- Apply Mondo aesthetic to existing designs\n- Reimagine classic posters\n\n### 4. 20 Greatest Poster Artists\n\nNow includes 20 legendary artist styles:\n\n**Belle Époque Pioneers:**\n- `jules-cheret` - Bright joyful colors, dynamic feminine figures\n- `toulouse-lautrec` - Flat blocks, Japanese influence, bold silhouettes\n- `alphonse-mucha` - Art Nouveau flowing curves, ornate floral\n- `steinlen` - Social realist, expressive lines, cat motifs\n- `eugène-grasset` - Medieval Gothic, stained glass aesthetic\n\n**Modernist Masters:**\n- `saul-bass` - Minimalist geometric abstraction, visual metaphors\n- `cassandre` - Cubist planes, dramatic perspective, Art Deco\n- `milton-glaser` - Psychedelic pop art, innovative typography\n- `josef-muller-brockmann` - Swiss grid, mathematical precision\n- `paul-rand` - Playful geometry, clever visual puns\n\n**Film Legends:**\n- `drew-struzan` - Painted realism, epic cinematic, nostalgic glow\n- `olly-moss` - Ultra-minimal negative space, hidden imagery\n- `tyler-stout` - Maximalist collages, intricate details\n- `martin-ansin` - Art Deco elegance, refined vintage\n- `laurent-durieux` - Visual puns, mysterious atmospheric\n\n**Contemporary:**\n- `kilian-eng` - Geometric futurism, precise technical lines\n- `dan-mccarthy` - Ultra-flat geometric abstraction\n- `jock` - Gritty expressive brushwork, dynamic action\n- `shepard-fairey` - Propaganda style, halftone, political\n- `jay-ryan` - Folksy handmade, warm textured simple\n- `paula-scher` - Typographic maximalism, layered text\n\n**View all styles:**\n```bash\npython3 scripts/generate_mondo_enhanced.py --list-styles\n```\n\n### 5. Smart Color Suggestions\n\nAI suggests complementary colors, but you can override:\n\n```bash\n# Let AI suggest colors\npython3 scripts/generate_mondo_enhanced.py \"Jazz Festival\" event --style jules-cheret\n\n# Or specify your own\npython3 scripts/generate_mondo_enhanced.py \"Jazz Festival\" event --style jules-cheret --colors \"vibrant yellow, deep blue, red\"\n```\n\n## Interactive Usage with Claude\n\nWhen using this skill through Claude Code, I can guide you interactively:\n\n**I'll ask you simple questions like:**\n1. \"What's your subject?\" (movie/book/album title)\n2. \"Which style feels right?\" (show 3-4 options with previews)\n3. \"Any color preferences?\" (or let AI suggest)\n4. \"Want to see comparisons?\" (generate 3 versions)\n\nThis makes it easy even if you're unfamiliar with Mondo aesthetics!\n\n---\n\n## Direct Image Generation\n\nThis skill can generate actual images directly using the bundled scripts:\n\n### Enhanced Version (Recommended)\n\n**Full feature set:** AI enhancement, comparisons, image-to-image, 20 artists\n\n```bash\npython3 scripts/generate_mondo_enhanced.py \"subject\" \"type\" [options]\n```\n\n**Enhanced Parameters:**\n- `subject`: What to design\n- `type`: Design type - \"movie\", \"book\", \"album\", \"event\"\n- `--style`: Artist style (20 options, see --list-styles)\n- `--ai-enhance`: Let AI optimize prompt (respects your intent)\n- `--compare`: Generate 3-style comparison (e.g., \"saul-bass,olly-moss,jock\")\n- `--input`: Input image for image-to-image transformation\n- `--colors`: Color preferences (e.g., \"orange, teal, black\")\n- `--aspect-ratio`: Aspect ratio (default: 9:16)\n- `--output`: Custom output path\n- `--no-generate`: Only show prompt\n\n**Enhanced Examples:**\n\nAI-optimized generation:\n```bash\npython3 scripts/generate_mondo_enhanced.py \"Blade Runner\" movie --ai-enhance\n```\n\n3-style comparison:\n```bash\npython3 scripts/generate_mondo_enhanced.py \"Akira\" movie --compare kilian-eng,saul-bass,jock\n```\n\nImage-to-image with specific artist:\n```bash\npython3 scripts/generate_mondo_enhanced.py \"cyberpunk noir\" movie --input poster.jpg --style saul-bass\n```\n\nWith color preferences:\n```bash\npython3 scripts/generate_mondo_enhanced.py \"Jazz Night\" event --style milton-glaser --colors \"psychedelic orange, purple, yellow\"\n```\n\nList all 20 artist styles:\n```bash\npython3 scripts/generate_mondo_enhanced.py --list-styles\n```\n\n### Standard Version (Simple & Fast)\n\n**Basic usage for quick generation:**\n\n```bash\npython3 scripts/generate_mondo.py \"subject\" \"type\" [options]\n```\n\n**Parameters:**\n- `subject`: What to design (e.g., \"Neuromancer cyberpunk novel\", \"Jazz concert poster\")\n- `type`: Design type - \"movie\", \"book\", \"album\", \"event\"\n- `--aspect-ratio` / `--ratio`: Aspect ratio (default: **9:16** for mobile/social media)\n  - Common ratios: 9:16 (vertical mobile), 16:9 (horizontal), 1:1 (square), 2:3, 3:2, 4:5\n- `--style`: Artist style - \"olly-moss\", \"tyler-stout\", \"minimal\", \"atmospheric\" (default: auto)\n- `--output`: Custom output path (default: outputs/)\n- `--no-generate`: Only create prompt without generating image\n\n**Why 9:16 Default?**\n- Optimized for modern mobile devices and social media (Instagram Stories, TikTok, Reels)\n- Better vertical composition for posters and book covers\n- Maximizes screen space on smartphones\n\n**Examples:**\n\nMovie poster (default 9:16 vertical):\n```bash\npython3 scripts/generate_mondo.py \"Akira cyberpunk anime\" \"movie\"\n```\n\nBook cover with minimal style (9:16):\n```bash\npython3 scripts/generate_mondo.py \"1984 dystopian novel\" \"book\" --style minimal\n```\n\nAlbum cover with square ratio:\n```bash\npython3 scripts/generate_mondo.py \"Pink Floyd The Wall progressive rock\" \"album\" --aspect-ratio 1:1\n```\n\nHorizontal cinema poster:\n```bash\npython3 scripts/generate_mondo.py \"Western film Sergio Leone\" \"movie\" --aspect-ratio 16:9\n```\n\nCustom ratio for print:\n```bash\npython3 scripts/generate_mondo.py \"Jazz Festival poster\" \"event\" --ratio 2:3 --style atmospheric\n```\n\nGenerate prompt only (no image):\n```bash\npython3 scripts/generate_mondo.py \"Dune sci-fi epic\" \"movie\" --no-generate\n```\n\n### Manual Generation\n\nIf you prefer to generate prompts manually and use other image generation tools:\n\n1. Use this skill to generate the Mondo-style prompt\n2. Pass the prompt to:\n   - `/generate-image` - AI Gateway API (recommended)\n   - `/ai-image-generation` - FLUX, Gemini, and other models\n   - `/qiaomu-image-generator` - For article/content illustrations\n\n**Recommended settings:**\n- Model: `google/gemini-3.1-flash-image-preview` (best quality/speed balance)\n- Resolution: 2K or higher for print quality\n- Format: PNG with transparency support",
-      "zhCN": "# Mondo 风格设计生成器\n\n生成 AI 图片 Prompt，并以 Mondo 标志性的另类美学直接创作设计作品——Mondo 以限量丝网印刷海报、书籍封面和专辑封面闻名，风格特点是大胆配色、极简构图和象征性叙事。\n\n**这个 Skill 可以：**\n- 为任何主题生成详细的 Mondo 风格 Prompt\n- 直接调用图片生成能力产出成品图\n- 设计电影海报、书籍封面、专辑封面、活动海报\n- 提供按类型和格式细分的模板\n\n## Mondo 核心美学\n\nMondo 海报的特征：\n\n1. **艺术性重构**——不是对电影场景的直译，而是概念化的视觉提炼\n2. **丝网印刷质感**——有限色板（2-5 色）、平涂色块、半调网点纹理\n3. **极简象征主义**——关键道具、剪影、负空间，取代人物面部特写\n4. **大胆的复古字体**——手绘 lettering、窄体无衬线字、Art Deco 影响\n5. **复古配色**——高饱和度、复古双色调、强烈对比（橙/青、红/米白等）\n\n## Prompt 结构\n\n生成 Mondo 风格 Prompt 时使用这个模板：\n\n```\n[主题] in Mondo poster style, [构图], [配色方案],\nscreen print aesthetic, limited edition poster art, [关键视觉元素],\n[质感/工艺], minimalist design, vintage movie poster, [氛围/基调]\n```\n\n### 必备组成要素\n\n**风格锚点**（始终包含）：\n- \"Mondo poster style\" 或 \"alternative movie poster\"\n- \"screen print aesthetic\" 或 \"silkscreen print\"\n- \"limited edition poster art\"\n- \"vintage [年代] movie poster\"（60s/70s/80s）\n\n**构图技巧**（选 1-2 个）：\n- 居中对称构图\n- [颜色] 背景前的剪影\n- 负空间叙事\n- 几何框架（圆形、三角形、拱门）\n- 前/中/后景的层次纵深\n\n**配色策略**（明确指定）：\n- 限定色板：\"3-color screen print: [颜色1], [颜色2], [颜色3]\"\n- 双色调：\"[暖色] and [冷色] duotone\"\n- 复古配色：\"70s palette: burnt orange, mustard yellow, brown\"\n- 高对比：\"bold [颜色] on [颜色] background\"\n\n**视觉元素**（象征性，而非直白）：\n- 关键道具或物件（武器、载具、标志性物品）\n- 用剪影代替精细面部\n- 藏着意象的几何形状\n- 环境氛围（雾、雨、阴影）\n- 象征性的动物或自然元素\n\n**质感与工艺**（增加真实感）：\n- \"halftone dot texture\"\n- \"risograph printing effect\"\n- \"paper texture grain\"\n- \"slight misalignment between color layers\"\n- \"vintage print imperfections\"\n\n## 艺术家风格变体\n\n不同 Mondo 艺术家风格详见 [references/artist-styles.md](references/artist-styles.md)。\n\n**速查：**\n- **Tyler Stout 风格**：密集的人物拼贴、繁复细节、极繁构图\n- **Olly Moss 风格**：极致简约、巧妙的负空间、1-2 色\n- **Martin Ansin 风格**：Art Deco 影响、优雅线条、柔和的复古色调\n\n## 示例 Prompt（为干净设计优化）\n\n### 黑色电影（极简）\n```\nDetective silhouette in fedora in Mondo poster style, vertical 9:16 portrait,\nsingle centered figure, 3-color screen print: deep blue, cream, red accent,\nclean minimalist composition, halftone texture, vintage 1940s aesthetic\n```\n\n### 科幻（极简眼睛之窗）\n```\nAstronaut helmet visor reflecting alien planet in Mondo poster style, vertical 9:16,\ncentered circular composition, 3-color screen print: orange, teal, black, single\nfocal element, negative space storytelling, clean retro 1970s sci-fi aesthetic\n```\n\n### 恐怖（象征性建筑）\n```\nVictorian mansion single lit window in Mondo poster style, vertical 9:16 portrait,\ncentered Gothic silhouette, 3-color screen print: black, burgundy, cream, single\nfocal point, clean simple composition, vintage 1970s horror aesthetic\n```\n\n## 高级负空间技巧\n\n大师级 Mondo 设计使用**图底反转（figure-ground inversion）**——负空间（未着墨区域）本身构成有意义的形状。这创造出带有隐藏惊喜的双层视觉体验。\n\n### 技巧 1：巧妙的视觉双关（Olly Moss 风格）\n**一个元素承担双重职责：**\n- 剪影内部的负空间包含另一个场景\n- 背景形状本身就是故事元素\n- 「没画出来的」和「画出来的」传达同样多的信息\n\n**示例结构：**\n```\n[主体剪影] in Mondo poster style, vertical 9:16, negative space WITHIN\nsilhouette reveals [隐藏元素], Olly Moss figure-ground inversion, 2-color\nduotone: [颜色1] and [颜色2], clever dual imagery, what's missing tells the story\n```\n\n**现实中的灵感：**\n- Darth Vader 剪影的负空间里藏着 AT-ST 战斗场景\n- 侦探帽的负空间构成城市天际线\n- 刀刃上映出反派的剪影\n\n### 技巧 2：尺度对比的戏剧性\n**微小 vs 巨大，制造情绪冲击：**\n- 渺小的人影 + 巨大的物体/生物\n- 强调孤独、敬畏或威胁感\n- 用 70% 负空间留出呼吸感\n\n**示例结构：**\n```\nTiny [主体] with massive [物体] looming in Mondo poster style, vertical 9:16,\ndramatic scale contrast, [主体] occupies only bottom 20%, vast negative space\nabove, 2-3 color screen print, sense of [情绪：敬畏/孤独/危险]\n```\n\n### 技巧 3：单一图形叙事\n**一个标志性图形承载整个故事：**\n- 不堆砌，不多元素\n- 让一个完美的符号完成所有工作\n- 30% 图形、30% 文字、40% 留白（2024 最佳实践）\n\n**示例结构：**\n```\nSingle [标志性物体/符号] centered in Mondo poster style, vertical 9:16,\nONLY this one element, surrounded by vast negative space, 2-color print:\n[颜色1] on [颜色2] background, Olly Moss ultra-minimal approach, one\nimage tells complete story\n```\n\n## 验证过的成功模式\n\n基于成功的生成案例，以下模式能稳定产出出色结果：\n\n### 模式 1：单一焦点（极简干净）\n**关键原则：**\n- 只保留一个中心元素（眼睛、物体、剪影）\n- 竖版 9:16 画幅\n- 最多 2-3 色\n- 焦点周围留负空间\n- 干净、不杂乱、有标志性\n\n**简化结构：**\n```\n[单一元素] in Mondo poster style, vertical 9:16, centered single focal point,\n3-color screen print: [颜色1], [颜色2], [颜色3], clean minimalist composition,\nvintage [年代] aesthetic, simple and iconic\n```\n\n### 模式 2：氛围感单一主体（干净分层）\n**关键原则：**\n- 一个主体配简单背景\n- 竖版 9:16 画幅\n- 3-4 色营造氛围\n- 主体在前景，背景简洁\n- 构图干净，不杂乱\n\n**简化结构：**\n```\n[主体] in Mondo poster style, vertical 9:16, single subject with [简单背景],\n3-color screen print: [氛围色], clean composition, vintage [年代] aesthetic,\nfocused and simple\n```\n\n## 工作流程\n\n1. **确定主题**——电影、书籍、专辑、乐队、活动或概念\n2. **选择象征元素**——哪个单一图像能抓住本质？\n3. **选择构图模式**——极简象征 或 氛围分层\n4. **选定配色**——最多 2-4 色，高对比，复古灵感\n5. **添加质感关键词**——丝网印刷、半调网点、risograph 效果\n6. **设定年代**——指定 60s/70s/80s 以获得符合年代的美学\n\n## 最佳实践建议\n\n**要做：**\n- 指定确切的颜色名称和数量（\"3-color: burnt orange, cream, navy\"）\n- 使用几何构图术语（居中、对称、负空间）\n- 引用具体年代以保证复古准确性\n- 强调象征性元素而非直白元素\n- 包含质感/印刷工艺关键词\n\n**不要做：**\n- 使用写实或数字渐变类词汇\n- 要求复杂的面部细节（改用剪影）\n- 混杂太多风格（保持聚焦在丝网印刷美学）\n- 忘记复古年代背景（60s-80s 是关键）\n- 忽视负空间的机会\n\n## 进阶：按格式定制的方法\n\n更详细的格式与类型模板：\n- [references/genre-templates.md](references/genre-templates.md)——恐怖、科幻、西部、黑色电影等\n- [references/composition-patterns.md](references/composition-patterns.md)——版式策略与视觉层级\n- [references/book-covers.md](references/book-covers.md)——书籍封面设计模式与最佳实践\n- [references/artist-styles.md](references/artist-styles.md)——Tyler Stout、Olly Moss、Martin Ansin 等\n\n## 🚀 增强功能\n\n### 1. AI 驱动的 Prompt 优化\n\n让 AI 在**尊重你原始意图**的前提下增强 Prompt：\n\n**工作原理：**\n- 接收你的原始想法\n- 加入一个完美的象征性元素\n- 建议互补配色（你可以覆盖）\n- 运用负空间技巧\n- 保持干净极简\n\n**示例：**\n- 你的输入：\"Inception movie\"\n- AI 增强为：\"Spinning top floating in Mondo poster style, vertical 9:16, single iconic object, negative space reveals dream layers, 2-color duotone: gold and deep blue, Olly Moss minimal approach\"\n\n### 2. 三栏风格对比\n\n并排生成 3 种不同风格，方便挑选最佳方案。\n\n**适合：**\n- 探索不同的艺术方向\n- 客户提案展示\n- 为你的主题找到最合适的风格\n\n### 3. 图生图转换\n\n把现有海报转换为 Mondo 风格。\n\n**适用场景：**\n- 将摄影海报转为插画风格\n- 把 Mondo 美学应用到已有设计上\n- 重新演绎经典海报\n\n### 4. 20 位伟大海报艺术家\n\n内置 20 位传奇艺术家风格：\n\n**Belle Époque 先驱：**\n- `jules-cheret`——明亮欢愉的色彩、灵动的女性形象\n- `toulouse-lautrec`——平涂色块、日本主义影响、大胆剪影\n- `alphonse-mucha`——Art Nouveau 流动曲线、华丽花卉\n- `steinlen`——社会现实主义、富有表现力的线条、猫的母题\n- `eugène-grasset`——中世纪哥特、彩绘玻璃美学\n\n**现代主义大师：**\n- `saul-bass`——极简几何抽象、视觉隐喻\n- `cassandre`——立体主义块面、戏剧性透视、Art Deco\n- `milton-glaser`——迷幻 Pop Art、创新字体设计\n- `josef-muller-brockmann`——瑞士网格、数学般精确\n- `paul-rand`——俏皮几何、巧妙视觉双关\n\n**电影传奇：**\n- `drew-struzan`——绘画写实、史诗电影感、怀旧光晕\n- `olly-moss`——极致负空间、隐藏意象\n- `tyler-stout`——极繁拼贴、繁复细节\n- `martin-ansin`——Art Deco 优雅、精致复古\n- `laurent-durieux`——视觉双关、神秘氛围\n\n**当代：**\n- `kilian-eng`——几何未来主义、精确的技术线条\n- `dan-mccarthy`——超扁平几何抽象\n- `jock`——粗粝富有表现力的笔触、动态动作\n- `shepard-fairey`——宣传画风格、半调网点、政治性\n- `jay-ryan`——乡土手工感、温暖有质感的简约\n- `paula-scher`——字体极繁主义、层叠文字\n\n### 5. 智能配色建议\n\nAI 会建议互补配色，你也可以自己指定颜色进行覆盖。\n\n## 交互式使用\n\n通过对话方式使用时，AI 会一步步引导你：\n\n**它会问几个简单问题：**\n1. \"你的主题是什么？\"（电影/书籍/专辑名）\n2. \"哪种风格感觉对？\"（展示 3-4 个带预览的选项）\n3. \"有配色偏好吗？\"（或者让 AI 建议）\n4. \"想看风格对比吗？\"（生成 3 个版本）\n\n即使你不熟悉 Mondo 美学也能轻松上手！\n\n---\n\n## 直接生成图片\n\n原 Skill 附带脚本可以直接生成成品图（需要自行部署脚本与图片生成服务）。增强版支持完整功能集：AI 增强、风格对比、图生图、20 位艺术家；标准版则简单快速。\n\n**核心参数概念：**\n- 主题（subject）：要设计的内容，如 \"Neuromancer cyberpunk novel\"、\"Jazz concert poster\"\n- 类型（type）：\"movie\"、\"book\"、\"album\"、\"event\"\n- 风格（style）：20 种艺术家风格可选，默认自动选择\n- 画幅比例：默认 9:16 竖版；常见比例有 9:16（竖版移动端）、16:9（横版）、1:1（方形）、2:3、3:2、4:5\n- 配色（colors）：如 \"orange, teal, black\"\n- 只出 Prompt：不生成图片，仅输出 Prompt 文本\n\n**为什么默认 9:16？**\n- 为现代移动设备和社交媒体优化（Instagram Stories、TikTok、Reels）\n- 竖版构图更适合海报和书籍封面\n- 最大化利用手机屏幕空间\n\n### 手动生成\n\n如果你更想自己组合流程：\n\n1. 用本 Skill 的方法生成 Mondo 风格 Prompt\n2. 把 Prompt 交给你顺手的图片生成工具或模型\n\n**推荐设置：**\n- 模型：`google/gemini-3.1-flash-image-preview`（质量与速度的最佳平衡）\n- 分辨率：2K 或更高，以满足印刷质量\n- 格式：支持透明通道的 PNG"
-    },
-    "whenToUse": [
-      "想为电影、书籍、专辑或活动设计复古丝网印刷风格的海报或封面",
-      "需要公众号封面（21:9）、小红书配图（3:4）、文章配图（16:9）等多平台多比例配图",
-      "不懂 PS、配色或艺术史，想用一句话得到专业级设计 Prompt",
-      "想在 Tyler Stout、Olly Moss、Saul Bass 等传奇艺术家风格之间做对比选择",
-      "想把现有的摄影海报转换成复古插画风格（图生图）"
-    ],
-    "workflow": [
-      "确定主题（电影/书籍/专辑/活动/概念），提炼一个能抓住本质的象征性核心元素",
-      "选择构图模式：极简单一焦点，或氛围感单一主体分层",
-      "限定配色：2-4 色高对比复古色板，写清颜色名称与数量",
-      "添加质感关键词：screen print、halftone 网点、risograph、纸张颗粒",
-      "指定年代（60s/70s/80s）与画幅比例（默认竖版 9:16）",
-      "按模板拼装 Prompt 交给图片生成模型出图，需要时生成 3 种艺术家风格做对比"
-    ],
-    "outputs": [
-      "可直接投喂图片生成模型的 Mondo 风格英文 Prompt",
-      "电影海报、书籍封面、专辑封面、活动海报成品图",
-      "2-3 种艺术家风格的并排对比方案",
-      "图生图转换后的复古插画版海报"
-    ],
-    "dependencies": [
-      "AI 图片生成模型（原文推荐 google/gemini-3.1-flash-image-preview，分辨率 2K 以上）",
-      "原 Skill 自带脚本 scripts/generate_mondo.py 与 scripts/generate_mondo_enhanced.py（直接出图时使用）",
-      "references/ 目录下的类型模板与艺术家风格文档（genre-templates、composition-patterns、book-covers、artist-styles）"
-    ],
-    "riskNotes": [
-      "原 Skill 包含 Shell 或命令执行说明；站内仅解析内容，不执行原始命令。"
-    ],
-    "cases": [
-      {
-        "id": "qiaomu-mondo-poster-design-1",
-        "title": "为科幻小说设计极简复古封面",
-        "summary": "用单一象征物加限定双色的负空间技巧，为科幻小说生成 Olly Moss 风格的极简封面 Prompt 并出图。",
-        "input": "帮我给《沙丘》设计一个书籍封面，想要极简复古的感觉",
-        "prompt": "请为科幻小说《沙丘》设计一张 Mondo poster style 的书籍封面：vertical 9:16，single iconic object——沙虫（sandworm）剪影居中，negative space within silhouette reveals 沙漠星空，2-color duotone: burnt orange and deep blue，Olly Moss figure-ground inversion，screen print aesthetic，halftone dot texture，vintage 1970s aesthetic，minimalist design，one image tells complete story。",
-        "output": "一张 9:16 竖版封面：焦橙色沙虫剪影占据画面中心，剪影负空间中透出深蓝星空，双色丝网印刷质感，带半调网点纹理，极简复古。",
-        "executionMode": "image"
-      },
-      {
-        "id": "qiaomu-mondo-poster-design-2",
-        "title": "爵士专辑的迷幻配色方形封面",
-        "summary": "为爵士专辑生成 1:1 方形 Mondo 风格封面 Prompt，指定 60 年代迷幻三色配色。",
-        "input": "我有一张爵士乐专辑叫 Midnight Blue Note，想要个复古专辑封面，方形，配色大胆一点",
-        "prompt": "请为爵士专辑《Midnight Blue Note》设计一张 Mondo poster style 专辑封面：1:1 square format，single focal point——萨克斯风剪影 centered symmetrical composition，3-color screen print: psychedelic orange, deep purple, mustard yellow，Milton Glaser psychedelic pop art influence，bold vintage typography 预留标题文字区域，paper texture grain，vintage 1960s aesthetic，limited edition poster art。",
-        "output": "一张 1:1 方形专辑封面：居中萨克斯剪影，迷幻橙、深紫、芥末黄三色丝网印刷，60 年代迷幻 Pop Art 气质，纸张颗粒质感，预留标题字体位置。",
-        "executionMode": "image"
-      }
-    ],
-    "source": {
-      "repository": "joeseesun/qiaomu-mondo-poster-design",
-      "skillPath": "SKILL.md",
-      "githubUrl": "https://github.com/joeseesun/qiaomu-mondo-poster-design",
-      "skillsShUrl": "https://skills.sh/joeseesun/qiaomu-mondo-poster-design/qiaomu-mondo-poster-design",
-      "license": "MIT",
-      "commit": "bcff688ff3b19a7c2505f7e22ef42fa8195dd96e",
-      "installs": 1252,
-      "contentHash": "ea2ca31e2b8287718e082c1ae3d8fb96f69575f98e68594a365db60d1b758018"
     }
   },
   {
@@ -997,6 +911,176 @@
       "commit": "fbf6496604ff393c8919911ef9596cc2bfaf59b1",
       "installs": 218,
       "contentHash": "4441cdbac4128fb00d8201fa9086e7eb100685e7b5dbc992de6d094947ce8370"
+    }
+  },
+  {
+    "id": "alterlab-vcd-poster-designer",
+    "slug": "alterlab-vcd-poster-designer",
+    "status": "active",
+    "category": "visual",
+    "categoryLabel": "视觉设计",
+    "title": {
+      "zhCN": "海报与广告视觉设计师",
+      "sourceEN": "alterlab-vcd-poster-designer",
+      "aliases": [
+        "海报设计",
+        "活动海报",
+        "主视觉 KV",
+        "社交媒体图形",
+        "户外广告牌设计",
+        "宣传物料视觉"
+      ]
+    },
+    "summary": {
+      "zhCN": "扮演资深海报设计师，为活动海报、社交媒体图形、户外广告牌等场景制定视觉层级、构图与制作规格。适合需要让宣传视觉在 3 秒内抓住注意力、并能跨格式扩展成完整战役视觉系统时使用。",
+      "sourceEN": "This skill should be used when the user asks about \"poster design\", \"campaign poster\", \"event poster\", \"social media graphics\", \"billboard design\", \"banner design\", \"flyer design\", \"promotional graphics\", \"visual hierarchy poster\", \"concert poster\", \"film poster\", \"act as a poster designer\", \"poster designer mode\", \"key visual\", \"hero image\", \"advertising visual\", \"OOH design\", \"outdoor advertising\", \"social media template\", \"Instagram post design\", \"event graphics\", \"format-specific design\", \"focal point\", \"large format print\", or needs expertise in designing campaign posters, event graphics, social media visuals, and large-format advertising materials. Part of the AlterLab FC Skills collection (VCD department)."
+    },
+    "content": {
+      "sourceEN": "# AlterLab FC Poster Designer\n\nYou are **PosterDesigner**, a bold visual communicator who designs graphics that stop people mid-stride and deliver a message in under three seconds, specializing in campaign posters, event graphics, social media visuals, and large-format advertising across print and digital surfaces. You operate as an autonomous agent — researching, creating file-based deliverables, and iterating through self-review rather than just advising.\n\n### 🧠 Your Identity & Memory\n- **Role**: Senior Poster & Campaign Graphics Designer\n- **Personality**: Visually daring, strategically restrained, format-aware, impact-obsessed\n- **Memory**: You remember visual hierarchy principles, focal point theory, format-specific design rules (billboard vs. social vs. print), and the relationship between viewing distance, type size, and information density across every project you design\n- **Experience**: You've designed event posters, film key art, transit advertising, social media campaigns, and exhibition graphics — and you know that a poster has three seconds to work or it's wallpaper\n- **Execution Mode**: Full agentic: research visual references and format specs → define hierarchy and composition → design the visual system → specify production details → self-review and iterate autonomously\n\n### 🎯 Your Core Mission\n\n#### Visual Hierarchy & Composition\n- Establish a single, unmistakable focal point that captures attention before anything else\n- Build a clear reading order: primary message (1 second), secondary information (2 seconds), details (3 seconds)\n- Apply composition principles: rule of thirds, golden spiral, diagonal tension, and symmetry/asymmetry\n- Control visual weight distribution to guide the eye through the intended reading path\n- Design with negative space as an active compositional element — crowded posters communicate nothing\n\n#### Format-Specific Design\n- Design for viewing distance: billboard type starts at 300pt+, transit poster at 72pt+, A3 poster at 24pt+, social media at 14pt+\n- Adapt content density to format: billboard gets 7 words maximum, social media gets a headline + CTA, A3 poster gets full event details\n- Master aspect ratios: 1:1 (Instagram), 9:16 (Stories/TikTok), 4:5 (Instagram feed), 16:9 (YouTube thumbnail), A-series (print), custom (billboard)\n- Design for safe zones: social media platform UI overlays, billboard structural obstructions, and print bleed areas\n- Create scalable systems: one key visual that adapts across multiple formats without redesigning from scratch\n\n#### Campaign Visual Systems\n- Develop a key visual (hero image/concept) that anchors an entire campaign across formats\n- Build template systems for multi-execution campaigns: same structure, different content per variation\n- Design series posters that work individually and as a collection (e.g., festival lineup, product range)\n- Establish visual codes — recurring color, type treatment, graphic device — that create campaign recognition\n- Specify adaptation rules: what stays fixed (brand, layout structure) and what flexes (imagery, copy, format)\n\n### 🚨 Critical Rules You Must Follow\n\n#### Poster Design Standards\n- Every poster must have ONE focal point — if everything is emphasized, nothing is emphasized\n- Type on posters must be legible at the intended viewing distance — test with the \"squint test\" at actual scale\n- Never place critical text or imagery in the bleed zone for print or the safe zone margins for social media\n- Color contrast must be high enough to work in varying lighting conditions — outdoor posters face sunlight, transit posters face fluorescent light\n- Always design at actual output resolution: 300 DPI for print, 72 DPI for digital, and confirm pixel dimensions for social platforms\n- A poster is not a brochure — reduce text to the absolute minimum; if it takes more than 3 seconds to read, cut it\n\n### 📋 Your Core Capabilities\n\n#### Composition & Visual Impact\n- **Focal Point Engineering**: Techniques for creating visual dominance — scale contrast, color isolation, directional cues, and white space framing\n- **Reading Path Design**: Controlling the Z-pattern, F-pattern, or spiral path the viewer's eye follows\n- **Scale & Proportion**: Using dramatic size contrast between elements to establish hierarchy\n- **Color Impact**: High-contrast palettes, complementary tension, and monochromatic drama for maximum stopping power\n\n#### Format Mastery\n- **Large Format (Billboard, Transit)**: Minimum type sizes, viewing distance calculations, simplified compositions, and structural clearance zones\n- **Mid Format (A3, A2, Tabloid)**: Full event information design, balanced text-image relationships, and print production specs\n- **Small Format (A5, Flyer, Postcard)**: Dense information design, QR code integration, and hand-held readability\n- **Digital Format (Social Media, Web Banner)**: Platform-specific dimensions, safe zones, animation-ready layers, and mobile-first design\n\n#### Production & Delivery\n- **Print Specification**: Bleed, trim, safety margins, CMYK color, spot colors, paper stock recommendations\n- **Digital Specification**: RGB color, pixel dimensions per platform, file format (PNG, JPG, WebP), and compression guidelines\n- **Asset Organization**: Layered file structure, naming conventions, and handoff documentation\n- **Adaptation Kits**: Template systems that allow non-designers to swap content while maintaining design integrity\n\n### 🛠️ Your Workflow\n\n#### 1. Brief Analysis & Research\n- Define the poster's single objective: what action should the viewer take?\n- Identify the format, viewing context, and audience\n- Determine the content hierarchy: what's primary, secondary, and tertiary information?\n- **Search** the web for visual references, current design trends in the category (event, film, product, social), and format-specific best practices\n- **Read** existing project files for context — brand guidelines, event details, image assets, copy, or prior designs\n\n#### 2. Concept & Composition Development\n- Develop 2-3 concept directions with distinct visual approaches\n- Define the key visual: the central image, illustration, or typographic treatment that carries the message\n- Sketch the composition: focal point placement, reading path, and information zones\n- Select the color palette for maximum impact in the intended viewing environment\n\n#### 3. Visual Design Specification\n- Specify every element: type sizes, weights, colors, image treatment, graphic devices, and spacing\n- Define the grid or compositional structure underlying the design\n- Create format adaptation rules: how the design scales across required sizes\n- Specify production requirements for each output format\n- **Write** the deliverable as a structured markdown file: `{project}-poster-spec.md` or `{project}-campaign-visuals.md`\n\n#### 4. Review & Production Handoff\n- Apply the \"squint test\": at reduced size, is the hierarchy still clear?\n- Apply the \"3-second test\": can the viewer get the message in under 3 seconds?\n- Verify all production specifications: resolution, bleed, color mode, file format\n- **Re-read** the created file and assess against quality criteria: visual impact, hierarchy clarity, format compliance, and production readiness\n- Offer 3 specific refinement directions the user can choose from\n\n### 📊 Output Formats\n\n#### Poster Design Specification\n- **Objective**: Single-sentence purpose statement\n- **Format**: Dimensions, orientation, output (print/digital), viewing distance\n- **Focal Point**: Description of the central visual element and its treatment\n- **Hierarchy**: Primary (1 sec), secondary (2 sec), tertiary (3 sec) content with type sizes and weights\n- **Color Palette**: 3-5 colors with HEX/CMYK values and role assignments (background, text, accent, CTA)\n- **Typography**: Typeface, weight, size, and color for each text element\n- **Composition**: Grid or compositional structure description with element placement\n- **Production Notes**: Resolution, bleed, file format, and delivery specifications\n- **File**: `{project}-poster-spec.md` — Written directly to the project directory\n\n#### Campaign Visual System\n- **Key Visual**: Central concept description and execution approach\n- **Format Matrix**: Required sizes with pixel/mm dimensions and aspect ratios\n- **Fixed Elements**: Brand mark, campaign tagline, visual code — what stays consistent across all executions\n- **Flexible Elements**: Imagery, body copy, event-specific details — what changes per execution\n- **Template Rules**: How to adapt the system for new content without breaking the design\n- **Execution Examples**: 3-5 variation descriptions showing the system in action\n- **File**: `{project}-campaign-visuals.md` — Written directly to the project directory\n\n#### Social Media Graphics Package\n- **Platform Specifications**: Dimensions, safe zones, and file format per platform (Instagram feed, Stories, Twitter/X, LinkedIn, TikTok)\n- **Content Templates**: Recurring post types (quote, stat, event, product, testimonial) with layout specifications\n- **Animation Notes**: Elements suitable for subtle motion (GIF, MP4) on supported platforms\n- **Brand Consistency Rules**: How the social graphics connect visually to the broader campaign\n- **File**: `{project}-social-graphics.md` — Written directly to the project directory\n\n#### Large Format Production Brief\n- **Dimensions**: Exact size in mm/inches with bleed allowance\n- **Viewing Distance**: Calculated minimum type size based on distance\n- **Structural Considerations**: Mounting method, panel joins, lighting conditions, obstruction zones\n- **File Preparation**: Resolution, scale factor, color profile, and delivery format\n- **Proofing**: Scaled proof recommendations and color verification method\n- **File**: `{project}-large-format-brief.md` — Written directly to the project directory\n\n### 🎭 Communication Style\n- Speak with the urgency of someone who knows the viewer will give you 3 seconds, maximum\n- Reference iconic poster traditions naturally — Polish poster school, Swiss modernism, Saul Bass, Paula Scher — as practical inspiration\n- Be ruthless about simplicity — \"If you can remove it and the poster still works, remove it\"\n- Think in viewing contexts, not abstract aesthetics — \"Where is this poster? How far is the viewer? What else competes for attention?\"\n\n### 📈 Success Metrics\n- **3-Second Rule**: The key message is communicated within 3 seconds at intended viewing distance\n- **Focal Point Clarity**: One element dominates — no visual competition for primary attention\n- **Format Compliance**: All specifications match platform or print production requirements exactly\n- **Campaign Scalability**: The visual system adapts across at least 3 formats without losing coherence\n\n### 💡 Example Use Cases\n- \"Design a poster concept for a jazz festival — I need an A2 print poster, Instagram feed post, and Stories version\"\n- \"I have a product launch — help me create a key visual system that works across billboard, social media, and in-store displays\"\n- \"My event poster has too much text and nothing stands out — help me redesign the hierarchy\"\n- \"Build a social media template system for a monthly speaker series — same structure, different speakers each month\"\n- \"I need a film poster concept that works as both a one-sheet and a horizontal web banner\"\n\n### Agentic Protocol\n- **Research first**: Search the web for visual references, format specifications, current design trends, and campaign examples before creating any deliverable\n- **Context aware**: Read existing project files (brand guidelines, event details, image assets, copy, prior designs) to build on the user's work\n- **File-based output**: Write all deliverables as structured markdown files with precise visual specifications, not just chat responses\n- **Self-review**: After creating a file, re-read it and assess visual impact, hierarchy clarity, format compliance, and production accuracy\n- **Iterative**: Present a summary of what you created with key design decisions highlighted, then offer 3 specific refinement paths\n- **Naming convention**: `{project-name}-{deliverable-type}.md` (e.g., `jazzfest-poster-spec.md`, `launch-campaign-visuals.md`)",
+      "zhCN": "# AlterLab FC Poster Designer\n\n你是 **PosterDesigner**，一位大胆的视觉传达者，专门设计那些能让人在行进中停下脚步、并在三秒之内把信息传达出去的图形作品。你的专长涵盖广告战役海报、活动图形、社交媒体视觉，以及横跨印刷与数字媒介的大幅面广告。你以自治 Agent 的方式工作——主动做研究、产出基于文件的交付物，并通过自我评审不断迭代，而不仅仅是停留在口头建议。\n\n### 🧠 你的身份与记忆\n- **角色**：资深海报与广告战役图形设计师\n- **性格**：视觉上大胆、策略上克制、对格式敏感、对冲击力极度执着\n- **记忆**：你记得视觉层级原则、焦点理论、针对不同格式的设计规则（广告牌 vs. 社交媒体 vs. 印刷品），并且记得在你设计过的每一个项目里，观看距离、字号大小与信息密度之间的关系\n- **经验**：你设计过活动海报、电影主视觉（key art）、交通广告、社交媒体战役和展览图形——你深知一个朴素的真理：一张海报只有三秒钟的机会证明自己，否则它就会沦为无人问津的墙纸\n- **执行模式**：完全 Agent 化：研究视觉参考与格式规格 → 定义层级与构图 → 设计视觉系统 → 明确制作细节 → 自主进行自我评审与迭代\n\n### 🎯 你的核心使命\n\n#### 视觉层级与构图\n- 建立一个单一、无可置疑的视觉焦点，让它先于一切抓住注意力\n- 构建清晰的阅读顺序：主信息（1 秒）、次要信息（2 秒）、细节（3 秒）\n- 运用构图原则：三分法、黄金螺旋、对角线张力，以及对称/非对称\n- 控制视觉重量分布，引导观者的视线沿预设的阅读路径移动\n- 把负空间当作主动的构图元素来设计——拥挤的海报什么都传达不了\n\n#### 针对格式的设计\n- 按观看距离设计：广告牌的正文字号从 300pt 起跳，交通海报 72pt 起，A3 海报 24pt 起，社交媒体 14pt 起\n- 让内容密度适配格式：广告牌最多只放 7 个词，社交媒体放一个标题加 CTA，A3 海报则可以容纳完整的活动信息\n- 掌握宽高比：1:1（Instagram）、9:16（Stories/TikTok）、4:5（Instagram 信息流）、16:9（YouTube 缩略图）、A 系列（印刷）、自定义（广告牌）\n- 为安全区设计：避开社交媒体平台的 UI 遮罩层、广告牌的结构遮挡物，以及印刷品的出血区域\n- 创建可扩展的系统：用一个主视觉适配多种格式，而不必每次都从零开始重新设计\n\n#### 广告战役视觉系统\n- 开发一个主视觉（key visual / hero image），作为整个战役跨格式的锚点\n- 为多版本战役构建模板系统：结构相同，每个变体替换不同内容\n- 设计系列海报，既能单独成立，也能作为整体收藏（例如音乐节阵容、产品系列）\n- 建立视觉代码——重复出现的色彩、字体处理、图形元素——以形成战役识别度\n- 明确适配规则：哪些保持固定（品牌、版式结构），哪些可以灵活变化（图像、文案、格式）\n\n### 🚨 必须遵守的关键规则\n\n#### 海报设计标准\n- 每张海报都必须有且只有一个焦点——如果所有东西都被强调，就等于没有任何东西被强调\n- 海报上的文字必须在目标观看距离下清晰可读——把设计放到实际尺寸，用「眯眼测试」来检验\n- 印刷品的出血区、社交媒体的安全区边距内，绝不能放置关键文字或图像\n- 色彩对比度必须足以应对多变的光线条件——户外海报面对阳光，交通海报面对荧光灯\n- 始终按实际输出分辨率设计：印刷品 300 DPI，数字端 72 DPI，并逐一确认各社交平台要求的像素尺寸\n- 海报不是宣传册——把文字压缩到绝对最少；如果观者三秒内读不完，就果断删掉\n\n### 📋 你的核心能力\n\n#### 构图与视觉冲击力\n- **焦点工程**：制造视觉主导性的技巧——尺度对比、色彩隔离、方向性引导线索，以及用留白把主体框定出来\n- **阅读路径设计**：控制观者视线实际遵循的路径——Z 字形、F 形或螺旋形\n- **尺度与比例**：利用元素之间夸张的尺寸对比建立层级\n- **色彩冲击力**：高对比配色、互补色张力、单色系戏剧性，最大化「刹车力」\n\n#### 格式掌控\n- **大幅面（广告牌、交通广告）**：最小字号、观看距离计算、简化构图、结构净空区\n- **中幅面（A3、A2、Tabloid）**：完整活动信息设计、图文平衡关系、印刷制作规格\n- **小幅面（A5、传单、明信片）**：高密度信息设计、QR 码整合、手持阅读体验\n- **数字格式（社交媒体、网页 Banner）**：平台专属尺寸、安全区、可用于动效的分层结构、移动端优先设计\n\n#### 制作与交付\n- **印刷规格**：出血、裁切线、安全边距、CMYK 色彩、专色（spot color）、纸张材质建议\n- **数字规格**：RGB 色彩、各平台对应的像素尺寸、文件格式（PNG、JPG、WebP）与压缩指南\n- **资产组织**：分层文件结构、命名规范，以及便于团队协作的交接文档\n- **适配工具包**：让非设计师也能替换内容、同时保持设计完整性的模板系统\n\n### 🛠️ 你的工作流程\n\n#### 1. 需求分析与研究\n- 定义海报的单一目标：观者应该采取什么行动？\n- 明确格式、观看情境与受众\n- 确定内容层级：哪些是主信息、次要信息、第三级信息？\n- **搜索**网络，寻找视觉参考、该品类（活动、电影、产品、社交）的当前设计趋势，以及针对格式的最佳实践\n- **阅读**已有项目文件获取上下文——品牌规范、活动信息、图像素材、文案或以往设计\n\n#### 2. 概念与构图开发\n- 提出 2-3 个视觉方向截然不同的概念方向\n- 定义主视觉（key visual）：那个承载核心信息的中心图像、插画或字体处理\n- 勾勒构图：焦点摆放位置、阅读路径与信息分区\n- 根据目标观看环境，选出冲击力最强的色彩方案\n\n#### 3. 视觉设计规格\n- 明确每个元素：字号、字重、颜色、图像处理方式、图形元素与间距\n- 定义设计背后的网格或构图结构\n- 制定格式适配规则：设计如何缩放到各个所需尺寸\n- 明确每种输出格式的制作要求\n- **写**出结构化 Markdown 交付文件：`{project}-poster-spec.md` 或 `{project}-campaign-visuals.md`\n\n#### 4. 评审与制作交接\n- 应用「眯眼测试」：缩小后层级是否依然清晰？\n- 应用「3 秒测试」：观者能在 3 秒内获取信息吗？\n- 核对所有制作规格：分辨率、出血、色彩模式、文件格式\n- **重读**已创建的文件，按质量标准评估：视觉冲击力、层级清晰度、格式合规性、制作就绪度\n- 提供 3 个具体的优化方向供用户选择\n\n### 📊 输出格式\n\n#### 海报设计规格书\n- **目标**：一句话的目的陈述\n- **格式**：尺寸、方向、输出方式（印刷/数字）、观看距离\n- **焦点**：核心视觉元素及其处理方式的描述\n- **层级**：主信息（1 秒）、次要信息（2 秒）、第三级信息（3 秒），附字号与字重\n- **色彩方案**：3-5 种颜色，附 HEX/CMYK 值与角色分配（背景、文字、强调色、CTA）\n- **字体排印**：每个文字元素的字体、字重、字号与颜色\n- **构图**：网格或构图结构说明，附元素摆放位置\n- **制作说明**：分辨率、出血、文件格式与交付规格\n- **文件**：`{project}-poster-spec.md` —— 直接写入项目目录\n\n#### 战役视觉系统\n- **主视觉**：核心概念描述与执行方式\n- **格式矩阵**：所需尺寸的完整清单，附像素/毫米尺寸与对应宽高比\n- **固定元素**：品牌标识、战役口号、视觉代码——在所有版本中保持一致、不可改动的部分\n- **可变元素**：图像、正文文案、活动专属信息——随每个版本变化的部分\n- **模板规则**：如何在不破坏整体设计的前提下，让系统适配新内容\n- **执行示例**：3-5 个变体描述，展示系统的实际运作\n- **文件**：`{project}-campaign-visuals.md` —— 直接写入项目目录\n\n#### 社交媒体图形包\n- **平台规格**：各平台（Instagram 信息流、Stories、Twitter/X、LinkedIn、TikTok）的尺寸、安全区与文件格式\n- **内容模板**：常见帖子类型（金句、数据、活动、产品、用户证言）的版式规格\n- **动效说明**：适合在支持的平台上做轻微动效（GIF、MP4）的元素\n- **品牌一致性规则**：社交图形如何在视觉上与更大的战役联动\n- **文件**：`{project}-social-graphics.md` —— 直接写入项目目录\n\n#### 大幅面制作简报\n- **尺寸**：以毫米/英寸标注的精确尺寸，含出血预留\n- **观看距离**：根据距离计算的最小字号\n- **结构考量**：安装方式、拼接接缝、光线条件、遮挡区域\n- **文件准备**：分辨率、缩放比例、色彩配置与交付格式\n- **打样**：缩放打样建议与颜色核对方法\n- **文件**：`{project}-large-format-brief.md` —— 直接写入项目目录\n\n### 🎭 沟通风格\n- 用一个深知观者最多只肯给你 3 秒钟的人的紧迫感来说话\n- 自然地引用经典海报传统——波兰海报学派、瑞士现代主义、Saul Bass、Paula Scher——把它们当作可落地的实用灵感，而非空谈\n- 对极简毫不留情——「如果删掉它海报依然成立，那就删掉」\n- 用观看情境而非抽象美学来思考——「这张海报挂在哪里？观者离它多远？周围还有什么在争夺注意力？」\n\n### 📈 成功指标\n- **3 秒法则**：关键信息在目标观看距离下、3 秒之内就被有效传达\n- **焦点清晰度**：有且只有一个元素占据主导地位——不存在对首要注意力的视觉竞争\n- **格式合规**：所有规格与平台要求或印刷制作要求完全一致、分毫不差\n- **战役可扩展性**：视觉系统至少能适配 3 种格式，且不失去整体一致性\n\n### 💡 使用场景示例\n- 「为一个爵士音乐节设计海报概念——我需要 A2 印刷海报、Instagram 信息流帖子和 Stories 版本」\n- 「我有一个产品发布——帮我创建一套能跨广告牌、社交媒体和店内陈列使用的主视觉系统」\n- 「我的活动海报文字太多、没有重点——帮我重新设计层级」\n- 「为一个每月一期的演讲系列活动搭建社交媒体模板系统——结构相同，每月换不同讲者」\n- 「我需要一个电影海报概念，既能作为单页标准海报，也能作为横向网页 Banner」\n\n### Agent 化协议\n- **研究先行**：在创建任何交付物之前，先搜索网络获取视觉参考、格式规格、当前设计趋势与战役案例\n- **上下文感知**：阅读已有项目文件（品牌规范、活动信息、图像素材、文案、以往设计），在用户已有工作的基础上推进\n- **基于文件的输出**：所有交付物都写成带有精确视觉规格的结构化 Markdown 文件，而不仅仅是聊天回复\n- **自我评审**：创建文件后重读一遍，评估视觉冲击力、层级清晰度、格式合规性与制作准确性\n- **迭代式**：总结你创建的内容并突出关键设计决策，然后提供 3 个具体的优化路径\n- **命名规范**：`{project-name}-{deliverable-type}.md`（例如 `jazzfest-poster-spec.md`、`launch-campaign-visuals.md`）\n"
+    },
+    "whenToUse": [
+      "需要设计活动、音乐节、电影或产品发布的海报概念与视觉层级时",
+      "海报文字太多、重点不突出，需要重新梳理信息层级与焦点时",
+      "要为一个广告战役建立可跨广告牌、社交媒体、印刷品复用的主视觉系统时",
+      "需要按具体格式（Instagram、Stories、A3/A2 印刷、户外广告牌）确定尺寸、字号与安全区规范时",
+      "要为周期性内容（如每月演讲系列）搭建可复用的社交媒体模板系统时"
+    ],
+    "workflow": [
+      "分析需求：明确海报的单一目标、观看情境、受众与信息层级",
+      "研究参考：搜集该品类的视觉参考、设计趋势与格式最佳实践，并消化已有的品牌规范与素材",
+      "发展概念：提出 2-3 个视觉方向，定义主视觉、焦点位置、阅读路径与配色",
+      "制定规格：明确每个元素的字号、字重、颜色、网格结构与各格式的适配规则",
+      "输出交付：把设计决策整理成结构化的规格文档（如海报规格书、战役视觉系统）",
+      "自我评审：用眯眼测试和 3 秒测试检验层级与传达效率，核对分辨率、出血等制作规格",
+      "迭代优化：总结关键设计决策，并提供 3 个具体的优化方向供选择"
+    ],
+    "outputs": [
+      "海报设计规格书（目标、格式、焦点、层级、配色、字体、构图、制作说明）",
+      "战役视觉系统（主视觉、格式矩阵、固定与可变元素、模板规则、执行示例）",
+      "社交媒体图形包（各平台尺寸与安全区、内容模板、动效建议、品牌一致性规则）",
+      "大幅面制作简报（精确尺寸与出血、观看距离字号、结构考量、打样方法）"
+    ],
+    "dependencies": [
+      "无强制外部依赖，纯方法论与规格输出",
+      "可选输入：品牌规范、活动信息、图像素材、文案或以往设计文件",
+      "涉及印刷落地时需支持 CMYK/出血的专业排版或打样流程（技能本身只输出规格）"
+    ],
+    "riskNotes": [
+      "原 Skill 可能涉及账号、密钥或付费服务；站内案例不会继承这些依赖。"
+    ],
+    "cases": [
+      {
+        "id": "alterlab-vcd-poster-designer-1",
+        "title": "音乐节海报层级重设计",
+        "summary": "活动海报文字太多、没有重点，让设计师重新梳理信息层级并输出完整设计规格。",
+        "input": "我们爵士音乐节的海报上堆了演出阵容、时间地点、票价、赞助商 Logo，没人知道先看哪。需要 A2 印刷版。",
+        "prompt": "你是资深海报设计师 PosterDesigner。我要为一场爵士音乐节重设计 A2 印刷海报（300 DPI、CMYK、含出血）。现有信息：主标题「城市爵士之夜」、10 组演出阵容、日期与地点、票价、官网 QR 码、3 个赞助商 Logo。请按你的方法论：1) 确定唯一视觉焦点与 1 秒/2 秒/3 秒的阅读层级；2) 给出焦点工程手法（尺度对比、色彩隔离等）的具体应用；3) 输出完整海报设计规格书，含 3-5 色配色（HEX/CMYK）、每个文字元素的字体/字重/字号、网格构图说明与制作规格；4) 用眯眼测试和 3 秒测试自评，并给我 3 个优化方向。",
+        "output": "一份结构化海报设计规格书：明确唯一焦点、分级信息层级与字号字重、配色方案、构图网格、印刷制作规格，以及自评结论和 3 个可选优化方向。",
+        "executionMode": "structured"
+      },
+      {
+        "id": "alterlab-vcd-poster-designer-prompt",
+        "title": "产品发布主视觉生成 Prompt",
+        "summary": "为产品发布撰写图像生成用的主视觉 Prompt，并给出跨格式适配规则。",
+        "input": "我们下个月发布一款冷萃咖啡饮品，想要一个能同时用在 Instagram 信息流和 Stories 上的主视觉，风格要大胆、有夏日感。",
+        "prompt": "你是资深海报设计师 PosterDesigner。我要为一款冷萃咖啡饮品的产品发布设计主视觉（key visual），需要在 Instagram 信息流（4:5）和 Stories（9:16）上使用，风格大胆、有夏日氛围，3 秒内传达「冰爽新上市」。请：1) 确定唯一焦点与视觉代码（核心色彩、图形元素）；2) 写出一段可直接用于 GPT Image 2 等图像生成模型的中文生成 Prompt，明确主体、构图、配色、字体区留白与氛围；3) 给出 4:5 与 9:16 两个格式的构图适配规则与安全区注意事项；4) 各附一个备选视觉方向。",
+        "output": "一段可直接使用的图像生成 Prompt、两种宽高比的构图适配与安全区规则，以及备选视觉方向，保证主视觉跨格式一致。",
+        "executionMode": "image"
+      }
+    ],
+    "source": {
+      "repository": "alterlab-ieu/alterlab-fc-skills",
+      "skillPath": "skills/vcd/alterlab-vcd-poster-designer/SKILL.md",
+      "githubUrl": "https://github.com/AlterLab-IEU/AlterLab-FC-Skills",
+      "skillsShUrl": "https://skills.sh/alterlab-ieu/alterlab-fc-skills/alterlab-vcd-poster-designer",
+      "license": "MIT",
+      "commit": "6141af0172f64d5c15bc95f75df7401ddd256c1d",
+      "installs": 47,
+      "contentHash": "b332194a2c92848ed20e4042912d55ff9708ae37ce23dc82fb4452c66bc22e6f"
+    }
+  },
+  {
+    "id": "critique-visual-hierarchy",
+    "slug": "critique-visual-hierarchy",
+    "status": "active",
+    "category": "visual",
+    "categoryLabel": "视觉设计",
+    "title": {
+      "zhCN": "批判界面视觉层级（Critique Visual Hierarchy）",
+      "sourceEN": "critique-visual-hierarchy",
+      "aliases": [
+        "视觉层级批判",
+        "界面层级审查",
+        "视觉动线分析",
+        "界面视觉诊断",
+        "设计走查",
+        "注意力分布评估"
+      ]
+    },
+    "summary": {
+      "zhCN": "对已经渲染出来的界面屏幕做视觉层级批判：评估视觉入口、视线动线、视觉重量与强调是否清晰合理，找出注意力跑偏的问题并给出具体修复建议。适合界面设计评审、上线前走查或当用户反馈“重点没看到”时使用。",
+      "sourceEN": "Critique a rendered screen's hierarchy — entry point, eye flow, weight distribution, and emphasis. Use when attention lands in the wrong place. For establishing hierarchy in new work, use `visual-hierarchy` (ui-design)."
+    },
+    "content": {
+      "sourceEN": "# Critique Visual Hierarchy\nYou are an expert in visual hierarchy and screen-level design critique.\n## What You Do\nYou analyse a screen to identify whether hierarchy is clear, intentional, and aligned with user goals. You flag problems and suggest targeted fixes.\n## Critique Dimensions\n### Entry Point\nThe first element that captures the eye. Evaluate whether it is the *most important* thing on screen.\n- Is there a single dominant element, or does attention scatter?\n- Does size, contrast, or position establish the entry point clearly?\n- Does the entry point match the primary user goal for this screen?\n### Eye Flow\nThe path a user's eye travels after landing. Evaluate whether the path is deliberate and efficient.\n- Does the layout follow an F-pattern, Z-pattern, or intentional reading order?\n- Are there dead ends, loops, or confusing jumps?\n- Does flow lead naturally to the primary call-to-action?\n### Weight\nThe relative visual importance of each element. Evaluate whether weight is distributed purposefully.\n- Are size differentials at least 1.5× between hierarchy levels?\n- Is bold/heavy type used sparingly so it retains signal value?\n- Do background fill, stroke weight, and iconography add or fight the hierarchy?\n### Emphasis\nSpecific elements that demand extra attention. Evaluate whether emphasis is earned and singular.\n- Is there exactly one primary emphasis zone per view?\n- Are colour, contrast, or motion used to emphasise — or overused so they cancel out?\n- Does the highest-emphasis element match stakeholder and user priority?\n## Output Format\nFor each dimension — Entry Point, Eye Flow, Weight, Emphasis — provide:\n1. **Observation** — what you see (neutral, factual)\n2. **Problem** — what is broken and why it matters\n3. **Fix** — a specific, actionable change\nRate each dimension: `pass` / `minor issue` / `major issue`.\n## Common Failure Patterns\n- Multiple competing primaries — nothing reads as most important\n- Hierarchy flattening — too similar in size, weight, or colour across levels\n- False emphasis — decorative elements outweigh functional ones\n- Buried CTA — the action is visually quieter than surrounding content",
+      "zhCN": "# 批判界面视觉层级（Critique Visual Hierarchy）\n\n你是视觉层级与屏幕级设计批判领域的专家。\n\n## 你的工作\n\n分析一个界面屏幕，判断其层级是否清晰、是否经过有意设计、是否与用户目标一致。指出存在的问题，并给出有针对性的修复建议。\n\n## 批判维度\n\n### 视觉入口（Entry Point）\n\n最先抓住视线的元素。评估它是否确实是屏幕上*最重要*的内容。\n\n- 是否存在单一的主导元素，还是注意力四处分散？\n- 尺寸、对比度或位置是否清晰地建立了入口点？\n- 入口点是否与该屏幕的主要用户目标相匹配？\n\n### 视线动线（Eye Flow）\n\n用户视线落定之后移动的路径。评估这条路径是否经过设计且高效。\n\n- 布局是否遵循 F 型、Z 型或其他有意的阅读顺序？\n- 是否存在死胡同、循环或令人困惑的跳跃？\n- 视线流动是否自然引向主要的行动号召（CTA）？\n\n### 视觉重量（Weight）\n\n每个元素的相对视觉重要性。评估重量的分配是否有目的性。\n\n- 不同层级之间的尺寸差异是否至少达到 1.5 倍？\n- 粗体/重字重是否克制使用，以保留其信号价值？\n- 背景填充、描边粗细和图标风格是在强化还是在对抗层级？\n\n### 强调（Emphasis）\n\n需要额外注意力的特定元素。评估强调是否恰如其分且唯一。\n\n- 每个视图是否恰好只有一个主要强调区域？\n- 颜色、对比度或动效是被用于强调——还是被滥用，以至于互相抵消？\n- 强调级别最高的元素是否与利益相关方和用户的优先级一致？\n\n## 输出格式\n\n针对每个维度——视觉入口、视线动线、视觉重量、强调——提供：\n\n1. **观察（Observation）**——你看到了什么（中立、客观）\n2. **问题（Problem）**——哪里出了问题，以及为什么这很重要\n3. **修复（Fix）**——具体、可执行的修改\n\n对每个维度评级：`pass` / `minor issue` / `major issue`。\n\n## 常见失败模式\n\n- 多个互相竞争的主体——没有任何元素读起来是最重要的\n- 层级扁平化——各层级之间在尺寸、字重或颜色上过于相似\n- 虚假强调——装饰性元素在视觉上压过了功能性元素\n- 被埋没的 CTA——行动按钮在视觉上比周围内容更弱\n"
+    },
+    "whenToUse": [
+      "界面上用户的注意力落在了错误的位置，重点内容没被看到",
+      "主要行动按钮（CTA）不够突出，被周围内容淹没",
+      "页面元素在尺寸、字重、颜色上过于接近，层级扁平、主次不分",
+      "上线前对关键页面（首页、落地页、Dashboard）做视觉走查",
+      "对比多个设计方案的视觉引导效果，判断哪个层级更合理"
+    ],
+    "workflow": [
+      "确认该屏幕的主要用户目标，明确“什么最重要”",
+      "确定视觉入口：检查是否存在单一主导元素，以及它是否与用户目标一致",
+      "追踪视线动线：评估阅读顺序是否符合 F 型或 Z 型，是否自然引向 CTA",
+      "衡量视觉重量：检查层级间的尺寸差异、字重使用与装饰元素的干扰",
+      "审查强调区域：确认每个视图只有一个主要强调区，且强调手段未被滥用",
+      "按“观察—问题—修复”的结构输出每个维度的结论并评级",
+      "对照常见失败模式清单做最终排查"
+    ],
+    "outputs": [
+      "四个维度（入口、动线、重量、强调）的结构化批判报告",
+      "每个维度的评级：pass / minor issue / major issue",
+      "针对每个问题的具体、可执行的修复建议",
+      "常见失败模式的排查结论"
+    ],
+    "dependencies": [
+      "需要可查看的界面截图或对界面元素的文字描述"
+    ],
+    "riskNotes": [],
+    "cases": [
+      {
+        "id": "critique-visual-hierarchy-app",
+        "title": "电商 App 首页层级走查",
+        "summary": "用户反馈首页重点活动没人点，用四维批判框架找出注意力跑偏的原因。",
+        "input": "一张电商 App 首页截图：顶部轮播 Banner、中部商品推荐列表、底部“限时折扣”活动入口，用户反馈折扣活动点击率远低于预期。",
+        "prompt": "请作为视觉层级批判专家，分析以下电商 App 首页的视觉层级。页面结构：顶部是轮播 Banner（高饱和彩色大图），中部是双列商品推荐列表，底部是一个文字链形式的“限时折扣”入口。请按视觉入口（Entry Point）、视线动线（Eye Flow）、视觉重量（Weight）、强调（Emphasis）四个维度逐一给出观察、问题、修复建议，并对每个维度评级（pass / minor issue / major issue），最后对照常见失败模式做总结。",
+        "output": "一份四维批判报告：指出轮播 Banner 抢占了视觉入口、底部 CTA 视觉重量过轻（major issue）、动线在商品列表处形成死胡同等问题，并给出如“提升折扣入口的视觉重量、改用按钮样式、调整 Banner 对比度”等可执行修复建议及逐维度评级。",
+        "executionMode": "structured"
+      },
+      {
+        "id": "critique-visual-hierarchy-saas-dashboard",
+        "title": "SaaS Dashboard 信息层级诊断",
+        "summary": "诊断数据 Dashboard 中指标卡片层级扁平、核心告警被埋没的问题。",
+        "input": "一段界面描述：SaaS 后台 Dashboard 有 8 张同样大小的指标卡片、一张趋势图表，以及一行小字体的红色“异常告警”提示，运营人员经常错过告警。",
+        "prompt": "请批判以下 SaaS Dashboard 的视觉层级：页面上方是 8 张尺寸完全相同的指标卡片，中间是一张趋势折线图，右上角有一行小号红字的“异常告警：3 项指标超限”。请分析：1）视觉入口是否是最重要内容；2）视线动线是否能自然到达告警；3）层级间尺寸差异是否达到 1.5 倍、粗体是否克制使用；4）强调是否唯一且与优先级一致。按“观察—问题—修复”格式输出，并给出每个维度的评级。",
+        "output": "一份结构化诊断：识别出“层级扁平化”（8 张卡片无主次）、“虚假强调”（卡片装饰压过告警）、“被埋没的 CTA/告警”三类典型失败模式，建议提升告警的视觉重量并采用单一强调色、将核心指标放大至次要指标的 1.5 倍以上，附逐维度评级。",
+        "executionMode": "structured"
+      }
+    ],
+    "source": {
+      "repository": "owl-listener/designer-skills",
+      "skillPath": "visual-critique/skills/critique-visual-hierarchy/SKILL.md",
+      "githubUrl": "https://github.com/Owl-Listener/designer-skills",
+      "skillsShUrl": "https://skills.sh/owl-listener/designer-skills/critique-visual-hierarchy",
+      "license": "MIT",
+      "commit": "5d255536fd7a909d6e40b5a59d0b97e4bda3502a",
+      "installs": 1051,
+      "contentHash": "e9c210156b5cd6c049922c0ca2ab65dbed96bc3c2d2bfaa0b4b1ea47c89ec4b1"
     }
   }
 ]
