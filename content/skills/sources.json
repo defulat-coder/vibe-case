@@ -420,6 +420,12 @@
       "skillId": "storyboard",
       "skillPath": "skills/storyboard/SKILL.md",
       "skillsShUrl": "https://skills.sh/scibly-dev/skills/storyboard"
+    },
+    {
+      "repository": "alterlab-ieu/alterlab-fc-skills",
+      "skillId": "alterlab-vcd-motion-graphics",
+      "skillPath": "skills/vcd/alterlab-vcd-motion-graphics/SKILL.md",
+      "skillsShUrl": "https://skills.sh/alterlab-ieu/alterlab-fc-skills/alterlab-vcd-motion-graphics"
     }
   ]
 }
